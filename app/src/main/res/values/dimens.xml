@@ -5,4 +5,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="ncToSurround">10dp</dimen>
     <dimen name="ncToBottom">58dp</dimen>
+    <dimen name="titleSize">30sp</dimen>
 </resources>
