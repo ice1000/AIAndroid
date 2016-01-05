@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/textColor"
         android:textSize="@dimen/titleSize"
-        android:id="@+id/title"
+        android:id="@+id/meetTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="81dp" />

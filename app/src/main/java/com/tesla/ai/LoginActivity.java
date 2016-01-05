@@ -6,6 +6,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,17 +52,28 @@ public class LoginActivity extends AppCompatActivity {
 
         TextView title;
         SharedPreferences preferences;
-        title = (TextView) findViewById(R.id.title);
+
+        title = (TextView) findViewById(R.id.meetTitle);
         // 为了向下兼容，我使出了谜之表达式
         preferences = Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN
                 ? getSharedPreferences(tags.PREFERENCE_NAME, MODE_ENABLE_WRITE_AHEAD_LOGGING)
                 : getSharedPreferences(tags.PREFERENCE_NAME, MODE_WORLD_READABLE);
-        title.setText(preferences.getString(tags.OWNER_NAME,tags.MEET_FIRST_TIME));
 
-        if(preferences.contains(tags.OWNER_NAME)){
-            preferences.edit()
-                    .putString(tags.OWNER_NAME, tags.HAVENT_GOT_NAME)
-                    .apply();
+        String text = preferences.getString(tags.OWNER_NAME,tags.MEET_FIRST_TIME);
+
+        Log.d(this.toString(), "text = " + text);
+        title.setText(text);
+
+        if(!preferences.contains(tags.OWNER_NAME)){
+            SharedPreferences.Editor editor;
+            editor = preferences.edit();
+            editor.putString(tags.OWNER_NAME, tags.HAVEN_T_GOT_NAME);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+                editor.apply();
+            }
+            else {
+                Log.d(this.toString(),"editor.commit() = " + editor.commit());
+            }
         }
 
     }
