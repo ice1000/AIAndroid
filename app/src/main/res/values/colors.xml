@@ -2,5 +2,30 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#b300ff</color>
+    <color name="colorAccentPressed">#39006b</color>
+
+    <color name="cardColor1">#0041f5</color>
+    <color name="cardColor1Pressed">#001e79</color>
+    <color name="cardColor2">#f500e1</color>
+    <color name="cardColor2Pressed">#70017a</color>
+    <color name="cardColor3">#f50008</color>
+    <color name="cardColor3Pressed">#7a0101</color>
+    <color name="cardColor4">#00d8f5</color>
+    <color name="cardColor4Pressed">#016c7a</color>
+    <color name="cardColor5">#00f562</color>
+    <color name="cardColor5Pressed">#017a33</color>
+    <color name="cardColor6">#e1f500</color>
+    <color name="cardColor6Pressed">#687a01</color>
+    <color name="cardColor7">#f55200</color>
+    <color name="cardColor7Pressed">#7a2501</color>
+
+    <!--根据学长的建议我应该减少太突兀的颜色，所以全部采用这两个-->
+    <color name="cardColor0">#f2f2f2</color>
+    <color name="cardColor0Pressed">#5b5b5b</color>
+
+    <color name="textColor">#ffffff</color>
+    <color name="settingItemColor">#4edcff</color>
+    <color name="backGround">#96b8ff</color>
+    <!--<color name="settingItemColorPressed">#748387</color>-->
 </resources>
