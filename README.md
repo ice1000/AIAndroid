@@ -13,7 +13,7 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 目前[友人](https://github.com/Wimacs)正在构建数学模型，我正在做界面。<br/>
 图标在我的任性下决定采用Saber~吾王美美哒<br/>
-![icon]()
+![icon](https://github.com/ice1000/AIAndroid/blob/11dc7f3d7b26b598123312421aed65e3cdfb93ed/app/src/main/res/mipmap-xxhdpi/ic_launcher.jpg)
 
 # 实现情况：
 

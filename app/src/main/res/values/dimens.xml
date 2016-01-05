@@ -10,4 +10,6 @@
 
     <dimen name="myCardCornerRadius">10dp</dimen>
     <dimen name="myCardMargin">5dp</dimen>
+    <dimen name="myMessageCornerRadius">15dp</dimen>
+    <dimen name="myMessageMargin">20dp</dimen>
 </resources>

@@ -59,15 +59,14 @@ public class LoginActivity extends AppCompatActivity {
                 ? getSharedPreferences(tags.PREFERENCE_NAME, MODE_ENABLE_WRITE_AHEAD_LOGGING)
                 : getSharedPreferences(tags.PREFERENCE_NAME, MODE_WORLD_READABLE);
 
-        String text = preferences.getString(tags.OWNER_NAME,tags.MEET_FIRST_TIME);
+        String text = preferences.getString(tags.USER_NAME,"") + tags.HELLO_HONEY;
 
-        Log.d(this.toString(), "text = " + text);
-        title.setText(text);
+        if(!preferences.contains(tags.USER_NAME)){
+            text = tags.MEET_FIRST_TIME;
 
-        if(!preferences.contains(tags.OWNER_NAME)){
             SharedPreferences.Editor editor;
             editor = preferences.edit();
-            editor.putString(tags.OWNER_NAME, tags.HAVEN_T_GOT_NAME);
+            editor.putString(tags.USER_NAME, tags.HAVEN_T_GOT_NAME);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
                 editor.apply();
             }
@@ -75,6 +74,10 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d(this.toString(),"editor.commit() = " + editor.commit());
             }
         }
+
+        Log.d(this.toString(), "text = " + text);
+
+        title.setText(text);
 
     }
 }

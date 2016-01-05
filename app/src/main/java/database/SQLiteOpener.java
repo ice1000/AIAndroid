@@ -10,6 +10,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class SQLiteOpener extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "ice1000.db";
+    public static final String TALK_LOG_TABLE = "TALK_LOG_TABLE";
+
     public static final int DATABASE_VERSION = 1;
 
     public SQLiteOpener(Context context){
@@ -22,11 +24,16 @@ public class SQLiteOpener extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + TALK_LOG_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+
+    @Override
+    public synchronized void close() {
+        super.close();
     }
 }
