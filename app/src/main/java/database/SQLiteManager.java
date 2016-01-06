@@ -26,21 +26,30 @@ public class SQLiteManager {
 
         ArrayList<MyMessage> messages = new ArrayList<>();
         Cursor cursor = database.query(
-                SQLiteOpener.TALK_LOG_TABLE, null, null, null, null, null,
-                MyMessage.ID, null);
+
+                SQLiteOpener.TALK_LOG_TABLE,
+
+                new String[]{
+                        MyMessage.FROM_SABER,MyMessage.MSG
+                },
+
+                null, null, null, null,
+                MyMessage.ID, null
+
+        );
 
         cursor.moveToLast();
 
         do {
-            MyMessage myMessage;
-            myMessage = new MyMessage(
+
+            messages.add(new MyMessage(
                     cursor.getInt(cursor.getColumnCount()),
                     cursor.getString(cursor.getColumnCount())
-            );
+            ));
+
         } while (cursor.moveToPrevious());
 
         cursor.close();
-
         return messages;
     }
 
@@ -48,9 +57,13 @@ public class SQLiteManager {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("msg", myMessage.getMessage());
-        contentValues.put("fromSaber", myMessage.isFromSaber());
 
-        database.insert(SQLiteOpener.TALK_LOG_TABLE, null, contentValues);
+        // 因为SQLite没有boolean类型所以在存取的时候转换成整数
+        contentValues.put("fromSaber", myMessage.isFromSaber()
+                ? MyMessage.IS_FROM_SABER : 0);
+
+        database.insert(SQLiteOpener.TALK_LOG_TABLE,
+                null, contentValues);
     }
 
 }

@@ -11,5 +11,7 @@ public class TAGS {
     public static final String HAVEN_T_GOT_NAME = "快给我起个名字\n\\(≧▽≦)/";
     public static final String HELLO_HONEY = "嗨~";
     public static final String WHAT_THE_FUCK = "What the fuck?";
+    public static final String POSITION = "POSITION";
+    public static final String DELETE_OR_NOT = "DELETE_OR_NOT";
 
 }
