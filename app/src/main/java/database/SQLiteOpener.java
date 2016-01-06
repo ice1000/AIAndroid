@@ -30,7 +30,7 @@ public class SQLiteOpener extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " +
                 TALK_LOG_TABLE +
-                "(id INTEGER PRIMARY KEY AUTOINCREMENT, msg TEXT)");
+                "(id INTEGER PRIMARY KEY AUTOINCREMENT, msg TEXT, fromSaber INTEGER)");
     }
 
     @Override

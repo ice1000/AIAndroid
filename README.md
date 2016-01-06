@@ -21,13 +21,13 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 - [ ] 起名字(双方)
 - [ ] 实现简单的汉字分析
 - [ ] 实现汉字语法分析
-- [ ] 能完成一些功能性的事务( 计算, 出主意, etc.
+- [ ] 能完成一些功能性的事务(计算, 出主意, etc.
 - [ ] 在和主人的交流中学习
 - [ ] 模拟人类情绪
 
 ## UI(视觉效果)部分
 - [X] 一个教科书式的冰封APP的标准开始界面
-- [ ] 对话由RecyclerView组成
+- [X] 对话由RecyclerView组成
 - [ ] 二人的发言颜色不同
 - [ ] 能发送颜文字、表情等
 - [ ] 简单的动作
@@ -39,10 +39,14 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新 
 
-### 2016年1月5日 1.0.0.2
-1. 图标(不知为何采用了吾王)
+### 2016年1月6日
+1. 初步完成SQLite存储数据的系统。
+1. 修改图标格式(体现圆角)。
 
 # 历史更新
 
+### 2016年1月5日 1.0.0.2
+1. 图标(不知为何采用了吾王)。
+
 ### 2016年1月5日 1.0.0.1
-1. 开始界面卖个萌
+1. 开始界面卖个萌。
