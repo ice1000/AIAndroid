@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#0041f5</color>
+    <color name="colorPrimaryDark">#001e79</color>
     <color name="colorAccent">#b300ff</color>
-    <color name="colorAccentPressed">#39006b</color>
+    <color name="colorAccentDark">#39006b</color>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
 
     <color name="cardColor1">#0041f5</color>
     <color name="cardColor1Pressed">#001e79</color>

@@ -45,12 +45,16 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新 
 
+### 2016年1月6日 1.0.0.6
+1. 修改圆角大小为5dp
+1. 自动去掉消息末尾换行符和空格
+
+# 历史更新
+
 ### 2016年1月6日 1.0.0.5
 1. 发送的消息存储在SQLite中
 1. 因为SQLite没有boolean类型，所以在[存取的时候](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/database/SQLiteManager.java)转换成整数
 1. 开启界面增加了[一个逐帧动画](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/drawable/saber_shake.xml)
-
-# 历史更新
 
 ### 2016年1月6日 1.0.0.4
 1. 实例化了适配器，现在可以互相发送消息了

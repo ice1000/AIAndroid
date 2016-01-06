@@ -11,6 +11,6 @@
     android:layout_alignParentRight="true"
     android:layout_alignParentBottom="true"
     android:src="@drawable/ic_settings_white_18dp"
-    app:rippleColor="@color/colorAccentPressed"
+    app:rippleColor="@color/colorAccentDark"
     app:elevation="6dp"
     app:pressedTranslationZ="12dp"/>

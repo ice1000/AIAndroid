@@ -12,10 +12,10 @@
         app:cardElevation="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/dejdhejdhjkedhjkljdklnkxanklxn"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/dejdhejdhjkedhjkljdklnkxanklxn"
-        android:layout_marginBottom="@dimen/ncToBottom">
+        android:layout_marginBottom="39dp">
 
         <ImageView
             android:id="@+id/ncFloating"
@@ -44,8 +44,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/saberShake"
-        android:layout_above="@+id/dejdhejdhjkedhjkljdklnkxanklxn"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

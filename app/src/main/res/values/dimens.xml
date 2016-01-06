@@ -6,11 +6,11 @@
     <dimen name="ncToSurround">10dp</dimen>
     <dimen name="ncToBottom">58dp</dimen>
     <dimen name="titleSize">30sp</dimen>
-    <dimen name="sendBarHeight">50dp</dimen>
+    <dimen name="sendBarHeight">55dp</dimen>
 
-    <dimen name="myCardCornerRadius">10dp</dimen>
-    <dimen name="myCardMargin">5dp</dimen>
-    <dimen name="myMessageCornerRadius">20dp</dimen>
+    <dimen name="myCardCornerRadius">2dp</dimen>
+    <dimen name="myCardMargin">6dp</dimen>
+    <dimen name="myMessageCornerRadius">5dp</dimen>
     <dimen name="myMessageMargin">20dp</dimen>
     <dimen name="messageToSurround">8dp</dimen>
 </resources>
