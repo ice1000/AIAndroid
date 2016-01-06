@@ -44,7 +44,7 @@
                 android:layout_height="match_parent"
                 android:alpha="0.8"
                 android:textColor="@color/cardColor1"
-                android:text="@string/whatDoYouWantToSay"
+                android:hint="@string/whatDoYouWantToSay"
                 android:id="@+id/sendBox"
                 tools:targetApi="honeycomb" />
 
