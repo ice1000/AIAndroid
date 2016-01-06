@@ -3,6 +3,9 @@ package database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import util.tags;
 
 /**
  * Created by Administrator on 2016/1/5 0005.
@@ -11,6 +14,7 @@ public class SQLiteOpener extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "ice1000.db";
     public static final String TALK_LOG_TABLE = "TALK_LOG_TABLE";
+    public static final String KNOWLEDGE = "KNOWLEDGE";
 
     public static final int DATABASE_VERSION = 1;
 
@@ -24,12 +28,14 @@ public class SQLiteOpener extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + TALK_LOG_TABLE);
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " +
+                TALK_LOG_TABLE +
+                "(id INTEGER PRIMARY KEY AUTOINCREMENT, msg TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+        Log.d(this.toString(), tags.WHAT_THE_FUCK);
     }
 
     @Override
