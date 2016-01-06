@@ -3,4 +3,6 @@
     <string name="action_settings">设置</string>
     <string name="hello">你好哦~</string>
     <string name="send">发送</string>
+    <string name="notDecidedYet">冰封暂时还没想好这里写什么</string>
+    <string name="whatDoYouWantToSay">想跟女票说点什么呢？</string>
 </resources>

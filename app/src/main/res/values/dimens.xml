@@ -12,4 +12,5 @@
     <dimen name="myCardMargin">5dp</dimen>
     <dimen name="myMessageCornerRadius">15dp</dimen>
     <dimen name="myMessageMargin">20dp</dimen>
+    <dimen name="messageToSurround">8dp</dimen>
 </resources>
