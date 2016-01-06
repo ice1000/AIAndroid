@@ -18,6 +18,9 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 # 实现情况：
 
 ## 算法(运行方式)部分
+
+现在还只能重复你说的话。。<br/>
+
 - [ ] 起名字(双方)
 - [ ] 实现简单的汉字分析
 - [ ] 实现汉字语法分析
@@ -28,7 +31,9 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 ## UI(视觉效果)部分
 - [X] 一个教科书式的冰封APP的标准开始界面
 - [X] 对话由RecyclerView组成
-- [ ] 二人的发言颜色不同
+- [X] 用户发送的文字在右边，Saber发的文字在左边
+- [X] 二人的发言颜色不同
+- [ ] 长按弹出窗口并让用户确认删除
 - [ ] 能发送颜文字、表情等
 - [ ] 简单的动作
 
@@ -39,14 +44,21 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新 
 
-### 2016年1月6日
-1. 初步完成SQLite存储数据的系统。
-1. 修改图标格式(体现圆角)。
+### 2016年1月6日 1.0.0.4
+1. 实例化了适配器，现在可以互相发送消息了
+1. 发送的消息存储在SQLite中
+1. 发送的消息左右对齐
+1. 主色调确定为蓝色
 
 # 历史更新
 
+### 2016年1月6日 1.0.0.3
+1. 初步完成SQLite存储数据的系统。
+1. 修改图标格式(体现圆角)。
+
 ### 2016年1月5日 1.0.0.2
 1. 图标(不知为何采用了吾王)。
+1. 简单的界面
 
 ### 2016年1月5日 1.0.0.1
 1. 开始界面卖个萌。

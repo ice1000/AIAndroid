@@ -5,7 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import util.tags;
+import util.MyMessage;
+import util.TAGS;
 
 /**
  * Created by Administrator on 2016/1/5 0005.
@@ -29,13 +30,15 @@ public class SQLiteOpener extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " +
-                TALK_LOG_TABLE +
-                "(id INTEGER PRIMARY KEY AUTOINCREMENT, msg TEXT, fromSaber INTEGER)");
+                TALK_LOG_TABLE + "(" +
+                MyMessage.ID         + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                MyMessage.MSG        + " TEXT, " +
+                MyMessage.FROM_SABER + " INTEGER)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        Log.d(this.toString(), tags.WHAT_THE_FUCK);
+        Log.d(this.toString(), TAGS.WHAT_THE_FUCK);
     }
 
     @Override

@@ -10,7 +10,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import util.tags;
+import util.TAGS;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -56,22 +56,22 @@ public class LoginActivity extends AppCompatActivity {
         title = (TextView) findViewById(R.id.meetTitle);
         // 为了向下兼容，我使出了谜之表达式
         preferences = Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN
-                ? getSharedPreferences(tags.PREFERENCE_NAME, MODE_ENABLE_WRITE_AHEAD_LOGGING)
-                : getSharedPreferences(tags.PREFERENCE_NAME, MODE_WORLD_READABLE);
+                ? getSharedPreferences(TAGS.PREFERENCE_NAME, MODE_ENABLE_WRITE_AHEAD_LOGGING)
+                : getSharedPreferences(TAGS.PREFERENCE_NAME, MODE_WORLD_READABLE);
 
         String text;
-        text = preferences.getString(tags.USER_NAME,"") + tags.WHAT_THE_FUCK;
+        text = preferences.getString(TAGS.USER_NAME,"") + TAGS.WHAT_THE_FUCK;
 
-        if(text.equals(tags.HAVEN_T_GOT_NAME + tags.WHAT_THE_FUCK)){
-            text = tags.HAVEN_T_GOT_NAME;
+        if(text.equals(TAGS.HAVEN_T_GOT_NAME + TAGS.WHAT_THE_FUCK)){
+            text = TAGS.HAVEN_T_GOT_NAME;
         }
 
-        if(!preferences.contains(tags.USER_NAME)){
-            text = tags.MEET_FIRST_TIME;
+        if(!preferences.contains(TAGS.USER_NAME)){
+            text = TAGS.MEET_FIRST_TIME;
 
             SharedPreferences.Editor editor;
             editor = preferences.edit();
-            editor.putString(tags.USER_NAME, tags.HAVEN_T_GOT_NAME);
+            editor.putString(TAGS.USER_NAME, TAGS.HAVEN_T_GOT_NAME);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
                 editor.apply();
             }
