@@ -59,7 +59,12 @@ public class LoginActivity extends AppCompatActivity {
                 ? getSharedPreferences(tags.PREFERENCE_NAME, MODE_ENABLE_WRITE_AHEAD_LOGGING)
                 : getSharedPreferences(tags.PREFERENCE_NAME, MODE_WORLD_READABLE);
 
-        String text = preferences.getString(tags.USER_NAME,"") + tags.HELLO_HONEY;
+        String text;
+        text = preferences.getString(tags.USER_NAME,"") + tags.WHAT_THE_FUCK;
+
+        if(text.equals(tags.HAVEN_T_GOT_NAME + tags.WHAT_THE_FUCK)){
+            text = tags.HAVEN_T_GOT_NAME;
+        }
 
         if(!preferences.contains(tags.USER_NAME)){
             text = tags.MEET_FIRST_TIME;

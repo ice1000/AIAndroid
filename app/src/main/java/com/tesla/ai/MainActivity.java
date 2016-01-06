@@ -4,14 +4,18 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -74,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return null;
+            return new MessageViewHolder(LayoutInflater.from(MainActivity.this)
+                    .inflate(R.layout.message, parent, false));
         }
 
         @Override
@@ -87,13 +92,44 @@ public class MainActivity extends AppCompatActivity {
             return data.size();
         }
 
-        class MessageViewHolder extends RecyclerView.ViewHolder {
-
-            public MessageViewHolder(View itemView) {
-                super(itemView);
-            }
-        }
     }
 
+    class MessageViewHolder extends RecyclerView.ViewHolder {
+
+        private CardView cardView;
+        private TextView textView;
+
+        public MessageViewHolder(View itemView) {
+            super(itemView);
+            cardView = (CardView) itemView.findViewById(R.id.messageCard);
+            textView = (TextView) itemView.findViewById(R.id.messageText);
+        }
+
+        public void init(boolean saidBySaber){
+            RelativeLayout.LayoutParams params =
+                    new RelativeLayout.LayoutParams(
+                            RelativeLayout.LayoutParams.WRAP_CONTENT,
+                            RelativeLayout.LayoutParams.WRAP_CONTENT
+                    );
+
+            if(saidBySaber){
+                params.addRule(RelativeLayout.ALIGN_PARENT_LEFT,
+                        RelativeLayout.TRUE);
+                cardView.setCardBackgroundColor(
+                        getResources().getColor(R.color.cardColor7));
+                textView.setTextColor(
+                        getResources().getColor(R.color.cardColor7Pressed));
+            }
+            else {
+                params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT,
+                        RelativeLayout.TRUE);
+                cardView.setCardBackgroundColor(
+                        getResources().getColor(R.color.cardColor5));
+                textView.setTextColor(
+                        getResources().getColor(R.color.cardColor5Pressed));
+            }
+            cardView.setLayoutParams(params);
+        }
+    }
 
 }
