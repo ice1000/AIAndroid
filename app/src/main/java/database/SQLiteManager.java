@@ -34,18 +34,16 @@ public class SQLiteManager {
                 null,
 
                 null, null, null, null,
-                MyMessage.ID, null
+                MyMessage.ID
         );
 
         cursor.moveToLast();
 
         do {
-
             messages.add(new MyMessage(
-                    cursor.getInt(cursor.getColumnCount()),
-                    cursor.getString(cursor.getColumnCount())
+                    cursor.getInt(cursor.getColumnIndex(MyMessage.FROM_SABER)),
+                    cursor.getString(cursor.getColumnIndex(MyMessage.MSG))
             ));
-
         } while (cursor.moveToPrevious());
 
         cursor.close();
