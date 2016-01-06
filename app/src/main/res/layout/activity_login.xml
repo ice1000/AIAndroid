@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:id="@+id/dejdhejdhjkedhjkljdklnkxanklxn"
         android:layout_marginBottom="@dimen/ncToBottom">
 
         <ImageView
@@ -37,6 +38,14 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="81dp" />
+
+    <ImageView
+        tools:background="@drawable/saber_shake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/saberShake"
+        android:layout_above="@+id/dejdhejdhjkedhjkljdklnkxanklxn"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

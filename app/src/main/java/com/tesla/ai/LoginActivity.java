@@ -46,6 +46,9 @@ public class LoginActivity extends AppCompatActivity {
         ImageView NC = (ImageView) findViewById(R.id.ncFloating);
         NC.setBackgroundResource(R.drawable.nc_floating);
         ((AnimationDrawable) NC.getBackground()).start();
+        ImageView Saber = (ImageView) findViewById(R.id.saberShake);
+        Saber.setBackgroundResource(R.drawable.saber_shake);
+        ((AnimationDrawable) Saber.getBackground()).start();
     }
 
     private void showTitle(){

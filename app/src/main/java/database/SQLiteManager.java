@@ -26,16 +26,15 @@ public class SQLiteManager {
 
         ArrayList<MyMessage> messages = new ArrayList<>();
         Cursor cursor = database.query(
-
                 SQLiteOpener.TALK_LOG_TABLE,
-
-                new String[]{
-                        MyMessage.FROM_SABER,MyMessage.MSG
-                },
+//                new String[]{
+//                        MyMessage.FROM_SABER,
+//                        MyMessage.MSG
+//                },
+                null,
 
                 null, null, null, null,
                 MyMessage.ID, null
-
         );
 
         cursor.moveToLast();
