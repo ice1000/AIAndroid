@@ -50,8 +50,10 @@ public class MainActivity extends AppCompatActivity {
 
         manager = new SQLiteManager(this);
         data = manager.getMessage();
-        data.add(new MyMessage(false, "宝贝再见~"));
-        data.add(new MyMessage(true, "亲爱的最喜欢了~"));
+
+//        测试数据
+//        data.add(new MyMessage(false, "宝贝再见~"));
+//        data.add(new MyMessage(true, "亲爱的最喜欢了~"));
 
         adapter = new MessageAdapter();
         adapter.setOnItemClickListener(new OnItemClickListener() {
@@ -111,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.notifyItemInserted(data.size()-1);
         manager.addMessage(message);
         answerMessage(msg);
+        editMessage.setText("");
     }
 
     private void answerMessage(String msg){
@@ -200,10 +203,11 @@ public class MainActivity extends AppCompatActivity {
                             RelativeLayout.LayoutParams.WRAP_CONTENT
                     );
 
-            params.setMargins(10,11,10,11);
 
             if(message.isFromSaber()){
                 params.gravity = Gravity.LEFT;
+                params.setMargins(10,11,30,11);
+
                 cardView.setCardBackgroundColor(
                         getResources().
                                 getColor(R.color.cardColor1));
@@ -214,6 +218,8 @@ public class MainActivity extends AppCompatActivity {
 
             else {
                 params.gravity = Gravity.RIGHT;
+                params.setMargins(30,11,10,11);
+
                 cardView.setCardBackgroundColor(
                         getResources().
                                 getColor(R.color.cardColor5));
