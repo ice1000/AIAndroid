@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import database.SQLiteManager;
 import util.MyMessage;
 import util.OnItemClickListener;
+import util.TAGS;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,8 +61,11 @@ public class MainActivity extends AppCompatActivity {
             @Override public void onItemClick(View view, int position) {}
             @Override
             public void onItemLongClick(View view, int position) {
-                startActivity(new Intent(
-                        MainActivity.this, DeleteActivity.class));
+                Intent intent = new Intent(
+                        MainActivity.this, DeleteActivity.class
+                );
+                intent.putExtra(TAGS.POSITION, position);
+                startActivity(intent);
             }
 
             @Override
@@ -99,6 +103,17 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (resultCode){
+            case DeleteActivity.resultCode:
+                break;
+            default:
+                break;
+        }
+    }
+
     public void gotoSettings(View view){
         startActivity(new Intent(
                 MainActivity.this, SettingsActivity.class
@@ -107,6 +122,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void commitMessage(View view){
         String msg = editMessage.getText().toString();
+
+        // 去掉末尾换行符或者空格
+        while (msg.endsWith("\n") || msg.endsWith(" ")){
+            msg = msg.substring(0, msg.length()-1);
+        }
+
         MyMessage message;
         message = new MyMessage(false, msg);
         data.add(message);
@@ -122,6 +143,10 @@ public class MainActivity extends AppCompatActivity {
         data.add(message);
         adapter.notifyItemInserted(data.size()-1);
         manager.addMessage(message);
+    }
+
+    private void deleteMessage(int position){
+        manager.deleteMessage();
     }
 
     class MessageAdapter extends RecyclerView.Adapter {

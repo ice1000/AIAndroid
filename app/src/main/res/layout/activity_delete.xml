@@ -4,31 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="50dp"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context="com.tesla.ai.DeleteActivity"
     android:background="@color/backGround">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/sure"
-        android:onClick="sureToDelete"
-        android:id="@+id/sureToDelete"
-        android:layout_weight="1"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:background="@drawable/bd_wallet_bottom_1_selector" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/cancel"
-        android:onClick="cancelToDelete"
-        android:id="@+id/notSureToDelete"
-        android:layout_weight="1"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:background="@drawable/bd_wallet_bottom_1_selector" />
+   <TextView
+       android:paddingBottom="50dp"
+       android:text="@string/areYouSureToDelete"
+       android:textSize="25sp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_horizontal" />
+
+  <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:text="@string/sure"
+          android:onClick="sureToDelete"
+          android:id="@+id/sureToDelete"
+          android:layout_weight="1"
+          android:layout_gravity="bottom"
+          android:gravity="center"
+          android:background="@drawable/bd_wallet_bottom_1_selector"
+          android:padding="10dp" />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:text="@string/cancel"
+          android:onClick="cancelToDelete"
+          android:id="@+id/notSureToDelete"
+          android:layout_weight="1"
+          android:layout_gravity="bottom"
+          android:gravity="center"
+          android:background="@drawable/bd_wallet_bottom_1_selector"
+          android:padding="10dp" />
+  </LinearLayout>
 </LinearLayout>

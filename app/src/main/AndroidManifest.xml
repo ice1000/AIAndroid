@@ -27,8 +27,8 @@
             android:label="@string/action_settings"
             android:name=".SettingsActivity" />
         <activity
-            android:theme="@style/AlertDialog.AppCompat.Light"
-            android:label="确认删除本条消息记录吗？"
+            android:theme="@style/Base.Theme.AppCompat.Dialog"
+            android:label="@string/areYouSureToDelete"
             android:screenOrientation="portrait"
             android:name=".DeleteActivity"/>
     </application>

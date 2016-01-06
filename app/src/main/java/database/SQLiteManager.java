@@ -54,14 +54,22 @@ public class SQLiteManager {
     public void addMessage(MyMessage myMessage){
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("msg", myMessage.getMessage());
+        contentValues.put(MyMessage.MSG, myMessage.getMessage());
 
         // 因为SQLite没有boolean类型所以在存取的时候转换成整数
-        contentValues.put("fromSaber", myMessage.isFromSaber()
+        contentValues.put(MyMessage.FROM_SABER, myMessage.isFromSaber()
                 ? MyMessage.IS_FROM_SABER : 0);
 
         database.insert(SQLiteOpener.TALK_LOG_TABLE,
                 null, contentValues);
+    }
+
+    public void deleteMessage(MyMessage message){
+        database.delete(
+                SQLiteOpener.TALK_LOG_TABLE,
+                MyMessage.MSG + " = " + message.getMessage(),
+                null
+        );
     }
 
 }
