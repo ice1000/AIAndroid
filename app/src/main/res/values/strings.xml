@@ -5,4 +5,6 @@
     <string name="send">发送</string>
     <string name="notDecidedYet">冰封暂时还没想好这里写什么</string>
     <string name="whatDoYouWantToSay">想跟女票说点什么呢？</string>
+    <string name="sure">确认</string>
+    <string name="cancel">取消</string>
 </resources>
