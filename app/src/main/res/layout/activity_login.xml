@@ -15,7 +15,10 @@
         android:id="@+id/dejdhejdhjkedhjkljdklnkxanklxn"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="28dp">
 
         <ImageView
             android:id="@+id/ncFloating"

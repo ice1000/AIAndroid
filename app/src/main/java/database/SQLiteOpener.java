@@ -13,14 +13,11 @@ import util.TAGS;
  */
 public class SQLiteOpener extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "ice1000.db";
-    public static final String TALK_LOG_TABLE = "TALK_LOG_TABLE";
-    public static final String KNOWLEDGE = "KNOWLEDGE";
 
     public static final int DATABASE_VERSION = 1;
 
     public SQLiteOpener(Context context){
-        this(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this(context, TAGS.DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     public SQLiteOpener(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -30,7 +27,7 @@ public class SQLiteOpener extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " +
-                TALK_LOG_TABLE + "(" +
+                TAGS.TALK_LOG_TABLE + "(" +
                 MyMessage.ID         + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 MyMessage.MSG        + " TEXT, " +
                 MyMessage.FROM_SABER + " INTEGER)");

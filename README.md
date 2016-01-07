@@ -33,7 +33,7 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 - [X] 对话由RecyclerView组成
 - [X] 用户发送的文字在右边，Saber发的文字在左边
 - [X] 二人的发言颜色不同
-- [ ] 长按弹出窗口并让用户确认删除
+- [X] 长按弹出窗口并让用户确认删除
 - [ ] 能发送颜文字(๑>؂<๑)۶、表情等
 - [ ] 能识别颜文字(¯﹃¯).、表情等
 - [ ] 简单的动作(以逐帧动画的形式呈现
@@ -45,11 +45,16 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新 
 
+### 2016年1月7日 1.0.1.0
+1. 设置消息触摸监听事件，触摸后背景会变色
+1. 各种与UI有关的值的修改
+1. 增加了阅读github的Activity，并且内置fab
+
+# 历史更新
+
 ### 2016年1月6日 1.0.0.6
 1. 修改圆角大小为5dp
 1. 自动去掉消息末尾换行符和空格
-
-# 历史更新
 
 ### 2016年1月6日 1.0.0.5
 1. 发送的消息存储在SQLite中

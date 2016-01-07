@@ -15,5 +15,19 @@ public class TAGS {
     public static final String DELETE_OR_NOT = "DELETE_OR_NOT";
     public static final String DELETE_FAILED = "删除失败，使用暴力方法删除";
 
+    // 数字都是随手打的，记住绝对不能一样！
+    // 在MainActivity中的
+    public static final int DELETE_REQUEST        = 1;
+    public static final int BACKGROUND_COLOR_IS_5 = 2;
+    public static final int BACKGROUND_COLOR_IS_1 = 3;
+    public static final int BACKGROUND_COLOR_IS_0 = 4;
+
+    // 在SQLite中的
+    public static final String DATABASE_NAME = "ice1000.db";
+    public static final String TALK_LOG_TABLE = "TALK_LOG_TABLE";
+    public static final String KNOWLEDGE = "KNOWLEDGE";
+
+
+
 
 }

@@ -8,4 +8,8 @@
     <string name="sure">确认</string>
     <string name="cancel">取消</string>
     <string name="areYouSureToDelete">确认删除本条消息记录吗？</string>
+    <string name="about_me">大家好我是最欠の开发者冰封。\n\n这个APP其实是我拿来练手的，不过顺便起到了帮助大家快速登录CWOJ网站的作用，冰封我还是很高兴滴~~\n\n本APP全面采用Material Design，其中用到了CardView和RecyclerView，都是v7包里的新东西~♪(^∇^*)\n\n高2018级11班欢迎约炮哦~</string>
+    <string name="please_check_network">没有网络喵~</string>
+    <string name="example">样例数据</string>
+
 </resources>

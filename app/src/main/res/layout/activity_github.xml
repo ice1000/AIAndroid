@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backGround"
+    tools:context="com.tesla.ai.GithubActivity">
+
+    <WebView
+        android:id="@+id/github"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <include layout="@layout/fab"/>
+
+    <TextView
+        tools:showIn="@layout/activity_github"
+        android:id="@+id/noNetwork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/please_check_network"
+        android:layout_alignParentTop="true"
+        android:textColor="#ffffff"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        tools:visibility="visible"
+
+        android:layout_marginTop="151dp"
+        />
+
+</RelativeLayout>

@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -36,9 +37,7 @@ import util.TAGS;
 
 public class MainActivity extends AppCompatActivity {
 
-    // 数字都是随手打的
-    public static final int DELETE_REQUEST = 32489;
-
+    private int nowBackgroundColor;
     private Toolbar toolbar;
     private RecyclerView messageRecycler;
     private MessageAdapter adapter;
@@ -54,12 +53,18 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            getWindow().addFlags(
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            getWindow().addFlags(
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            Window window = getWindow();
+////            window.addFlags(
+////                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            window.addFlags(
+//                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//            window.addFlags(
+//                    WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.clearFlags(
+//                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            window.setStatusBarColor(0xFFFFFFFF);
+//        }
 
         editMessage = (EditText) findViewById(R.id.sendBox);
 
@@ -73,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MessageAdapter();
 
         messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
+        nowBackgroundColor = TAGS.BACKGROUND_COLOR_IS_0;
+
         messageRecycler.setLayoutManager(new LinearLayoutManager(this));
         messageRecycler.setItemAnimator(new DefaultItemAnimator());
 
@@ -84,19 +91,45 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.this, DeleteActivity.class
                 );
                 intent.putExtra(TAGS.POSITION, position);
-                startActivityForResult(intent, DELETE_REQUEST);
+                startActivityForResult(intent, TAGS.DELETE_REQUEST);
             }
 
             @Override
             public void onItemTouch(View view, int position, MotionEvent event) {
                 switch (event.getAction()){
-                    case 2:
                     case 1:
+                    case 2:
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+
+                            boolean isFromSaber = data.get(position).isFromSaber();
+                            int id = isFromSaber
+                                    ? R.animator.background_color_1_to_5
+                                    : R.animator.background_color_5_to_1;
+
+                            // 如果现在的颜色已经正常了那就不用变化了
+                            if(nowBackgroundColor == TAGS.BACKGROUND_COLOR_IS_5){
+                                if(isFromSaber)
+                                    break;
+                                else
+                                    nowBackgroundColor = TAGS.BACKGROUND_COLOR_IS_1;
+                            }
+                            else
+                            if (nowBackgroundColor == TAGS.BACKGROUND_COLOR_IS_1){
+                                if(!isFromSaber)
+                                    break;
+                                else
+                                    nowBackgroundColor = TAGS.BACKGROUND_COLOR_IS_5;
+                            }
+                            else
+                            if(nowBackgroundColor == TAGS.BACKGROUND_COLOR_IS_0)
+                                nowBackgroundColor = isFromSaber
+                                        ? TAGS.BACKGROUND_COLOR_IS_5
+                                        : TAGS.BACKGROUND_COLOR_IS_1;
+
                             ObjectAnimator objectAnimator;
+
                             objectAnimator = (ObjectAnimator) AnimatorInflater
-                                    .loadAnimator(MainActivity.this,
-                                            R.animator.background_color_1_to_5);
+                                    .loadAnimator(MainActivity.this, id);
 
                             //用于动画计算的需要，
                             // 如果开始和结束的值不是基本类型的时候，这个方法是需要的。
@@ -143,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode){
-            case DELETE_REQUEST:
+            case TAGS.DELETE_REQUEST:
                 switch (resultCode){
                     case DeleteActivity.resultCode:
                         if(data.getBooleanExtra(TAGS.DELETE_OR_NOT, false)){
