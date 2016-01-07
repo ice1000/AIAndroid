@@ -1,7 +1,10 @@
 package com.tesla.ai;
 
+import android.animation.AnimatorInflater;
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -17,9 +20,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,16 +54,28 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
+
         editMessage = (EditText) findViewById(R.id.sendBox);
 
         manager = new SQLiteManager(this);
-        data = manager.getMessage();
+        data = manager.getMessages();
 
 //        测试数据
 //        data.add(new MyMessage(false, "宝贝再见~"));
 //        data.add(new MyMessage(true, "亲爱的最喜欢了~"));
 
         adapter = new MessageAdapter();
+
+        messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
+        messageRecycler.setLayoutManager(new LinearLayoutManager(this));
+        messageRecycler.setItemAnimator(new DefaultItemAnimator());
+
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override public void onItemClick(View view, int position) {}
             @Override
@@ -76,14 +91,28 @@ public class MainActivity extends AppCompatActivity {
             public void onItemTouch(View view, int position, MotionEvent event) {
                 switch (event.getAction()){
                     case 2:
+                    case 1:
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                            ObjectAnimator objectAnimator;
+                            objectAnimator = (ObjectAnimator) AnimatorInflater
+                                    .loadAnimator(MainActivity.this,
+                                            R.animator.background_color_1_to_5);
 
+                            //用于动画计算的需要，
+                            // 如果开始和结束的值不是基本类型的时候，这个方法是需要的。
+                            objectAnimator.setEvaluator(new ArgbEvaluator());
+
+                            //设置动画的设置目标
+                            objectAnimator.setTarget(messageRecycler);
+                            objectAnimator.start();
+                        }
+                        break;
+                    default:
+                        break;
                 }
             }
         });
 
-        messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
-        messageRecycler.setLayoutManager(new LinearLayoutManager(this));
-        messageRecycler.setItemAnimator(new DefaultItemAnimator());
         messageRecycler.setAdapter(adapter);
 
     }
@@ -172,7 +201,17 @@ public class MainActivity extends AppCompatActivity {
         Log.d(this.toString(),
                 "data.get(position) = " +
                 data.get(position));
-        manager.deleteMessage(data.get(position));
+
+        if(data.get(position).isIdAvailable()){
+            manager.deleteMessage(data.get(position));
+        }
+        else {
+            Log.d(
+                    MainActivity.this.toString(),
+                    TAGS.DELETE_FAILED
+            );
+            manager.deleteMessageById(position);
+        }
         data.remove(position);
         adapter.notifyItemRemoved(position);
     }

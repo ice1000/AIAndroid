@@ -13,5 +13,7 @@ public class TAGS {
     public static final String WHAT_THE_FUCK = "What the fuck?";
     public static final String POSITION = "POSITION";
     public static final String DELETE_OR_NOT = "DELETE_OR_NOT";
+    public static final String DELETE_FAILED = "删除失败，使用暴力方法删除";
+
 
 }

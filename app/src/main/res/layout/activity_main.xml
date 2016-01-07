@@ -7,6 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
     tools:context="com.tesla.ai.MainActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -23,7 +25,85 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/messageBar">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/messagesRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <include layout="@layout/fab" />
+
+        </FrameLayout>
+
+        <android.support.v7.widget.CardView
+            app:cardCornerRadius="@dimen/myCardCornerRadius"
+            android:background="@color/cardColor1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sendBarHeight"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/messageBar">
+
+            <LinearLayout
+                android:background="@color/cardColor1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sendBarHeight"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.CardView
+                    android:layout_margin="@dimen/myCardMargin"
+                    app:cardBackgroundColor="@color/textColor"
+                    app:cardCornerRadius="@dimen/myCardCornerRadius"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alpha="0.8"
+                        android:textColor="@color/cardColor1"
+                        android:hint="@string/whatDoYouWantToSay"
+                        android:id="@+id/sendBox"
+                        tools:targetApi="honeycomb" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_margin="@dimen/myCardMargin"
+                    app:cardCornerRadius="@dimen/myCardCornerRadius"
+                    app:cardBackgroundColor="@color/cardColor1Pressed"
+                    android:layout_weight="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:gravity="center"
+                        android:onClick="commitMessage"
+                        android:textColor="@color/textColor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_dredge_tips_selector"
+                        android:text="@string/send"
+                        android:id="@+id/sendButton" />
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
 
 </LinearLayout>
 

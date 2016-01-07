@@ -22,7 +22,7 @@ public class SQLiteManager {
         database = opener.getWritableDatabase();
     }
 
-    public ArrayList<MyMessage> getMessage(){
+    public ArrayList<MyMessage> getMessages(){
 
         ArrayList<MyMessage> messages = new ArrayList<>();
         Cursor cursor = database.query(
@@ -67,9 +67,16 @@ public class SQLiteManager {
     public void deleteMessage(MyMessage message){
         database.delete(
                 SQLiteOpener.TALK_LOG_TABLE,
-                MyMessage.MSG + " = " + message.getMessage(),
+                MyMessage.ID + " = " + message.getId(),
                 null
         );
     }
 
+    public void deleteMessageById(int positionOrId) {
+        database.delete(
+                SQLiteOpener.TALK_LOG_TABLE,
+                MyMessage.ID + " = " + positionOrId,
+                null
+        );
+    }
 }
