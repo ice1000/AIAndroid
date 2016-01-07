@@ -9,6 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -31,6 +32,9 @@ import util.OnItemClickListener;
 import util.TAGS;
 
 public class MainActivity extends AppCompatActivity {
+
+    // 数字都是随手打的
+    public static final int DELETE_REQUEST = 32489;
 
     private Toolbar toolbar;
     private RecyclerView messageRecycler;
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.this, DeleteActivity.class
                 );
                 intent.putExtra(TAGS.POSITION, position);
-                startActivity(intent);
+                startActivityForResult(intent, DELETE_REQUEST);
             }
 
             @Override
@@ -106,12 +110,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (resultCode){
-            case DeleteActivity.resultCode:
+        switch (requestCode){
+            case DELETE_REQUEST:
+                switch (resultCode){
+                    case DeleteActivity.resultCode:
+                        if(data.getBooleanExtra(TAGS.DELETE_OR_NOT, false)){
+
+                            // 因为我传递过去的时候是把position传递过去的
+                            // 所以我猜再传递回来并且拿给adapter是没有问题的
+                            deleteMessage(data.getIntExtra(TAGS.POSITION, 0));
+                            Log.d(this.toString(), "data.getIntExtra(TAGS.POSITION, 0) = " +
+                                    data.getIntExtra(TAGS.POSITION, 0));
+
+                        }
+                        break;
+                    default:
+                        break;
+                }
                 break;
             default:
                 break;
         }
+
     }
 
     public void gotoSettings(View view){
@@ -146,7 +166,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void deleteMessage(int position){
-        manager.deleteMessage();
+        Log.d(this.toString(),
+                "data.get(position) = " +
+                data.get(position));
+        manager.deleteMessage(data.get(position));
+        data.remove(position);
+        adapter.notifyItemRemoved(position);
     }
 
     class MessageAdapter extends RecyclerView.Adapter {
