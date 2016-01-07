@@ -74,7 +74,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onItemTouch(View view, int position, MotionEvent event) {
+                switch (event.getAction()){
+                    case 2:
 
+                }
             }
         });
 
