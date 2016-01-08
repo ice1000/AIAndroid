@@ -7,11 +7,15 @@
     android:background="@color/backGround"
     tools:context="com.tesla.ai.GithubActivity">
 
+   <include layout="@layout/toolbar"
+       android:id="@+id/include" />
+
     <WebView
         android:id="@+id/github"
         android:visibility="visible"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include" />
 
     <!--<include layout="@layout/fab"/>-->
 

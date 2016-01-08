@@ -38,7 +38,6 @@ import util.TAGS;
 public class MainActivity extends AppCompatActivity {
 
     private int nowBackgroundColor;
-    private Toolbar toolbar;
     private RecyclerView messageRecycler;
     private MessageAdapter adapter;
     private ArrayList<MyMessage> data;
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -98,23 +97,22 @@ public class MainActivity extends AppCompatActivity {
             public void onItemTouch(View view, int position, MotionEvent event) {
 
                 boolean isFromSaber = data.get(position).isFromSaber();
+                int[] colorId;
+
+                Log.d(this.toString(),
+                        "event.getAction() = " + event.getAction());
 
                 switch (event.getAction()){
+                    case 0:
                     case 1:
                     case 2:
-
-                        if(isFromSaber) {
-                            ((CardView) view).setCardBackgroundColor(
-                                    getResources().getColor(R.color.cardColor1Pressed));
-                            ((TextView) ((CardView) view).getChildAt(0)).setTextColor(
-                                    getResources().getColor(R.color.cardColor1));
-                        }
-                        else {
-                            ((CardView) view).setCardBackgroundColor(
-                                    getResources().getColor(R.color.cardColor5Pressed));
-                            ((TextView) ((CardView) view).getChildAt(0)).setTextColor(
-                                    getResources().getColor(R.color.cardColor5));
-                        }
+                        colorId = isFromSaber ? new int[]{
+                                R.color.cardColor1Pressed,
+                                R.color.cardColor1
+                        } : new int[]{
+                                R.color.cardColor5Pressed,
+                                R.color.cardColor5
+                        };
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 
@@ -158,21 +156,24 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     default:
 
-                        if(isFromSaber) {
-                            ((CardView) view).setCardBackgroundColor(
-                                    getResources().getColor(R.color.cardColor1));
-                            ((TextView) ((CardView) view).getChildAt(0)).setTextColor(
-                                    getResources().getColor(R.color.cardColor1Pressed));
-                        }
-                        else {
-                            ((CardView) view).setCardBackgroundColor(
-                                    getResources().getColor(R.color.cardColor5));
-                            ((TextView) ((CardView) view).getChildAt(0)).setTextColor(
-                                    getResources().getColor(R.color.cardColor5Pressed));
-                        }
+                        colorId = isFromSaber ? new int[]{
+                                R.color.cardColor1,
+                                R.color.cardColor1Pressed
+                        } : new int[]{
+                                R.color.cardColor5,
+                                R.color.cardColor5Pressed
+                        };
 
                         break;
                 }
+
+                ((CardView)((FrameLayout) view).getChildAt(0))
+                        .setCardBackgroundColor(
+                                getResources().getColor(colorId[0]));
+                ((TextView)((CardView)((FrameLayout) view).getChildAt(0))
+                        .getChildAt(0)).setTextColor(
+                        getResources().getColor(colorId[1]));
+
             }
         });
 
@@ -189,17 +190,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_settings:
+                startActivity(new Intent(
+                        MainActivity.this, SettingsActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -265,16 +266,16 @@ public class MainActivity extends AppCompatActivity {
                 "data.get(position) = " +
                 data.get(position));
 
-        if(data.get(position).isIdAvailable()){
-            manager.deleteMessage(data.get(position));
-        }
-        else {
-            Log.d(
-                    MainActivity.this.toString(),
-                    TAGS.DELETE_FAILED
-            );
-            manager.deleteMessageById(position);
-        }
+//        if(data.get(position).isIdAvailable()){
+//            manager.deleteMessage(data.get(position));
+//        }
+//        else {
+//            Log.d(
+//                    MainActivity.this.toString(),
+//                    TAGS.DELETE_FAILED
+//            );
+        manager.deleteMessageById(position);
+//        }
         data.remove(position);
         adapter.notifyItemRemoved(position);
     }

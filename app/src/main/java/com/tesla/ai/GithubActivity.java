@@ -6,7 +6,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -20,13 +23,15 @@ public class GithubActivity extends AppCompatActivity {
 
     private WebView github;
     private TextView noNetwork;
-    private URL gitURL;
-    private String githubURL = "https://github.com/ice1000/AIAndroid";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_github);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
 
         github = (WebView) findViewById(R.id.github);
         noNetwork = (TextView) findViewById(R.id.noNetwork);
@@ -38,8 +43,9 @@ public class GithubActivity extends AppCompatActivity {
             noNetWorkConnection();
         }
         else {
+            String githubURL = "https://github.com/ice1000/AIAndroid";
             try {
-                gitURL = new URL(githubURL);
+                URL gitURL = new URL(githubURL);
                 if (gitURL.getFile() == null) throw new Exception();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -71,6 +77,28 @@ public class GithubActivity extends AppCompatActivity {
 //        startActivity(new Intent(this, SettingsActivity.class));
 ////        overridePendingTransition(R.anim.zoom_in, R.anim.zoom_out);
 //    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_settings:
+                startActivity(new Intent(
+                        GithubActivity.this, SettingsActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 
     public boolean isNetworkConnected(Context context) {
         if (context != null) {
