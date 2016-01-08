@@ -10,6 +10,8 @@
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="18"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -27,7 +29,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -41,8 +42,12 @@
             android:label="@string/areYouSureToDelete"
             android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat.Dialog" />
-        <activity android:name=".GithubActivity" />
-        <activity android:name=".AboutMeActivity"></activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".GithubActivity" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".AboutMeActivity"/>
     </application>
 
 </manifest>

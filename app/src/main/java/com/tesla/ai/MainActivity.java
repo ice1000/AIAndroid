@@ -96,12 +96,28 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onItemTouch(View view, int position, MotionEvent event) {
+
+                boolean isFromSaber = data.get(position).isFromSaber();
+
                 switch (event.getAction()){
                     case 1:
                     case 2:
+
+                        if(isFromSaber) {
+                            ((CardView) view).setCardBackgroundColor(
+                                    getResources().getColor(R.color.cardColor1Pressed));
+                            ((TextView) ((CardView) view).getChildAt(0)).setTextColor(
+                                    getResources().getColor(R.color.cardColor1));
+                        }
+                        else {
+                            ((CardView) view).setCardBackgroundColor(
+                                    getResources().getColor(R.color.cardColor5Pressed));
+                            ((TextView) ((CardView) view).getChildAt(0)).setTextColor(
+                                    getResources().getColor(R.color.cardColor5));
+                        }
+
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 
-                            boolean isFromSaber = data.get(position).isFromSaber();
                             int id = isFromSaber
                                     ? R.animator.background_color_1_to_5
                                     : R.animator.background_color_5_to_1;
@@ -141,6 +157,20 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                     default:
+
+                        if(isFromSaber) {
+                            ((CardView) view).setCardBackgroundColor(
+                                    getResources().getColor(R.color.cardColor1));
+                            ((TextView) ((CardView) view).getChildAt(0)).setTextColor(
+                                    getResources().getColor(R.color.cardColor1Pressed));
+                        }
+                        else {
+                            ((CardView) view).setCardBackgroundColor(
+                                    getResources().getColor(R.color.cardColor5));
+                            ((TextView) ((CardView) view).getChildAt(0)).setTextColor(
+                                    getResources().getColor(R.color.cardColor5Pressed));
+                        }
+
                         break;
                 }
             }
@@ -199,11 +229,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void gotoSettings(View view){
-        startActivity(new Intent(
-                MainActivity.this, SettingsActivity.class
-        ));
-    }
+//    public void gotoSettings(View view){
+//        startActivity(new Intent(
+//                MainActivity.this, SettingsActivity.class
+//        ));
+//    }
 
     public void commitMessage(View view){
         String msg = editMessage.getText().toString();

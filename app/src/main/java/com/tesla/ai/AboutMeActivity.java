@@ -1,8 +1,10 @@
 package com.tesla.ai;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 public class AboutMeActivity extends AppCompatActivity {
@@ -16,10 +18,18 @@ public class AboutMeActivity extends AppCompatActivity {
     }
 
     private void toFloat(){
-        ImageView NC = (ImageView) findViewById(R.id.ncFloat2);
+        ImageView NC = (ImageView) findViewById(R.id.ncFloating);
         NC.setBackgroundResource(R.drawable.nc_floating);
-
-        AnimationDrawable NCFloat = (AnimationDrawable) NC.getBackground();
-        NCFloat.start();
+        ((AnimationDrawable) NC.getBackground()).start();
+        ImageView Saber = (ImageView) findViewById(R.id.saberShake);
+        Saber.setBackgroundResource(R.drawable.saber_shake);
+        ((AnimationDrawable) Saber.getBackground()).start();
     }
+
+    public void gotoSettings(View view){
+        startActivity(new Intent(
+                AboutMeActivity.this, SettingsActivity.class
+        ));
+    }
+
 }

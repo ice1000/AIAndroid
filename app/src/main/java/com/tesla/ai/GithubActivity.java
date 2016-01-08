@@ -67,10 +67,10 @@ public class GithubActivity extends AppCompatActivity {
         return false;
     }
 
-    public void gotoSettings(View view){
-        startActivity(new Intent(this, SettingsActivity.class));
-//        overridePendingTransition(R.anim.zoom_in, R.anim.zoom_out);
-    }
+//    public void gotoSettings(View view){
+//        startActivity(new Intent(this, SettingsActivity.class));
+////        overridePendingTransition(R.anim.zoom_in, R.anim.zoom_out);
+//    }
 
     public boolean isNetworkConnected(Context context) {
         if (context != null) {

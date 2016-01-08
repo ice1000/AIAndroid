@@ -8,7 +8,7 @@
     <dimen name="titleSize">30sp</dimen>
     <dimen name="sendBarHeight">55dp</dimen>
 
-    <dimen name="myCardCornerRadius">8dp</dimen>
+    <dimen name="myCardCornerRadius">3dp</dimen>
     <dimen name="myCardMargin">6dp</dimen>
     <dimen name="myMessageCornerRadius">5dp</dimen>
     <dimen name="myMessageMargin">15dp</dimen>
@@ -17,4 +17,5 @@
     <dimen name="betweenNCandOther">20dp</dimen>
     <dimen name="NCcardCornerRadiu">30dp</dimen>
     <dimen name="cardElevation">25dp</dimen>
+    <dimen name="myListDividerHeight">10dp</dimen>
 </resources>

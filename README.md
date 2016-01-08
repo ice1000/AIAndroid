@@ -15,10 +15,13 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 图标在我的任性下决定采用Saber~吾王美美哒<br/>
 ![icon](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png)
 
+这是一个Material Design的项目，就是不知道这个和二次元的微妙结合会有什么样的效果呢<br/>
+
 # 实现情况：
 
 ## 算法(运行方式)部分
 
+这部分还没开始做，是友人在研究。不过他是C++和txt，而我把他的项目翻译成Java和SQLite会很困难。。。<br/>
 现在还只能重复你说的话。。<br/>
 
 - [ ] 起名字(双方)
@@ -27,6 +30,9 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 - [ ] 能完成一些功能性的事务(计算, 出主意, etc.
 - [ ] 在和主人的交流中学习
 - [ ] 模拟人类情绪o(*^＠^*)o
+- [ ] 能发送颜文字(๑>؂<๑)۶、表情等
+- [ ] 能识别颜文字(¯﹃¯).、表情等
+- [ ] 简单的动作(以逐帧动画的形式呈现
 
 ## UI(视觉效果)部分
 - [X] 一个教科书式的冰封APP的标准开始界面
@@ -34,23 +40,28 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 - [X] 用户发送的文字在右边，Saber发的文字在左边
 - [X] 二人的发言颜色不同
 - [X] 长按弹出窗口并让用户确认删除
-- [ ] 能发送颜文字(๑>؂<๑)۶、表情等
-- [ ] 能识别颜文字(¯﹃¯).、表情等
-- [ ] 简单的动作(以逐帧动画的形式呈现
+- [X] 触摸消息背景颜色改变
+- [X] 沉浸式状态栏
+- [ ] 自定义消息删除动画
 
 ## 不同类型的数据持久化的规划
 + 聊天记录保存在SQLite中
 + 知识保存在SQLite中
-+ 记忆保存在Preference中
++ 个人信息保存在Preference中
 
 # 本次更新 
 
-### 2016年1月7日 1.0.1.0
+### 2016年1月8日 1.0.1.1
+1. 写了关于开发者
+1. 将本项目源码的github链接放上去了
+1. 终于可以删除聊天记录了，修复一大堆bug
+
+# 历史更新
+
+### 2016年1月7日 1.0.1.0 重大更新
 1. 设置消息触摸监听事件，触摸后背景会变色
 1. 各种与UI有关的值的修改
 1. 增加了阅读github的Activity，并且内置fab
-
-# 历史更新
 
 ### 2016年1月6日 1.0.0.6
 1. 修改圆角大小为5dp

@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 
 import util.MyMessage;
+import util.TAGS;
 
 /**
  * Created by Administrator on 2016/1/6 0006.
@@ -26,7 +27,7 @@ public class SQLiteManager {
 
         ArrayList<MyMessage> messages = new ArrayList<>();
         Cursor cursor = database.query(
-                SQLiteOpener.TALK_LOG_TABLE,
+                TAGS.TALK_LOG_TABLE,
 //                new String[]{
 //                        MyMessage.FROM_SABER,
 //                        MyMessage.MSG
@@ -60,13 +61,13 @@ public class SQLiteManager {
         contentValues.put(MyMessage.FROM_SABER, myMessage.isFromSaber()
                 ? MyMessage.IS_FROM_SABER : 0);
 
-        database.insert(SQLiteOpener.TALK_LOG_TABLE,
+        database.insert(TAGS.TALK_LOG_TABLE,
                 null, contentValues);
     }
 
     public void deleteMessage(MyMessage message){
         database.delete(
-                SQLiteOpener.TALK_LOG_TABLE,
+                TAGS.TALK_LOG_TABLE,
                 MyMessage.ID + " = " + message.getId(),
                 null
         );
@@ -74,7 +75,7 @@ public class SQLiteManager {
 
     public void deleteMessageById(int positionOrId) {
         database.delete(
-                SQLiteOpener.TALK_LOG_TABLE,
+                TAGS.TALK_LOG_TABLE,
                 MyMessage.ID + " = " + positionOrId,
                 null
         );

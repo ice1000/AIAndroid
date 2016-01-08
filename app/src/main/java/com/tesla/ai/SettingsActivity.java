@@ -52,7 +52,7 @@ public class SettingsActivity extends AppCompatActivity {
                         startActivity(
                                 new Intent(SettingsActivity.this,
                                 GithubActivity.class));
-                        finish();
+//                        finish();
                         break;
                     case 3:
                         Toast.makeText(
@@ -64,7 +64,7 @@ public class SettingsActivity extends AppCompatActivity {
                         startActivity(
                                 new Intent(SettingsActivity.this,
                                         AboutMeActivity.class));
-                        finish();
+//                        finish();
                         break;
                     case 5:
                         Toast.makeText(
