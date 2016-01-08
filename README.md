@@ -51,12 +51,17 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新 
 
-### 2016年1月8日 1.0.1.1
-1. 写了关于开发者
-1. 将本项目源码的github链接放上去了
-1. 终于可以删除聊天记录了，修复一大堆bug
+### 2016年1月8日 1.0.1.2
+1. 突然发现重大bug！消息记录删除不掉！吓尿！！
+1. 增加了[toolbar](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/layout-v11/toolbar.xml)
+1. 把fab删了改成toolbar的三个点(朋友的建议)
 
 # 历史更新
+
+### 2016年1月8日 1.0.1.1
+1. 写了[关于开发者](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/layout/activity_about_me.xml)
+1. 将本项目源码的github链接放上去了
+1. 终于可以删除聊天记录了，修复一大堆bug
 
 ### 2016年1月7日 1.0.1.0 重大更新
 1. 设置消息触摸监听事件，触摸后背景会变色
