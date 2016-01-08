@@ -12,10 +12,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import util.TAGS;
+
 public class SettingsActivity extends AppCompatActivity {
 
-    private static final int HDF_STUDIO = 5;
-    private static final int PROGRAM_LEAGUE = 6;
     private ListView settings;
     private ArrayList<String> data;
 
@@ -27,6 +27,10 @@ public class SettingsActivity extends AppCompatActivity {
         data = new ArrayList<>();
         data.add("推广：HDF Studio群");
         data.add("推广：ProgramLeague群");
+        data.add("查看项目源代码(github)");
+        data.add("给Saber酱起个名字吧");
+        data.add("关于开发者");
+        data.add("加入我们");
 
         settings = (ListView) findViewById(R.id.settings);
 
@@ -39,10 +43,34 @@ public class SettingsActivity extends AppCompatActivity {
                     AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i){
                     case 0:
-                        joinQQ(HDF_STUDIO);
+                        joinQQ(TAGS.HDF_STUDIO);
                         break;
                     case 1:
-                        joinQQ(PROGRAM_LEAGUE);
+                        joinQQ(TAGS.PROGRAM_LEAGUE);
+                        break;
+                    case 2:
+                        startActivity(
+                                new Intent(SettingsActivity.this,
+                                GithubActivity.class));
+                        finish();
+                        break;
+                    case 3:
+                        Toast.makeText(
+                                SettingsActivity.this,
+                                TAGS.SORRY_CANNOT_USE,
+                                Toast.LENGTH_SHORT).show();
+                        break;
+                    case 4:
+                        startActivity(
+                                new Intent(SettingsActivity.this,
+                                        AboutMeActivity.class));
+                        finish();
+                        break;
+                    case 5:
+                        Toast.makeText(
+                                SettingsActivity.this,
+                                TAGS.SORRY_CANNOT_JOIN,
+                                Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         break;
@@ -57,10 +85,10 @@ public class SettingsActivity extends AppCompatActivity {
         String key;
 
         switch (QQGroupId){
-            case PROGRAM_LEAGUE:
+            case TAGS.PROGRAM_LEAGUE:
                 key = "1xAz-QGQL0FrWLWvBz_a5yE6aIv_64et";
                 break;
-            case HDF_STUDIO:
+            case TAGS.HDF_STUDIO:
                 key = "BulOWcuBrEZZh2gZDGhxikoGDQaNHlgg";
                 break;
             default:

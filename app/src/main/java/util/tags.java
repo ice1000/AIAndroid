@@ -14,6 +14,8 @@ public class TAGS {
     public static final String POSITION = "POSITION";
     public static final String DELETE_OR_NOT = "DELETE_OR_NOT";
     public static final String DELETE_FAILED = "删除失败，使用暴力方法删除";
+    public static final String SORRY_CANNOT_USE =  "抱歉本功能暂未开放";
+    public static final String SORRY_CANNOT_JOIN =  "由于开发者害怕被肛，暂时无法联系上他";
 
     // 数字都是随手打的，记住绝对不能一样！
     // 在MainActivity中的
@@ -27,7 +29,11 @@ public class TAGS {
     public static final String TALK_LOG_TABLE = "TALK_LOG_TABLE";
     public static final String KNOWLEDGE = "KNOWLEDGE";
 
+    // 在SettingsActivity中的
+    public static final int HDF_STUDIO = 5;
+    public static final int PROGRAM_LEAGUE = 6;
 
+    // 还有几个在MyMessage中
 
 
 }

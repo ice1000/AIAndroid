@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="AboutMeActivity"
+    android:background="#150ec9">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:layout_gravity="bottom|center_horizontal"
+                app:cardCornerRadius="@dimen/NCcardCornerRadiu"
+                app:cardElevation="@dimen/cardElevation"
+                android:layout_marginBottom="@dimen/betweenNCandOther"
+                android:layout_marginTop="@dimen/betweenNCandOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/betweenNCandOther"
+                    android:id="@+id/ncFloat2"
+                    tools:background="@drawable/nc_anim1"
+                    />
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/about_me"/>
+
+            <android.support.v7.widget.CardView
+                app:cardCornerRadius="@dimen/NCcardCornerRadiu"
+                app:cardElevation="@dimen/cardElevation"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:background="@drawable/saber_shake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/about_saber"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/fab" />
+
+</FrameLayout>
