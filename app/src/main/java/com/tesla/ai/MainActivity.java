@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (event.getAction()){
                     case 0:
-                    case 1:
+//                    case 1:
                     case 2:
                         colorId = isFromSaber ? new int[]{
                                 R.color.cardColor1Pressed,
