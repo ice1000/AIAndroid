@@ -17,18 +17,15 @@ import util.TAGS;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private ListView settings;
-    private ArrayList<String> data;
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
-        data = new ArrayList<>();
+        ArrayList<String> data = new ArrayList<>();
         data.add("推广：HDF Studio群");
         data.add("推广：ProgramLeague群");
         data.add("查看项目源代码(github)");
@@ -36,7 +33,7 @@ public class SettingsActivity extends AppCompatActivity {
         data.add("关于开发者");
         data.add("加入我们");
 
-        settings = (ListView) findViewById(R.id.settings);
+        ListView settings = (ListView) findViewById(R.id.settings);
 
         settings.setAdapter(new ArrayAdapter<>(this,
                 R.layout.support_simple_spinner_dropdown_item, data));
