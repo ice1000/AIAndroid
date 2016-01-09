@@ -6,6 +6,7 @@ distribution ,or exhibition of copyrighted motion pictures (title 17,united stat
 the federal bureau of investigation investigates allegations of criminal copyright infringement 
 (title 17,united states code,section 506)`
 
+# 发现一个bug！正在修复中！
 
 # AIAndroid is:
 受[我的友人](https://github.com/Wimacs)的影响 决定开始写的:<br/>
