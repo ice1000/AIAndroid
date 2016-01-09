@@ -34,6 +34,13 @@ public class MyMessage {
         this.id = id;
     }
 
+    public MyMessage(boolean fromSaber, String message, int id) {
+        this.fromSaber = fromSaber;
+        this.message = message;
+        idAvailable = true;
+        this.id = id;
+    }
+
     public int getId() {
         return idAvailable ? id : 0;
     }

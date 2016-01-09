@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:duration="1000"
     android:propertyName="backgroundColor"
-    android:valueFrom="@color/cardColor5"
-    android:valueTo="@color/cardColor1"
+    android:valueFrom="@color/cardColor5Light"
+    android:valueTo="@color/cardColor1Light"
     android:valueType="intType"
     tools:targetApi="honeycomb">
 

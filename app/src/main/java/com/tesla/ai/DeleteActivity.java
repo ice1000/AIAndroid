@@ -2,11 +2,10 @@ package com.tesla.ai;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import util.TAGS;
+import util.CONSTS;
 
 public class DeleteActivity extends Activity {
 
@@ -20,20 +19,20 @@ public class DeleteActivity extends Activity {
         setContentView(R.layout.activity_delete);
 
         Intent data = getIntent();
-        position = data.getIntExtra(TAGS.POSITION, 0);
+        position = data.getIntExtra(CONSTS.POSITION, 0);
 
         intent = new Intent();
-        intent.putExtra(TAGS.POSITION, position);
+        intent.putExtra(CONSTS.POSITION, position);
     }
 
     public void sureToDelete(View view){
-        intent.putExtra(TAGS.DELETE_OR_NOT, true);
+        intent.putExtra(CONSTS.DELETE_OR_NOT, true);
         setResult(resultCode,intent);
         finish();
     }
 
     public void cancelToDelete(View view){
-        intent.putExtra(TAGS.DELETE_OR_NOT, false);
+        intent.putExtra(CONSTS.DELETE_OR_NOT, false);
         setResult(resultCode,intent);
         finish();
     }

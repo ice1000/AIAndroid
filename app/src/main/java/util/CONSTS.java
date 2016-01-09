@@ -3,7 +3,7 @@ package util;
 /**
  * Created by Administrator on 2016/1/5 0005.
  */
-public class TAGS {
+public class CONSTS {
 
     public static final String PREFERENCE_NAME = "PREFERENCE_NAME";
     public static final String USER_NAME = "USER_NAME";
@@ -16,6 +16,10 @@ public class TAGS {
     public static final String DELETE_FAILED = "删除失败，使用暴力方法删除";
     public static final String SORRY_CANNOT_USE =  "抱歉本功能暂未开放";
     public static final String SORRY_CANNOT_JOIN =  "由于开发者害怕被肛，暂时无法联系上他";
+    public static final String[] SHOULD_BE_SPLIT = new String[]{
+            " ",
+            "\n"
+    };
 
     // 数字都是随手打的，记住绝对不能一样！
     // 在MainActivity中的

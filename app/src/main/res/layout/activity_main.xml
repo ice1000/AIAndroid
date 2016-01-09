@@ -38,7 +38,7 @@
 
         <LinearLayout
             android:id="@+id/messageBar"
-            android:background="@color/cardColor1"
+            android:background="@color/cardColor1Light"
             android:layout_width="match_parent"
             android:layout_height="@dimen/sendBarHeight"
             android:layout_alignParentBottom="true"
@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:alpha="0.8"
-                    android:textColor="@color/cardColor1"
+                    android:textColor="@color/cardColor1Light"
                     android:hint="@string/whatDoYouWantToSay"
                     android:id="@+id/sendBox"
                     tools:targetApi="honeycomb" />

@@ -4,7 +4,7 @@
     <string name="hello">你好哦~</string>
     <string name="send">发送</string>
     <string name="notDecidedYet">冰封暂时还没想好这里写什么</string>
-    <string name="whatDoYouWantToSay">想跟女票说点什么呢？</string>
+    <string name="whatDoYouWantToSay">想跟Saber说点什么呢？</string>
     <string name="sure">确认</string>
     <string name="cancel">取消</string>
     <string name="areYouSureToDelete">确认删除本条消息记录吗？</string>
@@ -15,5 +15,7 @@
     <string name="please_check_network">没有网络喵~</string>
     <string name="example">样例数据</string>
     <string name="amIQuite">我萌吗？</string>
+    <string name="refresh">刷新</string>
+    <string name="removeAll">清空消息记录</string>
 
 </resources>

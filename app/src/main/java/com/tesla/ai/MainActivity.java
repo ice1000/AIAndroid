@@ -20,20 +20,17 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import database.SQLiteManager;
+import util.CONSTS;
 import util.MyMessage;
 import util.OnItemClickListener;
-import util.TAGS;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MessageAdapter();
 
         messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
-        nowBackgroundColor = TAGS.BACKGROUND_COLOR_IS_0;
+        nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_0;
 
         messageRecycler.setLayoutManager(new LinearLayoutManager(this));
         messageRecycler.setItemAnimator(new DefaultItemAnimator());
@@ -89,10 +86,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(
                         MainActivity.this, DeleteActivity.class
                 );
-                intent.putExtra(TAGS.POSITION, position);
-                startActivityForResult(intent, TAGS.DELETE_REQUEST);
+//                intent.putExtra(CONSTS.POSITION, data.get(position).getId());
+                intent.putExtra(CONSTS.POSITION, position);
+                startActivityForResult(intent, CONSTS.DELETE_REQUEST);
             }
-
             @Override
             public void onItemTouch(View view, int position, MotionEvent event) {
 
@@ -121,24 +118,30 @@ public class MainActivity extends AppCompatActivity {
                                     : R.animator.background_color_5_to_1;
 
                             // 如果现在的颜色已经正常了那就不用变化了
-                            if(nowBackgroundColor == TAGS.BACKGROUND_COLOR_IS_5){
+                            if(nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_5){
                                 if(isFromSaber)
                                     break;
                                 else
-                                    nowBackgroundColor = TAGS.BACKGROUND_COLOR_IS_1;
+                                    nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_1;
                             }
                             else
-                            if (nowBackgroundColor == TAGS.BACKGROUND_COLOR_IS_1){
+                            if (nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_1){
                                 if(!isFromSaber)
                                     break;
                                 else
-                                    nowBackgroundColor = TAGS.BACKGROUND_COLOR_IS_5;
+                                    nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_5;
                             }
                             else
-                            if(nowBackgroundColor == TAGS.BACKGROUND_COLOR_IS_0)
+                            if(nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_0) {
                                 nowBackgroundColor = isFromSaber
-                                        ? TAGS.BACKGROUND_COLOR_IS_5
-                                        : TAGS.BACKGROUND_COLOR_IS_1;
+                                        ? CONSTS.BACKGROUND_COLOR_IS_5
+                                        : CONSTS.BACKGROUND_COLOR_IS_1;
+
+                                // 重新给它赋值，从白色渐变过去
+                                id = isFromSaber
+                                        ? R.animator.background_color_0_to_5
+                                        : R.animator.background_color_0_to_1;
+                            }
 
                             ObjectAnimator objectAnimator;
 
@@ -197,6 +200,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(
                         MainActivity.this, SettingsActivity.class));
                 return true;
+            case R.id.action_refresh:
+                data.clear();
+                data = manager.getMessages();
+                adapter.notifyDataSetChanged();
+                return true;
+            case R.id.action_removeAll:
+                manager.removeAll();
+                data.clear();
+                adapter.notifyDataSetChanged();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -207,16 +220,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode){
-            case TAGS.DELETE_REQUEST:
+            case CONSTS.DELETE_REQUEST:
                 switch (resultCode){
                     case DeleteActivity.resultCode:
-                        if(data.getBooleanExtra(TAGS.DELETE_OR_NOT, false)){
-
+                        if(data.getBooleanExtra(CONSTS.DELETE_OR_NOT, false)){
                             // 因为我传递过去的时候是把position传递过去的
                             // 所以我猜再传递回来并且拿给adapter是没有问题的
-                            deleteMessage(data.getIntExtra(TAGS.POSITION, 0));
-                            Log.d(this.toString(), "data.getIntExtra(TAGS.POSITION, 0) = " +
-                                    data.getIntExtra(TAGS.POSITION, 0));
+                            deleteMessage(data.getIntExtra(CONSTS.POSITION, 0));
+                            Log.d(this.toString(), "data.getIntExtra(CONSTS.POSITION, 0) = " +
+                                    data.getIntExtra(CONSTS.POSITION, 0));
 
                         }
                         break;
@@ -239,23 +251,41 @@ public class MainActivity extends AppCompatActivity {
     public void commitMessage(View view){
         String msg = editMessage.getText().toString();
 
-        // 去掉末尾换行符或者空格
+        // 去掉首尾换行符或者空格
         while (msg.endsWith("\n") || msg.endsWith(" ")){
             msg = msg.substring(0, msg.length()-1);
+        }
+        while (msg.startsWith("\n") || msg.startsWith(" ")){
+            msg = msg.substring(1, msg.length());
         }
 
         MyMessage message;
         message = new MyMessage(false, msg);
-        data.add(message);
-        adapter.notifyItemInserted(data.size()-1);
         manager.addMessage(message);
-        answerMessage(msg);
+        data.add(manager.getLastMessage());
+        adapter.notifyItemInserted(data.size()-1);
+        toAnswer(msg);
         editMessage.setText("");
+    }
+
+    private void toAnswer(String msg){
+        int cnt = 0;
+        for (String shouldBeSplit : CONSTS.SHOULD_BE_SPLIT ) {
+            if (msg.contains(shouldBeSplit)) {
+                cnt++;
+                String[] msgs = msg.split(shouldBeSplit);
+                for (String msg0 : msgs) {
+                    answerMessage(msg0);
+                }
+            }
+        }
+        Log.d(toString(), "cnt = " + cnt);
+        if(cnt == 0) answerMessage(msg);
     }
 
     private void answerMessage(String msg){
         MyMessage message;
-        message = new MyMessage(true, msg);
+        message = new MyMessage(true, msg, data.size()-1);
         data.add(message);
         adapter.notifyItemInserted(data.size()-1);
         manager.addMessage(message);
@@ -272,9 +302,11 @@ public class MainActivity extends AppCompatActivity {
 //        else {
 //            Log.d(
 //                    MainActivity.this.toString(),
-//                    TAGS.DELETE_FAILED
+//                    CONSTS.DELETE_FAILED
 //            );
-        manager.deleteMessageById(position);
+        manager.deleteMessageById(
+                data.get(position).getId()
+        );
 //        }
         data.remove(position);
         adapter.notifyItemRemoved(position);

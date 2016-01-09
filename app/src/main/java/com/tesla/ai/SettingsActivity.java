@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import util.TAGS;
+import util.CONSTS;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -32,6 +31,7 @@ public class SettingsActivity extends AppCompatActivity {
         data.add("给Saber酱起个名字吧");
         data.add("关于开发者");
         data.add("加入我们");
+        data.add("继续和Saber聊天");
 
         ListView settings = (ListView) findViewById(R.id.settings);
 
@@ -44,35 +44,43 @@ public class SettingsActivity extends AppCompatActivity {
                     AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i){
                     case 0:
-                        joinQQ(TAGS.HDF_STUDIO);
+                        joinQQ(CONSTS.HDF_STUDIO);
                         break;
                     case 1:
-                        joinQQ(TAGS.PROGRAM_LEAGUE);
+                        joinQQ(CONSTS.PROGRAM_LEAGUE);
                         break;
                     case 2:
-                        startActivity(
-                                new Intent(SettingsActivity.this,
-                                GithubActivity.class));
+                        startActivity(new Intent(
+                                SettingsActivity.this,
+                                GithubActivity.class
+                        ));
 //                        finish();
                         break;
                     case 3:
                         Toast.makeText(
                                 SettingsActivity.this,
-                                TAGS.SORRY_CANNOT_USE,
+                                CONSTS.SORRY_CANNOT_USE,
                                 Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
-                        startActivity(
-                                new Intent(SettingsActivity.this,
-                                        AboutMeActivity.class));
+                        startActivity(new Intent(
+                                SettingsActivity.this,
+                                AboutMeActivity.class
+                        ));
 //                        finish();
                         break;
                     case 5:
                         Toast.makeText(
                                 SettingsActivity.this,
-                                TAGS.SORRY_CANNOT_JOIN,
-                                Toast.LENGTH_SHORT).show();
+                                CONSTS.SORRY_CANNOT_JOIN,
+                                Toast.LENGTH_SHORT
+                        ).show();
                         break;
+                    case 6:
+                        startActivity(new Intent(
+                                SettingsActivity.this,
+                                MainActivity.class
+                        ));
                     default:
                         break;
                 }
@@ -86,10 +94,10 @@ public class SettingsActivity extends AppCompatActivity {
         String key;
 
         switch (QQGroupId){
-            case TAGS.PROGRAM_LEAGUE:
+            case CONSTS.PROGRAM_LEAGUE:
                 key = "1xAz-QGQL0FrWLWvBz_a5yE6aIv_64et";
                 break;
-            case TAGS.HDF_STUDIO:
+            case CONSTS.HDF_STUDIO:
                 key = "BulOWcuBrEZZh2gZDGhxikoGDQaNHlgg";
                 break;
             default:

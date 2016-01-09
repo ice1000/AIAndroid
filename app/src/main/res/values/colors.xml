@@ -7,6 +7,8 @@
     <!--<color name="colorPrimary">#3F51B5</color>-->
     <!--<color name="colorPrimaryDark">#303F9F</color>-->
 
+    <color name="cardColor1Light">#4aa3df</color>
+    <!--<color name="cardColor1Pressed">#2980b9</color>-->
     <color name="cardColor1">#0041f5</color>
     <color name="cardColor1Pressed">#001e79</color>
     <color name="cardColor2">#f500e1</color>
@@ -15,6 +17,8 @@
     <color name="cardColor3Pressed">#7a0101</color>
     <color name="cardColor4">#00d8f5</color>
     <color name="cardColor4Pressed">#016c7a</color>
+    <color name="cardColor5Light">#2ecc71</color>
+    <!--<color name="cardColor5Pressed">#27ae60</color>-->
     <color name="cardColor5">#00f562</color>
     <color name="cardColor5Pressed">#017a33</color>
     <color name="cardColor6">#e1f500</color>
