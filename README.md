@@ -6,7 +6,7 @@ distribution ,or exhibition of copyrighted motion pictures (title 17,united stat
 the federal bureau of investigation investigates allegations of criminal copyright infringement 
 (title 17,united states code,section 506)`
 
-# 发现一个bug！正在修复中！
+# 暂无已知bug
 
 # AIAndroid is:
 受[我的友人](https://github.com/Wimacs)的影响 决定开始写的:<br/>
@@ -54,13 +54,21 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新 
 
+### 2016年1月10日凌晨 1.0.2.0 重大更新
+1. 改进程序结构，回复的算法被单独提了出来。
+1. 让所有调用
+
+# 历史更新
+
+### 2016年1月10日凌晨 1.0.2.0
+1. 修复了bug。现在可以拿出来玩了。
+1. 将主界面的menu做成了单独的。
+
 ### 2016年1月9日 1.0.1.3
 1. 增加了刷新。
 1. 增加了清空聊天记录。
 1. 旧的消息记录已经可以删除了。最新发送的消息记录仍然不能删除！
 1. 更改了很多颜色配置。
-
-# 历史更新
 
 ### 2016年1月8日 1.0.1.2
 1. 突然发现重大bug！消息记录删除不掉！吓尿！！

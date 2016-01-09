@@ -16,6 +16,7 @@ public class CONSTS {
     public static final String DELETE_FAILED = "删除失败，使用暴力方法删除";
     public static final String SORRY_CANNOT_USE =  "抱歉本功能暂未开放";
     public static final String SORRY_CANNOT_JOIN =  "由于开发者害怕被肛，暂时无法联系上他";
+    public static final String NO_MESSAGE_FOUND =  "没有找到消息";
     public static final String[] SHOULD_BE_SPLIT = new String[]{
             " ",
             "\n"
@@ -27,15 +28,16 @@ public class CONSTS {
     public static final int BACKGROUND_COLOR_IS_5 = 2;
     public static final int BACKGROUND_COLOR_IS_1 = 3;
     public static final int BACKGROUND_COLOR_IS_0 = 4;
+    // 在SettingsActivity中的
+    public static final int HDF_STUDIO = 5;
+    public static final int PROGRAM_LEAGUE = 6;
+    // 在主脑中的
+    public static final int ANSWER_MESSAGE_SEND = 7;
 
     // 在SQLite中的
     public static final String DATABASE_NAME = "ice1000.db";
     public static final String TALK_LOG_TABLE = "TALK_LOG_TABLE";
     public static final String KNOWLEDGE = "KNOWLEDGE";
-
-    // 在SettingsActivity中的
-    public static final int HDF_STUDIO = 5;
-    public static final int PROGRAM_LEAGUE = 6;
 
     // 还有几个在MyMessage中
 

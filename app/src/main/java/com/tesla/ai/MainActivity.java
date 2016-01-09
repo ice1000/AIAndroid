@@ -15,57 +15,44 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-import database.SQLiteManager;
+import brain.MainBrain;
+import util.BrainUsingActivity;
 import util.CONSTS;
 import util.MyMessage;
 import util.OnItemClickListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+implements BrainUsingActivity{
 
     private int nowBackgroundColor;
     private RecyclerView messageRecycler;
     private MessageAdapter adapter;
-    private ArrayList<MyMessage> data;
     private EditText editMessage;
-    private SQLiteManager manager;
+    private MainBrain brain;
+//    private Handler brainMessageHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 一定最先构造大脑
+        brain = new MainBrain(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            Window window = getWindow();
-////            window.addFlags(
-////                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//            window.addFlags(
-//                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-//            window.addFlags(
-//                    WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//            window.clearFlags(
-//                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//            window.setStatusBarColor(0xFFFFFFFF);
-//        }
-
         editMessage = (EditText) findViewById(R.id.sendBox);
-
-        manager = new SQLiteManager(this);
-        data = manager.getMessages();
 
 //        测试数据
 //        data.add(new MyMessage(false, "宝贝再见~"));
@@ -86,14 +73,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(
                         MainActivity.this, DeleteActivity.class
                 );
-//                intent.putExtra(CONSTS.POSITION, data.get(position).getId());
                 intent.putExtra(CONSTS.POSITION, position);
                 startActivityForResult(intent, CONSTS.DELETE_REQUEST);
             }
             @Override
             public void onItemTouch(View view, int position, MotionEvent event) {
 
-                boolean isFromSaber = data.get(position).isFromSaber();
+                boolean isFromSaber =
+                        brain.getData().get(position).isFromSaber();
                 int[] colorId;
 
                 Log.d(this.toString(),
@@ -110,52 +97,35 @@ public class MainActivity extends AppCompatActivity {
                                 R.color.cardColor5Pressed,
                                 R.color.cardColor5
                         };
-
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-
-                            int id = isFromSaber
-                                    ? R.animator.background_color_1_to_5
-                                    : R.animator.background_color_5_to_1;
-
-                            // 如果现在的颜色已经正常了那就不用变化了
-                            if(nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_5){
-                                if(isFromSaber)
-                                    break;
-                                else
-                                    nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_1;
-                            }
+                        int id = isFromSaber
+                                ? R.animator.background_color_1_to_5
+                                : R.animator.background_color_5_to_1;
+                        // 如果现在的颜色已经正常了那就不用变化了
+                        if(nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_5){
+                            if(isFromSaber)
+                                break;
                             else
-                            if (nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_1){
-                                if(!isFromSaber)
-                                    break;
-                                else
-                                    nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_5;
-                            }
-                            else
-                            if(nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_0) {
-                                nowBackgroundColor = isFromSaber
-                                        ? CONSTS.BACKGROUND_COLOR_IS_5
-                                        : CONSTS.BACKGROUND_COLOR_IS_1;
-
-                                // 重新给它赋值，从白色渐变过去
-                                id = isFromSaber
-                                        ? R.animator.background_color_0_to_5
-                                        : R.animator.background_color_0_to_1;
-                            }
-
-                            ObjectAnimator objectAnimator;
-
-                            objectAnimator = (ObjectAnimator) AnimatorInflater
-                                    .loadAnimator(MainActivity.this, id);
-
-                            //用于动画计算的需要，
-                            // 如果开始和结束的值不是基本类型的时候，这个方法是需要的。
-                            objectAnimator.setEvaluator(new ArgbEvaluator());
-
-                            //设置动画的设置目标
-                            objectAnimator.setTarget(messageRecycler);
-                            objectAnimator.start();
+                                nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_1;
                         }
+                        else
+                        if (nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_1){
+                            if(!isFromSaber)
+                                break;
+                            else
+                                nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_5;
+                        }
+                        else
+                        if(nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_0) {
+                            nowBackgroundColor = isFromSaber
+                                    ? CONSTS.BACKGROUND_COLOR_IS_5
+                                    : CONSTS.BACKGROUND_COLOR_IS_1;
+
+                            // 重新给它赋值，从白色渐变过去
+                            id = isFromSaber
+                                    ? R.animator.background_color_0_to_5
+                                    : R.animator.background_color_0_to_1;
+                        }
+                        changeBackgroundColor(id);
                         break;
                     default:
 
@@ -166,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
                                 R.color.cardColor5,
                                 R.color.cardColor5Pressed
                         };
-
                         break;
                 }
 
@@ -182,6 +151,20 @@ public class MainActivity extends AppCompatActivity {
 
         messageRecycler.setAdapter(adapter);
 
+//        brainMessageHandler = new Handler(){
+//            @Override
+//            public void handleMessage(Message msg) {
+//                super.handleMessage(msg);
+//                switch (msg.what){
+//                    case CONSTS.ANSWER_MESSAGE_SEND:
+//                        adapter.notifyItemInserted(brain.getDataSize()-1);
+//                        break;
+//                    default:
+//                        Log.d(toString(), CONSTS.NO_MESSAGE_FOUND);
+//                        break;
+//                }
+//            }
+//        };
     }
 
     @Override
@@ -201,14 +184,19 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.this, SettingsActivity.class));
                 return true;
             case R.id.action_refresh:
-                data.clear();
-                data = manager.getMessages();
+                brain.refreshData();
                 adapter.notifyDataSetChanged();
                 return true;
             case R.id.action_removeAll:
-                manager.removeAll();
-                data.clear();
+                brain.clearData();
                 adapter.notifyDataSetChanged();
+                changeBackgroundColor(
+                        nowBackgroundColor ==
+                                CONSTS.BACKGROUND_COLOR_IS_1
+                                ? R.animator.background_color_1_to_0
+                                : R.animator.background_color_5_to_0
+                );
+                nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_0;
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -226,10 +214,21 @@ public class MainActivity extends AppCompatActivity {
                         if(data.getBooleanExtra(CONSTS.DELETE_OR_NOT, false)){
                             // 因为我传递过去的时候是把position传递过去的
                             // 所以我猜再传递回来并且拿给adapter是没有问题的
-                            deleteMessage(data.getIntExtra(CONSTS.POSITION, 0));
+                            int position = data.getIntExtra(CONSTS.POSITION, 0);
+
+                            // 先让大脑删除message
+                            brain.deleteMessage(position);
+                            adapter.notifyItemRemoved(position);
+                            if(brain.isDataEmpty()){
+                                changeBackgroundColor(
+                                        nowBackgroundColor ==
+                                                CONSTS.BACKGROUND_COLOR_IS_1
+                                                ? R.animator.background_color_1_to_0
+                                                : R.animator.background_color_5_to_0
+                                );
+                            }
                             Log.d(this.toString(), "data.getIntExtra(CONSTS.POSITION, 0) = " +
                                     data.getIntExtra(CONSTS.POSITION, 0));
-
                         }
                         break;
                     default:
@@ -247,69 +246,36 @@ public class MainActivity extends AppCompatActivity {
 //                MainActivity.this, SettingsActivity.class
 //        ));
 //    }
-
     public void commitMessage(View view){
         String msg = editMessage.getText().toString();
-
-        // 去掉首尾换行符或者空格
-        while (msg.endsWith("\n") || msg.endsWith(" ")){
-            msg = msg.substring(0, msg.length()-1);
-        }
-        while (msg.startsWith("\n") || msg.startsWith(" ")){
-            msg = msg.substring(1, msg.length());
-        }
-
-        MyMessage message;
-        message = new MyMessage(false, msg);
-        manager.addMessage(message);
-        data.add(manager.getLastMessage());
-        adapter.notifyItemInserted(data.size()-1);
-        toAnswer(msg);
+        brain.giveMessage(msg);
+        adapter.notifyItemInserted(brain.getDataSize()-1);
         editMessage.setText("");
     }
 
-    private void toAnswer(String msg){
-        int cnt = 0;
-        for (String shouldBeSplit : CONSTS.SHOULD_BE_SPLIT ) {
-            if (msg.contains(shouldBeSplit)) {
-                cnt++;
-                String[] msgs = msg.split(shouldBeSplit);
-                for (String msg0 : msgs) {
-                    answerMessage(msg0);
-                }
-            }
+    private void changeBackgroundColor(int id) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB){
+            ObjectAnimator objectAnimator;
+            objectAnimator = (ObjectAnimator) AnimatorInflater
+                    .loadAnimator(MainActivity.this, id);
+            //用于动画计算的需要，
+            // 如果开始和结束的值不是基本类型的时候，这个方法是需要的。
+            objectAnimator.setEvaluator(new ArgbEvaluator());
+            //设置动画的设置目标
+            objectAnimator.setTarget(messageRecycler);
+            objectAnimator.start();
         }
-        Log.d(toString(), "cnt = " + cnt);
-        if(cnt == 0) answerMessage(msg);
     }
 
-    private void answerMessage(String msg){
-        MyMessage message;
-        message = new MyMessage(true, msg, data.size()-1);
-        data.add(message);
-        adapter.notifyItemInserted(data.size()-1);
-        manager.addMessage(message);
-    }
-
-    private void deleteMessage(int position){
-        Log.d(this.toString(),
-                "data.get(position) = " +
-                data.get(position));
-
-//        if(data.get(position).isIdAvailable()){
-//            manager.deleteMessage(data.get(position));
-//        }
-//        else {
-//            Log.d(
-//                    MainActivity.this.toString(),
-//                    CONSTS.DELETE_FAILED
-//            );
-        manager.deleteMessageById(
-                data.get(position).getId()
-        );
-//        }
-        data.remove(position);
-        adapter.notifyItemRemoved(position);
+    @Override
+    public void notifyAdapter(int position, int action) {
+        switch (action) {
+            case CONSTS.ANSWER_MESSAGE_SEND:
+                adapter.notifyItemInserted(position);
+                break;
+            default:
+                break;
+        }
     }
 
     class MessageAdapter extends RecyclerView.Adapter {
@@ -330,7 +296,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
 
-            ((MessageViewHolder)holder).init(data.get(position));
+            ((MessageViewHolder)holder).init(
+                    brain.getMessageByPosition(position)
+            );
 
             if (onItemClickListener != null) {
                 holder.itemView.setOnClickListener(
@@ -363,10 +331,9 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         }
-
         @Override
         public int getItemCount() {
-            return data.size();
+            return brain.getDataSize();
         }
 
     }
