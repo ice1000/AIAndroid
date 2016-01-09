@@ -18,6 +18,8 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 这是一个Material Design的项目，就是不知道这个和二次元的微妙结合会有什么样的效果呢<br/>
 
+![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x00.png)
+
 # 实现情况：
 
 ## 算法(运行方式)部分
