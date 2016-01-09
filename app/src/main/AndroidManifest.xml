@@ -38,7 +38,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".DeleteActivity"
-            android:label="@string/areYouSureToDelete"
+            android:label="@string/sure"
             android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat.Dialog" />
         <activity

@@ -1,3 +1,4 @@
+# 当前暂无已知bug
                                            FBI warning
 
 
@@ -6,7 +7,6 @@ distribution ,or exhibition of copyrighted motion pictures (title 17,united stat
 the federal bureau of investigation investigates allegations of criminal copyright infringement 
 (title 17,united states code,section 506)`
 
-# 暂无已知bug
 
 # AIAndroid is:
 受[我的友人](https://github.com/Wimacs)的影响 决定开始写的:<br/>
@@ -54,6 +54,15 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新 
 
+### 2016年1月10日 1.0.2.1
+1. 修复了昨晚上发现的bug
+1. 更改弹出窗口的布局
+1. 增加清空记录时背景色的检查
+1. 上次push忘记改版本号了。。。
+1. 现在主脑正式封装完毕，MainActivity只负责更新UI、和主脑通信，主脑负责数据的处理。和SQLite的通信也交由主脑全权负责。这特么才叫MVC啊！
+
+# 历史更新
+
 ### 2016年1月10日凌晨 1.0.2.0 重大更新
 1. 改进程序结构，回复的算法被单独提了出来。
 1. 让所有调用到主脑的Activity都必须实现BrainUsingActivity。
@@ -61,8 +70,6 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 修复最新发送的消息无法删除的bug。
 1. 更改发送键的大小。
 1. 不过还是发现了新bug，不太好描述就不说了。
-
-# 历史更新
 
 ### 2016年1月10日凌晨 1.0.1.4
 1. 修复了bug。现在可以拿出来玩了。

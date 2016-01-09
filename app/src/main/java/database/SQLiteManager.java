@@ -99,14 +99,6 @@ public class SQLiteManager {
         );
     }
 
-    public void deleteMessage(MyMessage message){
-        database.delete(
-                CONSTS.TALK_LOG_TABLE,
-                MyMessage.ID + "=" + message.getId(),
-                null
-        );
-    }
-
     public MyMessage getOneMessage(int id){
         Cursor cursor = database.rawQuery(
                 "select * from " + CONSTS.TALK_LOG_TABLE + " where " + MyMessage.ID + "=" + id,

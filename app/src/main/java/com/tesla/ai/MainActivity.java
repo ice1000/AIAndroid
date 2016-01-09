@@ -183,13 +183,15 @@ implements BrainUsingActivity{
                 return true;
             case R.id.action_removeAll:
                 brain.clearData();
-                changeBackgroundColor(
-                        nowBackgroundColor ==
-                                CONSTS.BACKGROUND_COLOR_IS_1
-                                ? R.animator.background_color_1_to_0
-                                : R.animator.background_color_5_to_0
-                );
-                nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_0;
+                if(nowBackgroundColor != CONSTS.BACKGROUND_COLOR_IS_0) {
+                    changeBackgroundColor(
+                            nowBackgroundColor ==
+                                    CONSTS.BACKGROUND_COLOR_IS_1
+                                    ? R.animator.background_color_1_to_0
+                                    : R.animator.background_color_5_to_0
+                    );
+                    nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_0;
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

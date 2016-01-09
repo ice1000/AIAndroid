@@ -31,7 +31,7 @@ public class MainBrain {
     public void giveMessage(String Message) {
         this.lastGivenMessage = Message;
         activity.notifyAdapter(
-                data.size()-1,
+                data.size(),
                 CONSTS.ANSWER_MESSAGE_RECIEVED
         );
         handleLastGivenMessage();
