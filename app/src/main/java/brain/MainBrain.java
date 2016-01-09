@@ -30,7 +30,10 @@ public class MainBrain {
 
     public void giveMessage(String Message) {
         this.lastGivenMessage = Message;
-        activity.notifyAdapter(data.size()-1, CONSTS.ANSWER_MESSAGE_RECIEVED);
+        activity.notifyAdapter(
+                data.size()-1,
+                CONSTS.ANSWER_MESSAGE_RECIEVED
+        );
         handleLastGivenMessage();
     }
 
@@ -51,6 +54,7 @@ public class MainBrain {
                 data.get(position).getId()
         );
 //        }
+//
         data.remove(position);
 
         activity.notifyAdapter(
@@ -98,8 +102,8 @@ public class MainBrain {
     private void sendAnswerAsMessage(ArrayList<String> answerMessage){
         for (String msg : answerMessage) {
             MyMessage message = new MyMessage(true, msg, data.size()-1);
-            data.add(message);
             manager.addMessage(message);
+            data.add(manager.getLastMessage());
             activity.notifyAdapter(
                     data.size()-1,
                     CONSTS.ANSWER_MESSAGE_SENT

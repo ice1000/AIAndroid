@@ -68,10 +68,6 @@ implements BrainUsingActivity{
 
         editMessage = (EditText) findViewById(R.id.sendBox);
 
-//        测试数据
-//        data.add(new MyMessage(false, "宝贝再见~"));
-//        data.add(new MyMessage(true, "亲爱的最喜欢了~"));
-
         adapter = new MessageAdapter();
 
         messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
@@ -237,11 +233,6 @@ implements BrainUsingActivity{
 
     }
 
-//    public void gotoSettings(View view){
-//        startActivity(new Intent(
-//                MainActivity.this, SettingsActivity.class
-//        ));
-//    }
     public void commitMessage(View view){
         String msg = editMessage.getText().toString();
         brain.giveMessage(msg);

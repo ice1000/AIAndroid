@@ -58,12 +58,16 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 改进程序结构，回复的算法被单独提了出来。
 1. 让所有调用到主脑的Activity都必须实现BrainUsingActivity。
 1. 主脑的控制反转，呼唤Activity更新数据。
+1. 修复最新发送的消息无法删除的bug。
+1. 更改发送键的大小。
+1. 不过还是发现了新bug，不太好描述就不说了。
 
 # 历史更新
 
-### 2016年1月10日凌晨 1.0.2.0
+### 2016年1月10日凌晨 1.0.1.4
 1. 修复了bug。现在可以拿出来玩了。
 1. 将主界面的menu做成了单独的。
+1. 背景颜色变化还有点问题。
 
 ### 2016年1月9日 1.0.1.3
 1. 增加了刷新。

@@ -48,7 +48,7 @@
                 android:layout_margin="@dimen/myCardMargin"
                 app:cardBackgroundColor="@color/textColor"
                 android:layout_weight="1"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent">
 
                 <EditText
@@ -66,15 +66,14 @@
                 android:layout_margin="@dimen/myCardMargin"
                 app:cardCornerRadius="@dimen/myCardCornerRadius"
                 app:cardBackgroundColor="@color/cardColor1Pressed"
-                android:layout_weight="5"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
                 <TextView
                     android:gravity="center"
                     android:onClick="commitMessage"
                     android:textColor="@color/textColor"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/send_button_width"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_dredge_tips_selector"
                     android:text="@string/send"
