@@ -40,6 +40,20 @@ implements BrainUsingActivity{
     private EditText editMessage;
     private MainBrain brain;
 //    private Handler brainMessageHandler;
+//        brainMessageHandler = new Handler(){
+//            @Override
+//            public void handleMessage(Message msg) {
+//                super.handleMessage(msg);
+//                switch (msg.what){
+//                    case CONSTS.ANSWER_MESSAGE_SENT:
+//                        adapter.notifyItemInserted(brain.getDataSize()-1);
+//                        break;
+//                    default:
+//                        Log.d(toString(), CONSTS.NO_MESSAGE_FOUND);
+//                        break;
+//                }
+//            }
+//        };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,21 +164,6 @@ implements BrainUsingActivity{
         });
 
         messageRecycler.setAdapter(adapter);
-
-//        brainMessageHandler = new Handler(){
-//            @Override
-//            public void handleMessage(Message msg) {
-//                super.handleMessage(msg);
-//                switch (msg.what){
-//                    case CONSTS.ANSWER_MESSAGE_SEND:
-//                        adapter.notifyItemInserted(brain.getDataSize()-1);
-//                        break;
-//                    default:
-//                        Log.d(toString(), CONSTS.NO_MESSAGE_FOUND);
-//                        break;
-//                }
-//            }
-//        };
     }
 
     @Override
@@ -185,11 +184,9 @@ implements BrainUsingActivity{
                 return true;
             case R.id.action_refresh:
                 brain.refreshData();
-                adapter.notifyDataSetChanged();
                 return true;
             case R.id.action_removeAll:
                 brain.clearData();
-                adapter.notifyDataSetChanged();
                 changeBackgroundColor(
                         nowBackgroundColor ==
                                 CONSTS.BACKGROUND_COLOR_IS_1
@@ -218,7 +215,6 @@ implements BrainUsingActivity{
 
                             // 先让大脑删除message
                             brain.deleteMessage(position);
-                            adapter.notifyItemRemoved(position);
                             if(brain.isDataEmpty()){
                                 changeBackgroundColor(
                                         nowBackgroundColor ==
@@ -249,7 +245,6 @@ implements BrainUsingActivity{
     public void commitMessage(View view){
         String msg = editMessage.getText().toString();
         brain.giveMessage(msg);
-        adapter.notifyItemInserted(brain.getDataSize()-1);
         editMessage.setText("");
     }
 
@@ -270,8 +265,15 @@ implements BrainUsingActivity{
     @Override
     public void notifyAdapter(int position, int action) {
         switch (action) {
-            case CONSTS.ANSWER_MESSAGE_SEND:
+            case CONSTS.ANSWER_MESSAGE_SENT:
+            case CONSTS.ANSWER_MESSAGE_RECIEVED:
                 adapter.notifyItemInserted(position);
+                break;
+            case CONSTS.ANSWER_MESSAGE_DELETED:
+                adapter.notifyItemRemoved(position);
+                break;
+            case CONSTS.WHOLE_DATASET_CHANGED:
+                adapter.notifyDataSetChanged();
                 break;
             default:
                 break;

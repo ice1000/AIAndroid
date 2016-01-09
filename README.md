@@ -56,7 +56,8 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 ### 2016年1月10日凌晨 1.0.2.0 重大更新
 1. 改进程序结构，回复的算法被单独提了出来。
-1. 让所有调用
+1. 让所有调用到主脑的Activity都必须实现BrainUsingActivity。
+1. 主脑的控制反转，呼唤Activity更新数据。
 
 # 历史更新
 

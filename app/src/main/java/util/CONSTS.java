@@ -22,8 +22,9 @@ public class CONSTS {
             "\n"
     };
 
-    // 数字都是随手打的，记住绝对不能一样！
     // 在MainActivity中的
+    public static final int DONT_NEED_THIS_PARAM  = -1;
+    // 数字都是随手打的，记住绝对不能一样！
     public static final int DELETE_REQUEST        = 1;
     public static final int BACKGROUND_COLOR_IS_5 = 2;
     public static final int BACKGROUND_COLOR_IS_1 = 3;
@@ -32,7 +33,10 @@ public class CONSTS {
     public static final int HDF_STUDIO = 5;
     public static final int PROGRAM_LEAGUE = 6;
     // 在主脑中的
-    public static final int ANSWER_MESSAGE_SEND = 7;
+    public static final int ANSWER_MESSAGE_SENT = 7;
+    public static final int ANSWER_MESSAGE_DELETED = 8;
+    public static final int WHOLE_DATASET_CHANGED = 9;
+    public static final int ANSWER_MESSAGE_RECIEVED = 10;
 
     // 在SQLite中的
     public static final String DATABASE_NAME = "ice1000.db";

@@ -30,6 +30,7 @@ public class MainBrain {
 
     public void giveMessage(String Message) {
         this.lastGivenMessage = Message;
+        activity.notifyAdapter(data.size()-1, CONSTS.ANSWER_MESSAGE_RECIEVED);
         handleLastGivenMessage();
     }
 
@@ -51,6 +52,11 @@ public class MainBrain {
         );
 //        }
         data.remove(position);
+
+        activity.notifyAdapter(
+                position,
+                CONSTS.ANSWER_MESSAGE_DELETED
+        );
     }
 
     private void handleLastGivenMessage(){
@@ -66,7 +72,10 @@ public class MainBrain {
                     substring(1, lastGivenMessage.length());
         }
         MyMessage message;
-        message = new MyMessage(false, lastGivenMessage);
+        message = new MyMessage(
+                false,
+                lastGivenMessage
+        );
         manager.addMessage(message);
         data.add(manager.getLastMessage());
 
@@ -91,7 +100,10 @@ public class MainBrain {
             MyMessage message = new MyMessage(true, msg, data.size()-1);
             data.add(message);
             manager.addMessage(message);
-            activity.notifyAdapter(data.size()-1, CONSTS.ANSWER_MESSAGE_SEND);
+            activity.notifyAdapter(
+                    data.size()-1,
+                    CONSTS.ANSWER_MESSAGE_SENT
+            );
         }
     }
 
@@ -106,11 +118,19 @@ public class MainBrain {
     public void refreshData(){
         data.clear();
         data = manager.getMessages();
+        activity.notifyAdapter(
+                CONSTS.DONT_NEED_THIS_PARAM,
+                CONSTS.WHOLE_DATASET_CHANGED
+        );
     }
     
     public void clearData(){
         manager.removeAll();
         data.clear();
+        activity.notifyAdapter(
+                CONSTS.DONT_NEED_THIS_PARAM,
+                CONSTS.WHOLE_DATASET_CHANGED
+        );
     }
 
     public MyMessage getMessageByPosition(int position){
