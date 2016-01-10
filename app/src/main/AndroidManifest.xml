@@ -9,9 +9,9 @@
         android:maxSdkVersion="18" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18"/>
+        android:maxSdkVersion="18" />
     <uses-permission
-        android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -28,6 +28,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -38,15 +39,19 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".DeleteActivity"
-            android:label="@string/sure"
             android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat.Dialog" />
         <activity
-            android:screenOrientation="portrait"
-            android:name=".GithubActivity" />
+            android:name=".GithubActivity"
+            android:screenOrientation="portrait" />
         <activity
+            android:name=".AboutMeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RenameActivity"
             android:screenOrientation="portrait"
-            android:name=".AboutMeActivity"/>
+            android:theme="@style/Base.Theme.AppCompat.Dialog" />
+
     </application>
 
 </manifest>
