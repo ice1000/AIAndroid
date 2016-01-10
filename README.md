@@ -18,7 +18,7 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 这是一个Material Design的项目，就是不知道这个和二次元的微妙结合会有什么样的效果呢<br/>
 
-![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x00.png)
+![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x00.png)![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x01.png)
 
 # 实现情况：
 
@@ -54,7 +54,8 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新 
 
-### 2016年1月10日 1.0.2.1
+### 2016年1月10日 1.0.3.0 重大更新
+1. 成功把去除、分开的字符都封装成正则表达式字库放CONSTS里面，这也是是第一次用正则表达式。。
 1. 修复了昨晚上发现的bug
 1. 更改弹出窗口的布局
 1. 增加清空记录时背景色的检查
