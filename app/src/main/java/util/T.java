@@ -3,7 +3,7 @@ package util;
 /**
  * Created by Administrator on 2016/1/5 0005.
  */
-public class CONSTS {
+public class T {
 
     public static final String PREFERENCE_NAME = "PREFERENCE_NAME";
     public static final String USER_NAME = "USER_NAME";

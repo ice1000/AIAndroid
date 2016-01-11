@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import util.CONSTS;
+import util.T;
 
 public class DeleteActivity extends Activity {
 
@@ -19,20 +19,20 @@ public class DeleteActivity extends Activity {
         setContentView(R.layout.activity_delete);
 
         Intent data = getIntent();
-        position = data.getIntExtra(CONSTS.POSITION, 0);
+        position = data.getIntExtra(T.POSITION, 0);
 
         intent = new Intent();
-        intent.putExtra(CONSTS.POSITION, position);
+        intent.putExtra(T.POSITION, position);
     }
 
     public void sureToDelete(View view){
-        intent.putExtra(CONSTS.DELETE_OR_NOT, true);
+        intent.putExtra(T.DELETE_OR_NOT, true);
         setResult(resultCode,intent);
         finish();
     }
 
     public void cancelToDelete(View view){
-        intent.putExtra(CONSTS.DELETE_OR_NOT, false);
+        intent.putExtra(T.DELETE_OR_NOT, false);
         setResult(resultCode,intent);
         finish();
     }

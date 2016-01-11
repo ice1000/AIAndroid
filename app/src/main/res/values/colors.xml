@@ -46,7 +46,7 @@
 
     <color name="textColor">#ffffff</color>
     <color name="generalTextColor">#4edcff</color>
-    <!--<color name="backGround">#96b8ff</color>-->
+    <color name="backGroundSkyBlue">#96b8ff</color>
     <color name="backGround">#ffffff</color>
     <!--<color name="settingItemColorPressed">#748387</color>-->
 

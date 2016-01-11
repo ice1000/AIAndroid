@@ -29,4 +29,13 @@
         name="AppTheme.PopupOverlay"
         parent="ThemeOverlay.AppCompat.Light" />
 
+    <style
+        name="AppTheme.Dialog"
+        parent="Base.Theme.AppCompat.Dialog">
+        <item
+            name="windowActionBar">false</item>
+        <item
+            name="windowNoTitle">true</item>
+    </style>
+
 </resources>

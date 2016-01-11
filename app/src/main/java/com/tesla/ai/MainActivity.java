@@ -27,7 +27,7 @@ import android.widget.TextView;
 
 import brain.MainBrain;
 import util.BrainUsingActivity;
-import util.CONSTS;
+import util.T;
 import util.MyMessage;
 import util.OnItemClickListener;
 
@@ -45,11 +45,11 @@ implements BrainUsingActivity{
 //            public void handleMessage(Message msg) {
 //                super.handleMessage(msg);
 //                switch (msg.what){
-//                    case CONSTS.ANSWER_MESSAGE_SENT:
+//                    case T.ANSWER_MESSAGE_SENT:
 //                        adapter.notifyItemInserted(brain.getDataSize()-1);
 //                        break;
 //                    default:
-//                        Log.d(toString(), CONSTS.NO_MESSAGE_FOUND);
+//                        Log.d(toString(), T.NO_MESSAGE_FOUND);
 //                        break;
 //                }
 //            }
@@ -71,7 +71,7 @@ implements BrainUsingActivity{
         adapter = new MessageAdapter();
 
         messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
-        nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_0;
+        nowBackgroundColor = T.BACKGROUND_COLOR_IS_0;
 
         messageRecycler.setLayoutManager(new LinearLayoutManager(this));
         messageRecycler.setItemAnimator(new DefaultItemAnimator());
@@ -83,8 +83,8 @@ implements BrainUsingActivity{
                 Intent intent = new Intent(
                         MainActivity.this, DeleteActivity.class
                 );
-                intent.putExtra(CONSTS.POSITION, position);
-                startActivityForResult(intent, CONSTS.DELETE_REQUEST);
+                intent.putExtra(T.POSITION, position);
+                startActivityForResult(intent, T.DELETE_REQUEST);
             }
             @Override
             public void onItemTouch(View view, int position, MotionEvent event) {
@@ -111,24 +111,24 @@ implements BrainUsingActivity{
                                 ? R.animator.background_color_1_to_5
                                 : R.animator.background_color_5_to_1;
                         // 如果现在的颜色已经正常了那就不用变化了
-                        if(nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_5){
+                        if(nowBackgroundColor == T.BACKGROUND_COLOR_IS_5){
                             if(isFromSaber)
                                 break;
                             else
-                                nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_1;
+                                nowBackgroundColor = T.BACKGROUND_COLOR_IS_1;
                         }
                         else
-                        if (nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_1){
+                        if (nowBackgroundColor == T.BACKGROUND_COLOR_IS_1){
                             if(!isFromSaber)
                                 break;
                             else
-                                nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_5;
+                                nowBackgroundColor = T.BACKGROUND_COLOR_IS_5;
                         }
                         else
-                        if(nowBackgroundColor == CONSTS.BACKGROUND_COLOR_IS_0) {
+                        if(nowBackgroundColor == T.BACKGROUND_COLOR_IS_0) {
                             nowBackgroundColor = isFromSaber
-                                    ? CONSTS.BACKGROUND_COLOR_IS_5
-                                    : CONSTS.BACKGROUND_COLOR_IS_1;
+                                    ? T.BACKGROUND_COLOR_IS_5
+                                    : T.BACKGROUND_COLOR_IS_1;
 
                             // 重新给它赋值，从白色渐变过去
                             id = isFromSaber
@@ -183,14 +183,14 @@ implements BrainUsingActivity{
                 return true;
             case R.id.action_removeAll:
                 brain.clearData();
-                if(nowBackgroundColor != CONSTS.BACKGROUND_COLOR_IS_0) {
+                if(nowBackgroundColor != T.BACKGROUND_COLOR_IS_0) {
                     changeBackgroundColor(
                             nowBackgroundColor ==
-                                    CONSTS.BACKGROUND_COLOR_IS_1
+                                    T.BACKGROUND_COLOR_IS_1
                                     ? R.animator.background_color_1_to_0
                                     : R.animator.background_color_5_to_0
                     );
-                    nowBackgroundColor = CONSTS.BACKGROUND_COLOR_IS_0;
+                    nowBackgroundColor = T.BACKGROUND_COLOR_IS_0;
                 }
                 return true;
             default:
@@ -203,26 +203,26 @@ implements BrainUsingActivity{
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode){
-            case CONSTS.DELETE_REQUEST:
+            case T.DELETE_REQUEST:
                 switch (resultCode){
                     case DeleteActivity.resultCode:
-                        if(data.getBooleanExtra(CONSTS.DELETE_OR_NOT, false)){
+                        if(data.getBooleanExtra(T.DELETE_OR_NOT, false)){
                             // 因为我传递过去的时候是把position传递过去的
                             // 所以我猜再传递回来并且拿给adapter是没有问题的
-                            int position = data.getIntExtra(CONSTS.POSITION, 0);
+                            int position = data.getIntExtra(T.POSITION, 0);
 
                             // 先让大脑删除message
                             brain.deleteMessage(position);
                             if(brain.isDataEmpty()){
                                 changeBackgroundColor(
                                         nowBackgroundColor ==
-                                                CONSTS.BACKGROUND_COLOR_IS_1
+                                                T.BACKGROUND_COLOR_IS_1
                                                 ? R.animator.background_color_1_to_0
                                                 : R.animator.background_color_5_to_0
                                 );
                             }
-                            Log.d(this.toString(), "data.getIntExtra(CONSTS.POSITION, 0) = " +
-                                    data.getIntExtra(CONSTS.POSITION, 0));
+                            Log.d(this.toString(), "data.getIntExtra(T.POSITION, 0) = " +
+                                    data.getIntExtra(T.POSITION, 0));
                         }
                         break;
                     default:
@@ -258,14 +258,14 @@ implements BrainUsingActivity{
     @Override
     public void notifyAdapter(int position, int action) {
         switch (action) {
-            case CONSTS.ANSWER_MESSAGE_SENT:
-            case CONSTS.ANSWER_MESSAGE_RECIEVED:
+            case T.ANSWER_MESSAGE_SENT:
+            case T.ANSWER_MESSAGE_RECIEVED:
                 adapter.notifyItemInserted(position);
                 break;
-            case CONSTS.ANSWER_MESSAGE_DELETED:
+            case T.ANSWER_MESSAGE_DELETED:
                 adapter.notifyItemRemoved(position);
                 break;
-            case CONSTS.WHOLE_DATASET_CHANGED:
+            case T.WHOLE_DATASET_CHANGED:
                 adapter.notifyDataSetChanged();
                 break;
             default:

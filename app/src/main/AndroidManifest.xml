@@ -40,7 +40,7 @@
         <activity
             android:name=".DeleteActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Base.Theme.AppCompat.Dialog" />
+            android:theme="@style/AppTheme.Dialog" />
         <activity
             android:name=".GithubActivity"
             android:screenOrientation="portrait" />
@@ -50,7 +50,7 @@
         <activity
             android:name=".RenameActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Base.Theme.AppCompat.Dialog" />
+            android:theme="@style/AppTheme.Dialog" />
 
     </application>
 

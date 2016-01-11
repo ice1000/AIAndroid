@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import util.CONSTS;
+import util.T;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -44,10 +44,10 @@ public class SettingsActivity extends AppCompatActivity {
                     AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i){
                     case 0:
-                        joinQQ(CONSTS.HDF_STUDIO);
+                        joinQQ(T.HDF_STUDIO);
                         break;
                     case 1:
-                        joinQQ(CONSTS.PROGRAM_LEAGUE);
+                        joinQQ(T.PROGRAM_LEAGUE);
                         break;
                     case 2:
                         startActivity(new Intent(
@@ -57,10 +57,14 @@ public class SettingsActivity extends AppCompatActivity {
 //                        finish();
                         break;
                     case 3:
-                        Toast.makeText(
+                        startActivity(new Intent(
                                 SettingsActivity.this,
-                                CONSTS.SORRY_CANNOT_USE,
-                                Toast.LENGTH_SHORT).show();
+                                RenameActivity.class
+                        ));
+//                        Toast.makeText(
+//                                SettingsActivity.this,
+//                                T.SORRY_CANNOT_USE,
+//                                Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
                         startActivity(new Intent(
@@ -72,7 +76,7 @@ public class SettingsActivity extends AppCompatActivity {
                     case 5:
                         Toast.makeText(
                                 SettingsActivity.this,
-                                CONSTS.SORRY_CANNOT_JOIN,
+                                T.SORRY_CANNOT_JOIN,
                                 Toast.LENGTH_SHORT
                         ).show();
                         break;
@@ -94,10 +98,10 @@ public class SettingsActivity extends AppCompatActivity {
         String key;
 
         switch (QQGroupId){
-            case CONSTS.PROGRAM_LEAGUE:
+            case T.PROGRAM_LEAGUE:
                 key = "1xAz-QGQL0FrWLWvBz_a5yE6aIv_64et";
                 break;
-            case CONSTS.HDF_STUDIO:
+            case T.HDF_STUDIO:
                 key = "BulOWcuBrEZZh2gZDGhxikoGDQaNHlgg";
                 break;
             default:

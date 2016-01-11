@@ -8,7 +8,7 @@ import java.util.Collections;
 
 import database.SQLiteManager;
 import util.BrainUsingActivity;
-import util.CONSTS;
+import util.T;
 import util.MyMessage;
 
 /**
@@ -32,7 +32,7 @@ public class MainBrain {
         this.lastGivenMessage = Message;
         activity.notifyAdapter(
                 data.size(),
-                CONSTS.ANSWER_MESSAGE_RECIEVED
+                T.ANSWER_MESSAGE_RECIEVED
         );
         handleLastGivenMessage();
     }
@@ -48,7 +48,7 @@ public class MainBrain {
 //        else {
 //            Log.d(
 //                    MainActivity.this.toString(),
-//                    CONSTS.DELETE_FAILED
+//                    T.DELETE_FAILED
 //            );
         manager.deleteMessageById(
                 data.get(position).getId()
@@ -59,17 +59,17 @@ public class MainBrain {
 
         activity.notifyAdapter(
                 position,
-                CONSTS.ANSWER_MESSAGE_DELETED
+                T.ANSWER_MESSAGE_DELETED
         );
     }
 
     private void handleLastGivenMessage(){
         // 去掉首尾换行符或者空格
-        while (lastGivenMessage.endsWith(CONSTS.SHOULD_BE_DELETE)){
+        while (lastGivenMessage.endsWith(T.SHOULD_BE_DELETE)){
             lastGivenMessage = lastGivenMessage.
                     substring(0, lastGivenMessage.length()-1);
         }
-        while (lastGivenMessage.startsWith(CONSTS.SHOULD_BE_DELETE)){
+        while (lastGivenMessage.startsWith(T.SHOULD_BE_DELETE)){
             lastGivenMessage = lastGivenMessage.
                     substring(1, lastGivenMessage.length());
         }
@@ -84,10 +84,10 @@ public class MainBrain {
 
         ArrayList<String> answerWhichIsReadyToBeSent = new ArrayList<>();
 //        int cnt = 0;
-//        if (lastGivenMessage.contains(CONSTS.SHOULD_BE_DELETE)) {
+//        if (lastGivenMessage.contains(T.SHOULD_BE_DELETE)) {
 //            cnt++;
         String[] lastGivenMessages =
-                lastGivenMessage.split(CONSTS.SHOULD_BE_SPLIT);
+                lastGivenMessage.split(T.SHOULD_BE_SPLIT);
         Collections.addAll(
                 answerWhichIsReadyToBeSent,
                     lastGivenMessages
@@ -98,7 +98,7 @@ public class MainBrain {
 //            answerWhichIsReadyToBeSent.add(lastGivenMessage);
         for (int i = 0; i < answerWhichIsReadyToBeSent.size(); i++) {
             String s = answerWhichIsReadyToBeSent.get(i);
-            if (s.matches(CONSTS.SHOULD_BE_DELETE) || s.equals("")){
+            if (s.matches(T.SHOULD_BE_DELETE) || s.equals("")){
                 answerWhichIsReadyToBeSent.remove(i);
                 i--;
             }
@@ -114,7 +114,7 @@ public class MainBrain {
             data.add(manager.getLastMessage());
             activity.notifyAdapter(
                     data.size()-1,
-                    CONSTS.ANSWER_MESSAGE_SENT
+                    T.ANSWER_MESSAGE_SENT
             );
         }
     }
@@ -131,8 +131,8 @@ public class MainBrain {
         data.clear();
         data = manager.getMessages();
         activity.notifyAdapter(
-                CONSTS.DONT_NEED_THIS_PARAM,
-                CONSTS.WHOLE_DATASET_CHANGED
+                T.DONT_NEED_THIS_PARAM,
+                T.WHOLE_DATASET_CHANGED
         );
     }
     
@@ -140,8 +140,8 @@ public class MainBrain {
         manager.removeAll();
         data.clear();
         activity.notifyAdapter(
-                CONSTS.DONT_NEED_THIS_PARAM,
-                CONSTS.WHOLE_DATASET_CHANGED
+                T.DONT_NEED_THIS_PARAM,
+                T.WHOLE_DATASET_CHANGED
         );
     }
 

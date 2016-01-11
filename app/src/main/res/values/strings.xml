@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">人工少女</string>
+    <string name="app_name">字符串自动分割机</string>
     <string name="action_settings">选项</string>
     <string name="hello">你好哦~</string>
     <string name="send">发送</string>
