@@ -17,8 +17,7 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 ![icon](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png)
 
 这是一个Material Design的项目，就是不知道这个和二次元的微妙结合会有什么样的效果呢<br/>
-
-![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x00.png)![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x01.png)
+不同版本时期我也为本APP截了图，在下面历史更新里面可以看到唷
 
 # 实现情况：
 
@@ -54,6 +53,12 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新 
 
+### 2016年1月11日 1.0.3.1
+1. 把颜色改的更浅了
+1. 把主角的绿色改成了灰白（这样的话那几个animator就没用了。。不过还是先留着）
+
+# 历史更新
+
 ### 2016年1月10日 1.0.3.0 重大更新
 1. 成功把去除、分开的字符都封装成正则表达式字库放CONSTS里面，这也是是第一次用正则表达式。。
 1. 修复了昨晚上发现的bug
@@ -62,8 +67,6 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 上次push忘记改版本号了。。。
 1. 现在主脑正式封装完毕，MainActivity只负责更新UI、和主脑通信，主脑负责数据的处理。和SQLite的通信也交由主脑全权负责。这特么才叫MVC啊！
 
-# 历史更新
-
 ### 2016年1月10日凌晨 1.0.2.0 重大更新
 1. 改进程序结构，回复的算法被单独提了出来。
 1. 让所有调用到主脑的Activity都必须实现BrainUsingActivity。
@@ -71,6 +74,8 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 修复最新发送的消息无法删除的bug。
 1. 更改发送键的大小。
 1. 不过还是发现了新bug，不太好描述就不说了。
+
+![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x01.png)
 
 ### 2016年1月10日凌晨 1.0.1.4
 1. 修复了bug。现在可以拿出来玩了。
@@ -106,6 +111,8 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 发送的消息存储在SQLite中
 1. 因为SQLite没有boolean类型，所以在[存取的时候](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/database/SQLiteManager.java)转换成整数
 1. 开启界面增加了[一个逐帧动画](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/drawable/saber_shake.xml)
+
+![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x00.png)
 
 ### 2016年1月6日 1.0.0.4
 1. 实例化了适配器，现在可以互相发送消息了
