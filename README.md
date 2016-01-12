@@ -64,11 +64,11 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 更改了昨天遗留下的所有问题，颜色的问题全部改过，饱和度大大降低
 1. 优化设置界面。
 1. 这个从此以后好像除了算法之外没什么可更新的了。。<br/>
-# UI设计工作正式宣告完成！
-欧耶！
-昨天说的截图：
-![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x03.png)
-![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x04.png)
+# UI设计工作正式宣告完成！<br/>
+欧耶！<br/>
+昨天说的截图：<br/>
+![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x02.png)
+![2333](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x03.png)
 
 # 历史更新
 
