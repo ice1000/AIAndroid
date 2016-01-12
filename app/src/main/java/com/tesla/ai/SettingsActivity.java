@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import brain.Memories;
 import util.T;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -21,6 +22,8 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        Memories memories = new Memories(this);
+
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
@@ -28,10 +31,10 @@ public class SettingsActivity extends AppCompatActivity {
         data.add("推广：HDF Studio群");
         data.add("推广：ProgramLeague群");
         data.add("查看项目源代码(github)");
-        data.add("给Saber酱起个名字吧");
+        data.add("给" + getString(R.string.app_name) + "起个名字吧");
         data.add("关于开发者");
         data.add("加入我们");
-        data.add("继续和Saber聊天");
+        data.add("继续和" + memories.getName() + "聊天");
 
         ListView settings = (ListView) findViewById(R.id.settings);
 

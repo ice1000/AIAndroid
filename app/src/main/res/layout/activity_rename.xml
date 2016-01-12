@@ -5,13 +5,13 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context="com.tesla.ai.RenameActivity"
-    android:background="@color/test3">
+    android:background="@color/backGroundDialog">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:textColor="@color/generalTextColor"
+        android:textColor="@color/textColor"
         android:text="@string/so_name_is"
         android:layout_gravity="center"
         android:layout_marginLeft="20dp"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/nameEditor"
         tools:text="233"
-        android:textColor="@color/generalTextColor"
+        android:textColor="@color/textColor"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp" />

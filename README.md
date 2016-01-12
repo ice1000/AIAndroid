@@ -1,4 +1,5 @@
 # 当前暂无已知bug
+# 强烈建议使用Android5.0以上的系统运行本APP！！！
                                            FBI warning
 
 
@@ -10,14 +11,19 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # AIAndroid is:
 受[我的友人](https://github.com/Wimacs)的影响 决定开始写的:<br/>
-运行在[Android操作系统](http://baike.baidu.com/link?url=Fq6NnG8s-GSI9lQ3EsBQyI0Km0zICP-RA4kNTK4083ZGfQ9CBZ2Ews7V-zlmPulmX6qG7mbMYXpdpayxfPfKf7GAzQxtxLJzVYnVHG47Pw3)上的[人工智能](http://baike.baidu.com/link?url=vd1SM2trGRrWeWv5uerz1PTu1G1PTLQTBgNXTd9bDGoWizhDFFdZlR8KnHpTxZE3eLcJvV0YXs-OwDdvNWHvi6LzMWf5oRnuaj2E1BL7QOq)<br/>
+运行在
+[Android操作系统](http://baike.baidu.com/link?url=Fq6NnG8s-GSI9lQ3EsBQyI0Km0zICP-RA4kNTK4083ZGfQ9CBZ2Ews7V-zlmPulmX6qG7mbMYXpdpayxfPfKf7GAzQxtxLJzVYnVHG47Pw3)
+上的[人工智能](http://baike.baidu.com/link?url=vd1SM2trGRrWeWv5uerz1PTu1G1PTLQTBgNXTd9bDGoWizhDFFdZlR8KnHpTxZE3eLcJvV0YXs-OwDdvNWHvi6LzMWf5oRnuaj2E1BL7QOq)<br/>
 
-目前[我的友人](https://github.com/Wimacs)正在构建数学模型，我正在做界面。<br/>
+目前[我的友人](https://github.com/Wimacs)
+正在构建数学模型，我正在做界面。<br/>
 图标在我的任性下决定采用Saber~吾王美美哒<br/>
 ![icon](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png)
 
-这是一个Material Design的项目，就是不知道这个和二次元的微妙结合会有什么样的效果呢<br/>
-不同版本时期我也为本APP截了图，在下面历史更新里面可以看到唷
+这是一个Material Design的项目，
+就是不知道这个和二次元的微妙结合会有什么样的效果呢<br/>
+不同版本时期我也为本APP截了图，
+在下面历史更新里面可以看到唷
 
 # 实现情况：
 
@@ -26,7 +32,8 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 这部分还没开始做，是友人在研究。不过他是C++和txt，而我把他的项目翻译成Java和SQLite会很困难。。。<br/>
 现在还只能重复你说的话。。<br/>
 
-- [ ] 起名字(双方)
+- [X] 起名字(双方)
+- [X] 发送的段落分成一句一句的
 - [ ] 实现简单的汉字分析
 - [ ] 实现汉字语法分析
 - [ ] 能完成一些功能性的事务(计算, 出主意, etc.
@@ -53,12 +60,22 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新 
 
+### 2016年1月12日 1.1.0.0 UI设计工作正式宣告结束！！
+1. 更改了昨天遗留下的所有问题，颜色的问题全部改过，饱和度大大降低
+1. 优化设置界面。
+1. 这个从此以后好像除了算法之外没什么可更新的了。。<br/>
+# UI设计工作正式宣告完成！
+欧耶！
+昨天说的截图：
+![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x03.png)
+![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x04.png)
+
+# 历史更新
+
 ### 2016年1月11日 1.0.3.2
 1. 做了重命名，虽然还有点问题，但是不算bug，就是丑了，功能已经实现
 1. 封装了“记忆”Memories类。
 1. 更改部分背景颜色。反正最近在颜色上着手比较多。明天更新一张截图。
-
-# 历史更新
 
 ### 2016年1月11日 1.0.3.1
 1. 把颜色改的更浅了
@@ -70,7 +87,8 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 更改弹出窗口的布局
 1. 增加清空记录时背景色的检查
 1. 上次push忘记改版本号了。。。
-1. 现在主脑正式封装完毕，MainActivity只负责更新UI、和主脑通信，主脑负责数据的处理。和SQLite的通信也交由主脑全权负责。这特么才叫MVC啊！
+1. 现在主脑正式封装完毕，MainActivity只负责更新UI、和主脑通信，主脑负责数据的处理。
+和SQLite的通信也交由主脑全权负责。这特么才叫MVC啊！
 
 ### 2016年1月10日凌晨 1.0.2.0 重大更新
 1. 改进程序结构，回复的算法被单独提了出来。
@@ -114,8 +132,11 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 ### 2016年1月6日 1.0.0.5
 1. 发送的消息存储在SQLite中
-1. 因为SQLite没有boolean类型，所以在[存取的时候](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/database/SQLiteManager.java)转换成整数
-1. 开启界面增加了[一个逐帧动画](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/drawable/saber_shake.xml)
+1. 因为SQLite没有boolean类型，所以在
+[存取的时候](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/database/SQLiteManager.java)
+转换成整数
+1. 开启界面增加了
+[一个逐帧动画](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/drawable/saber_shake.xml)
 
 ![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x00.png)
 

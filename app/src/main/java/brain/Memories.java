@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
 
+import com.tesla.ai.R;
+
 import database.SQLiteManager;
 import util.T;
 
@@ -37,7 +39,7 @@ public class Memories {
 
     public void putName(String name){
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(T.USER_NAME, name);
+        editor.putString(T.SABER_NAME, name);
 
         if (Build.VERSION.SDK_INT >=
                 Build.VERSION_CODES.GINGERBREAD)
@@ -51,31 +53,42 @@ public class Memories {
     }
 
     public String getName(){
+        return preferences.getString(
+                T.SABER_NAME,
+                context.getString(R.string.app_name)
+        );
+    }
+
+    public String getAppTitle(){
 
         String text;
-        text = preferences.getString(T.USER_NAME,"") + T.WHAT_THE_FUCK;
+        text = preferences.getString(
+                T.SABER_NAME,
+                context.getString(R.string.app_name) +
+                T.WHAT_THE_FUCK
+        );
 
         if(text.equals(T.HAVEN_T_GOT_NAME +
                 T.WHAT_THE_FUCK)){
             text = T.HAVEN_T_GOT_NAME;
         }
 
-        if(!preferences.contains(T.USER_NAME)){
-            text = T.MEET_FIRST_TIME;
-
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putString(
-                    T.USER_NAME,
-                    T.HAVEN_T_GOT_NAME
-            );
-            if (Build.VERSION.SDK_INT >=
-                    Build.VERSION_CODES.GINGERBREAD)
-                editor.apply();
-            else
-                Log.d(this.toString(),
-                        "editor.commit() = " + editor.commit());
-
-        }
+//        if(!preferences.contains(T.SABER_NAME)){
+//            text = T.MEET_FIRST_TIME;
+//
+//            SharedPreferences.Editor editor = preferences.edit();
+//            editor.putString(
+//                    T.SABER_NAME,
+//                    T.HAVEN_T_GOT_NAME
+//            );
+//            if (Build.VERSION.SDK_INT >=
+//                    Build.VERSION_CODES.GINGERBREAD)
+//                editor.apply();
+//            else
+//                Log.d(this.toString(),
+//                        "editor.commit() = " + editor.commit());
+//
+//        }
         return text;
     }
 //     if (Build.VERSION.SDK_INT >=

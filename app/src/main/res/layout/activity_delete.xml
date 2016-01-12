@@ -6,12 +6,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context="com.tesla.ai.DeleteActivity"
-    android:background="@color/backGround">
+    android:background="@color/backGroundDialog">
 
    <TextView
        android:text="@string/areYouSureToDelete"
        android:textSize="20sp"
-       android:textColor="@color/generalTextColor"
+       android:textColor="@color/textColor"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_gravity="center"

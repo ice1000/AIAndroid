@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         TextView title;
         title = (TextView) findViewById(R.id.meetTitle);
 
-        String text = memories.getName();
+        String text = memories.getAppTitle();
         Log.d(this.toString(), "text = " + text);
         title.setText(text);
 

@@ -6,7 +6,7 @@
     <dimen name="ncToSurround">10dp</dimen>
     <dimen name="ncToBottom">58dp</dimen>
     <dimen name="titleSize">30sp</dimen>
-    <dimen name="sendBarHeight">55dp</dimen>
+    <dimen name="sendBarHeight">65dp</dimen>
 
     <dimen name="myCardCornerRadius">3dp</dimen>
     <dimen name="myCardMargin">6dp</dimen>
@@ -18,5 +18,5 @@
     <dimen name="NCcardCornerRadiu">30dp</dimen>
     <dimen name="cardElevation">25dp</dimen>
     <dimen name="myListDividerHeight">10dp</dimen>
-    <dimen name="send_button_width">60dp</dimen>
+    <dimen name="send_button_width">80dp</dimen>
 </resources>

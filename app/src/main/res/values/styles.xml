@@ -32,10 +32,13 @@
     <style
         name="AppTheme.Dialog"
         parent="Base.Theme.AppCompat.Dialog">
-        <item
-            name="windowActionBar">false</item>
-        <item
-            name="windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item><!--除去title-->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground">@null</item><!--除去背景色-->
     </style>
 
 </resources>
