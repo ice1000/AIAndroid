@@ -58,9 +58,19 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 + 知识保存在SQLite中
 + 个人信息保存在Preference中
 
-# 本次更新 
+# 本次更新
 
-### 2016年1月12日 1.1.0.0 UI设计工作正式宣告结束！！
+## 2016年1月13日 1.1.0.1 短期暂停更新
+1. 开始动画变得更猥琐了。
+1. 主页的字更小了。
+1. 又多了一些没用的图片。。
+1. 本次更新完毕估计就是我弃坑的时候。
+1. 所以说我现在已经齐此UI坑了。
+1. 什么时候有了AI算法了，就继续更新AIAndroid！
+
+# 历史更新
+
+## 2016年1月12日 1.1.0.0 UI设计工作正式宣告结束！！
 1. 更改了昨天遗留下的所有问题，颜色的问题全部改过，饱和度大大降低
 1. 优化设置界面。
 1. 这个从此以后好像除了算法之外没什么可更新的了。。<br/>
@@ -70,18 +80,16 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 ![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x02.png)
 ![2333](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x03.png)
 
-# 历史更新
-
-### 2016年1月11日 1.0.3.2
+## 2016年1月11日 1.0.3.2
 1. 做了重命名，虽然还有点问题，但是不算bug，就是丑了，功能已经实现
 1. 封装了“记忆”Memories类。
 1. 更改部分背景颜色。反正最近在颜色上着手比较多。明天更新一张截图。
 
-### 2016年1月11日 1.0.3.1
+## 2016年1月11日 1.0.3.1
 1. 把颜色改的更浅了
 1. 把主角的绿色改成了灰白（这样的话那几个animator就没用了。。不过还是先留着）
 
-### 2016年1月10日 1.0.3.0 重大更新
+## 2016年1月10日 1.0.3.0 重大更新
 1. 成功把去除、分开的字符都封装成正则表达式字库放CONSTS里面，这也是是第一次用正则表达式。。
 1. 修复了昨晚上发现的bug
 1. 更改弹出窗口的布局
@@ -90,7 +98,7 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 现在主脑正式封装完毕，MainActivity只负责更新UI、和主脑通信，主脑负责数据的处理。
 和SQLite的通信也交由主脑全权负责。这特么才叫MVC啊！
 
-### 2016年1月10日凌晨 1.0.2.0 重大更新
+## 2016年1月10日凌晨 1.0.2.0 重大更新
 1. 改进程序结构，回复的算法被单独提了出来。
 1. 让所有调用到主脑的Activity都必须实现BrainUsingActivity。
 1. 主脑的控制反转，呼唤Activity更新数据。
@@ -100,37 +108,37 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 ![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x01.png)
 
-### 2016年1月10日凌晨 1.0.1.4
+## 2016年1月10日凌晨 1.0.1.4
 1. 修复了bug。现在可以拿出来玩了。
 1. 将主界面的menu做成了单独的。
 1. 背景颜色变化还有点问题。
 
-### 2016年1月9日 1.0.1.3
+## 2016年1月9日 1.0.1.3
 1. 增加了刷新。
 1. 增加了清空聊天记录。
 1. 旧的消息记录已经可以删除了。最新发送的消息记录仍然不能删除！
 1. 更改了很多颜色配置。
 
-### 2016年1月8日 1.0.1.2
+## 2016年1月8日 1.0.1.2
 1. 突然发现重大bug！消息记录删除不掉！吓尿！！
 1. 增加了[toolbar](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/layout-v11/toolbar.xml)
 1. 把fab删了改成toolbar的三个点(朋友的建议)
 
-### 2016年1月8日 1.0.1.1
+## 2016年1月8日 1.0.1.1
 1. 写了[关于开发者](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/layout/activity_about_me.xml)
 1. 将本项目源码的github链接放上去了
 1. 终于可以删除聊天记录了，修复一大堆bug
 
-### 2016年1月7日 1.0.1.0 重大更新
+## 2016年1月7日 1.0.1.0 重大更新
 1. 设置消息触摸监听事件，触摸后背景会变色
 1. 各种与UI有关的值的修改
 1. 增加了阅读github的Activity，并且内置fab
 
-### 2016年1月6日 1.0.0.6
+## 2016年1月6日 1.0.0.6
 1. 修改圆角大小为5dp
 1. 自动去掉消息末尾换行符和空格
 
-### 2016年1月6日 1.0.0.5
+## 2016年1月6日 1.0.0.5
 1. 发送的消息存储在SQLite中
 1. 因为SQLite没有boolean类型，所以在
 [存取的时候](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/database/SQLiteManager.java)
@@ -140,18 +148,18 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 ![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x00.png)
 
-### 2016年1月6日 1.0.0.4
+## 2016年1月6日 1.0.0.4
 1. 实例化了适配器，现在可以互相发送消息了
 1. 发送的消息左右对齐
 1. 主色调确定为蓝色
 
-### 2016年1月6日 1.0.0.3
+## 2016年1月6日 1.0.0.3
 1. 初步完成SQLite存储数据的系统。
 1. 修改图标格式(体现圆角)。
 
-### 2016年1月5日 1.0.0.2
+## 2016年1月5日 1.0.0.2
 1. 图标(不知为何采用了吾王)。
 1. 简单的界面
 
-### 2016年1月5日 1.0.0.1
+## 2016年1月5日 1.0.0.1
 1. 开始界面卖个萌。(>▽<)

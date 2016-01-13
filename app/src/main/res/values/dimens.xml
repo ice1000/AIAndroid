@@ -5,7 +5,7 @@
     <dimen name="fabMarginRight">20dp</dimen>
     <dimen name="ncToSurround">10dp</dimen>
     <dimen name="ncToBottom">58dp</dimen>
-    <dimen name="titleSize">30sp</dimen>
+    <dimen name="titleSize">20sp</dimen>
     <dimen name="sendBarHeight">65dp</dimen>
 
     <dimen name="myCardCornerRadius">3dp</dimen>

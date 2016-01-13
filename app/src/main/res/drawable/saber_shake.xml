@@ -4,20 +4,20 @@
     android:oneshot="false">
     <item
         android:drawable="@drawable/saber_shake_1"
-        android:duration="200"/>
+        android:duration="80"/>
     <item
         android:drawable="@drawable/saber_shake_2"
-        android:duration="200"/>
+        android:duration="80"/>
     <item
         android:drawable="@drawable/saber_shake_3"
-        android:duration="100"/>
+        android:duration="40"/>
     <item
         android:drawable="@drawable/saber_shake_4"
-        android:duration="100"/>
+        android:duration="40"/>
     <item
         android:drawable="@drawable/saber_shake_5"
-        android:duration="100"/>
+        android:duration="40"/>
     <item
         android:drawable="@drawable/saber_shake_6"
-        android:duration="100"/>
+        android:duration="40"/>
 </animation-list>
