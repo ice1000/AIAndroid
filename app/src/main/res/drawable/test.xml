@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <!--平铺渐变效果的圆环-->
+<shape
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="ring"
+	android:innerRadiusRatio="8"
+	android:thicknessRatio="3"
+	android:useLevel="false">
+<gradient
+	android:type="sweep"
+	android:useLevel="false"
+	android:startColor="#ff0000"
+	android:endColor="#0000ff"
+	android:centerColor="#00ff00"/>
+</shape>
+
+	<!-- 发散渐变效果的圆-->
+	<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:shape="ring" android:innerRadius="0dip"-->
+<!--android:thickness="70dip" android:useLevel="false">-->
+<!--<gradient android:type="radial" android:useLevel="false" android:gradientRadius="70"-->
+	 <!--android:startColor="#ff0000" android:endColor="#0000ff" android:centerColor="#00ff00"/>-->
+<!--</shape>-->
+	<!--<?xml version="1.0" encoding="utf-8"?>-->
+	<!--&lt;!&ndash; 线性渐变效果的椭圆&ndash;&gt;-->
+	<!--<shape-->
+	<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+	<!--android:shape="oval">-->
+
+	<!--<gradient-->
+	<!--android:startColor="#ff0000"-->
+	<!--android:centerColor="#00ff00"-->
+	<!--android:endColor="#0000ff"-->
+	<!--android:angle="90" />-->
+	<!--<stroke-->
+	<!--android:width="3dip"-->
+	<!--android:color="#fff"-->
+	<!--android:dashWidth="4dip"-->
+	<!--android:dashGap="5dip" />-->
+	<!--</shape>-->

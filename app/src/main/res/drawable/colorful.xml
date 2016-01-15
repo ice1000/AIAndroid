@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape
-    xmlns:android="http://schemas.android.com/apk/res/android"
-       android:shape="rectangle">
-    <gradient
-        android:endColor="@color/backGround"
-        android:centerColor="@color/colorPrimary"
-        android:startColor="@color/backGround"
-        android:angle="270"
-        android:type="linear" />
-    <size android:height="4dp"/>
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="ring"
+	android:innerRadiusRatio="8"
+	android:thicknessRatio="3"
+	android:useLevel="false">
+	<gradient
+		android:type="sweep"
+		android:useLevel="true"
+		android:endColor="@color/backGround"
+		android:startColor="@color/colorPrimary"
+		android:angle="270" />
+	<size android:height="4dp"/>
 
 </shape>
