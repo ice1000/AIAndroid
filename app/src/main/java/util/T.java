@@ -15,12 +15,12 @@ public class T {
     public static final String DELETE_OR_NOT = "DELETE_OR_NOT";
     public static final String DELETE_FAILED = "删除失败，使用暴力方法删除";
     public static final String SORRY_CANNOT_USE =  "抱歉本功能暂未开放";
-    public static final String SORRY_CANNOT_JOIN =  "由于开发者害怕被肛，暂时无法联系上他";
+    public static final String SORRY_CANNOT_JOIN =  "由于开发者害怕被肛，暂时无法联系上他。百度ID @精灵谱尼 哦";
 
-    // 字库
+    // 字库，正则表达式
     public static final String NO_MESSAGE_FOUND =  "没有找到消息";
-    public static final String SHOULD_BE_SPLIT = "[ \n,]";
-    public static final String SHOULD_BE_DELETE = "[ \n]";
+    public static final String SHOULD_BE_SPLIT = "[ \n,]|，|。";
+    public static final String SHOULD_BE_DELETE = "[ \n]|，|。";
 
     // 在MainActivity中的
     public static final int DONT_NEED_THIS_PARAM  = -1;
