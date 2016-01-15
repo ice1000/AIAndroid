@@ -28,13 +28,13 @@ public class SettingsActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
 
         ArrayList<String> data = new ArrayList<>();
-        data.add("推广：HDF Studio群");
-        data.add("推广：ProgramLeague群");
-        data.add("查看项目源代码(github)");
-        data.add("给" + getString(R.string.app_name) + "起个名字吧");
-        data.add("关于开发者");
-        data.add("加入我们");
-        data.add("继续和" + memories.getName() + "聊天");
+        data.add("\n推广：HDF Studio群\n");
+        data.add("\n推广：ProgramLeague群\n");
+        data.add("\n查看项目源代码(github)\n");
+        data.add("\n给" + getString(R.string.app_name) + "起个名字吧\n");
+        data.add("\n关于开发者\n");
+        data.add("\n加入我们(其实也就一个人。。)\n");
+        data.add("\n继续和" + memories.getName() + "聊天\n");
 
         ListView settings = (ListView) findViewById(R.id.settings);
 

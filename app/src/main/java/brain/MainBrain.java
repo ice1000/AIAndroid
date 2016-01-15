@@ -26,6 +26,10 @@ public class MainBrain {
         manager = new SQLiteManager(context);
         activity = (BrainUsingActivity) context;
         data = manager.getMessages();
+
+        ArrayList<MyMessage> messages = new ArrayList<>();
+        messages.add(new MyMessage(true,"主人我需要一套AI算法，您可以给我吗"));
+        messages.add(new MyMessage(true,"只需要联系开发者就行了。。"));
     }
 
     public void giveMessage(String Message) {

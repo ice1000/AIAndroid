@@ -4,8 +4,6 @@
     android:id="@+id/settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:dividerHeight="@dimen/myListDividerHeight"
-    android:divider="@drawable/colorful"
     tools:context="com.tesla.ai.SettingsActivity"
     android:background="@color/backGround">
 

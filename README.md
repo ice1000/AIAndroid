@@ -60,6 +60,12 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新
 
+## 2016年1月15日 1.1.0.2 好像忍不住又更新了
+1. 开始界面不那么猥琐了
+1. 减少多余的动画
+
+# 历史更新
+
 ## 2016年1月13日 1.1.0.1 短期暂停更新
 1. 开始动画变得更猥琐了。
 1. 主页的字更小了。
@@ -68,12 +74,11 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 所以说我现在已经齐此UI坑了。
 1. 什么时候有了AI算法了，就继续更新AIAndroid！
 
-# 历史更新
-
 ## 2016年1月12日 1.1.0.0 UI设计工作正式宣告结束！！
 1. 更改了昨天遗留下的所有问题，颜色的问题全部改过，饱和度大大降低
 1. 优化设置界面。
 1. 这个从此以后好像除了算法之外没什么可更新的了。。<br/>
+
 # UI设计工作正式宣告完成！<br/>
 欧耶！<br/>
 昨天说的截图：<br/>
