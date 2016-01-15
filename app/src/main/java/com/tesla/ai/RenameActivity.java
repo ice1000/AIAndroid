@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import brain.Memories;
+import brain.LimbicSystem;
 
 public class RenameActivity extends AppCompatActivity {
 
@@ -20,8 +20,8 @@ public class RenameActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.nameEditor);
         String name = editText.getText().toString();
 
-        Memories memories = new Memories(this);
-        memories.putName(name);
+        LimbicSystem limbicSystem = new LimbicSystem(this);
+        limbicSystem.putName(name);
 
         Toast.makeText(
                 RenameActivity.this,

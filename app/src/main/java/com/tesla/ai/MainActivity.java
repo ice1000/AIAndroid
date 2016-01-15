@@ -25,20 +25,19 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import brain.MainBrain;
-import util.BrainUsingActivity;
-import util.T;
+import brain.CerebralCortex;
 import util.MyMessage;
 import util.OnItemClickListener;
+import util.OnMessageChangedListener;
+import util.T;
 
-public class MainActivity extends AppCompatActivity
-implements BrainUsingActivity{
+public class MainActivity extends AppCompatActivity {
 
 	private int nowBackgroundColor;
 	private RecyclerView messageRecycler;
 	private MessageAdapter adapter;
 	private EditText editMessage;
-	private MainBrain brain;
+	private CerebralCortex brain;
 //	private Handler brainMessageHandler;
 //		brainMessageHandler = new Handler(){
 //			@Override
@@ -60,8 +59,26 @@ implements BrainUsingActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		// 一定最先构造大脑
-		brain = new MainBrain(this);
+		// 一定最先构造大脑皮层
+		brain = new CerebralCortex(this, new OnMessageChangedListener() {
+			@Override
+			public void onMessageChanged(int position, int action) {
+				switch (action) {
+					case T.ANSWER_MESSAGE_SENT:
+					case T.ANSWER_MESSAGE_RECIEVED:
+						adapter.notifyItemInserted(position);
+						break;
+					case T.ANSWER_MESSAGE_DELETED:
+						adapter.notifyItemRemoved(position);
+						break;
+					case T.WHOLE_DATASET_CHANGED:
+						adapter.notifyDataSetChanged();
+						break;
+					default:
+						break;
+				}
+			}
+		});
 
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
@@ -254,24 +271,6 @@ implements BrainUsingActivity{
 			//设置动画的设置目标
 			objectAnimator.setTarget(messageRecycler);
 			objectAnimator.start();
-		}
-	}
-
-	@Override
-	public void notifyAdapter(int position, int action) {
-		switch (action) {
-			case T.ANSWER_MESSAGE_SENT:
-			case T.ANSWER_MESSAGE_RECIEVED:
-				adapter.notifyItemInserted(position);
-				break;
-			case T.ANSWER_MESSAGE_DELETED:
-				adapter.notifyItemRemoved(position);
-				break;
-			case T.WHOLE_DATASET_CHANGED:
-				adapter.notifyDataSetChanged();
-				break;
-			default:
-				break;
 		}
 	}
 

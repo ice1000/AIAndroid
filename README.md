@@ -44,10 +44,11 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 - [ ] 简单的动作(以逐帧动画的形式呈现
 
 ## UI(视觉效果)部分
-- [X] 一个教科书式的冰封APP的标准开始界面
+- [X] 一个简洁的开始界面
 - [X] 对话由RecyclerView组成
 - [X] 用户发送的文字在右边，Saber发的文字在左边
 - [X] 二人的发言颜色不同
+- [X] 按钮点击反馈
 - [X] 长按弹出窗口并让用户确认删除
 - [X] 触摸消息背景颜色改变
 - [X] 沉浸式状态栏
@@ -60,11 +61,17 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新
 
+## 2016年1月15日 1.1.0.3 又没忍住更新了。。
+1. 过滤空消息
+1. 写了大脑皮层的Javadoc（很辛苦！
+1. 更改监听器设置方法
+1. 增加大脑皮层的两种构造方法。
+
+# 历史更新
+
 ## 2016年1月15日 1.1.0.2 好像忍不住又更新了
 1. 开始界面不那么猥琐了
 1. 减少多余的动画
-
-# 历史更新
 
 ## 2016年1月13日 1.1.0.1 短期暂停更新
 1. 开始动画变得更猥琐了。

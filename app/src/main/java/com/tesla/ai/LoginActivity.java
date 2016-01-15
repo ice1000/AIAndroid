@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
 
 //	private void showTitle(){
 //
-//		Memories memories = new Memories(this);
+//		LimbicSystem memories = new LimbicSystem(this);
 //
 //		TextView title;
 //		title = (TextView) findViewById(R.id.meetTitle);

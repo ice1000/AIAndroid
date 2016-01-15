@@ -13,13 +13,13 @@ import util.T;
 /**
  * Created by Administrator on 2016/1/11 0011.
  */
-public class Memories {
+public class LimbicSystem {
 
     private SQLiteManager manager;
     private SharedPreferences preferences;
     private Context context;
 
-    public Memories(Context context) {
+    public LimbicSystem(Context context) {
         this.context = context;
         manager = new SQLiteManager(context);
 

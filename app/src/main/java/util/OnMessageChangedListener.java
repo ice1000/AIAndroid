@@ -4,8 +4,8 @@ package util;
  * Copyright 2016(c) Comet Corporation.
  * Created by asus1 on 2016/1/9.
  */
-public interface BrainUsingActivity {
+public interface OnMessageChangedListener {
 
-    void notifyAdapter(int position, int action);
+    void onMessageChanged(int position, int action);
 
 }
