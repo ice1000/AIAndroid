@@ -19,5 +19,11 @@
     <string name="removeAll">清空消息记录</string>
     <string name="so_name_is">那么。。。名字叫？</string>
     <string name="plauto_studio">PLAuto studio</string>
+    <string name="extend_usage">扩展功能</string>
+    <string name="make_summary">书本总结</string>
+    <string name="ask_1">  请问有什么我能做的吗？</string>
+    <string name="about_me2">参与开发</string>
+    <string name="contact_me">联系作者</string>
+    <string name="see_source">查看源码</string>
 
 </resources>

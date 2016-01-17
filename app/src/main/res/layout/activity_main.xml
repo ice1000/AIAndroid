@@ -1,91 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--<android.support.design.widget.CoordinatorLayout-->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true"
+<android.support.v4.widget.DrawerLayout
 
-    android:clipToPadding="true"
-    tools:context="com.tesla.ai.MainActivity">
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:openDrawer="start"
+	android:id="@+id/mainDrawer"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
 
-    <include layout="@layout/toolbar" />
+	<android.support.design.widget.NavigationView
+		app:headerLayout="@layout/activity_main_header"
+		app:menu="@menu/menu_extend_usage"
+		android:layout_gravity="start"
+		android:id="@+id/navigation"
+		android:fitsSystemWindows="true"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent">
+	</android.support.design.widget.NavigationView>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+	<include layout="@layout/content_main"/>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/messageBar">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/messagesRecycler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </android.support.v7.widget.RecyclerView>
-
-            <!--<include layout="@layout/fab" />-->
-
-        </FrameLayout>
-
-
-        <LinearLayout
-            android:id="@+id/messageBar"
-            android:alpha="0.8"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/sendBarHeight"
-            android:layout_alignParentBottom="true"
-            android:orientation="horizontal"
-            tools:targetApi="honeycomb">
-
-            <android.support.v7.widget.CardView
-                android:layout_margin="@dimen/myCardMargin"
-                app:cardBackgroundColor="@color/textColor"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:alpha="0.8"
-                    android:textColor="@color/cardColor1Light"
-                    android:hint="@string/whatDoYouWantToSay"
-                    android:id="@+id/sendBox"
-                    tools:targetApi="honeycomb" />
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_margin="@dimen/myCardMargin"
-                app:cardCornerRadius="@dimen/myCardCornerRadius"
-                app:cardBackgroundColor="@color/cardColor1Pressed"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:gravity="center"
-                    android:onClick="commitMessage"
-                    android:textColor="@color/textColor"
-                    android:layout_width="@dimen/send_button_width"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/bg_dredge_tips_selector"
-                    android:text="@string/send"
-                    android:id="@+id/sendButton" />
-
-            </android.support.v7.widget.CardView>
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
-</LinearLayout>
-
-<!--</android.support.design.widget.CoordinatorLayout>-->
+</android.support.v4.widget.DrawerLayout>
+	<!--</android.support.design.widget.CoordinatorLayout>-->

@@ -4,8 +4,11 @@ import android.animation.AnimatorInflater;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -22,8 +25,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import brain.CerebralCortex;
 import util.MyMessage;
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 	private MessageAdapter adapter;
 	private EditText editMessage;
 	private CerebralCortex brain;
+	private DrawerLayout drawerLayout;
 //	private Handler brainMessageHandler;
 //		brainMessageHandler = new Handler(){
 //			@Override
@@ -80,103 +86,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
-
-		editMessage = (EditText) findViewById(R.id.sendBox);
-
-		adapter = new MessageAdapter();
-
-		messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
-		nowBackgroundColor = T.BACKGROUND_COLOR_IS_0;
-
-		messageRecycler.setLayoutManager(new LinearLayoutManager(this));
-		messageRecycler.setItemAnimator(new DefaultItemAnimator());
-
-		adapter.setOnItemClickListener(new OnItemClickListener() {
-			@Override public void onItemClick(View view, int position) {}
-			@Override
-			public void onItemLongClick(View view, int position) {
-				Intent intent = new Intent(
-						MainActivity.this, DeleteActivity.class
-				);
-				intent.putExtra(T.POSITION, position);
-				startActivityForResult(intent, T.DELETE_REQUEST);
-			}
-			@Override
-			public void onItemTouch(View view, int position, MotionEvent event) {
-
-				boolean isFromSaber =
-						brain.getData().get(position).isFromSaber();
-				int[] colorId;
-
-				Log.d(this.toString(),
-						"event.getAction() = " + event.getAction());
-
-				switch (event.getAction()){
-					case 0:
-//					case 1:
-					case 2:
-						colorId = isFromSaber ? new int[]{
-								R.color.cardColor1Pressed,
-								R.color.cardColor1
-						} : new int[]{
-								R.color.cardColor5Pressed,
-								R.color.cardColor5
-						};
-						int id = isFromSaber
-								? R.animator.background_color_1_to_5
-								: R.animator.background_color_5_to_1;
-						// 如果现在的颜色已经正常了那就不用变化了
-						if(nowBackgroundColor == T.BACKGROUND_COLOR_IS_5){
-							if(isFromSaber)
-								break;
-							else
-								nowBackgroundColor = T.BACKGROUND_COLOR_IS_1;
-						}
-						else
-						if (nowBackgroundColor == T.BACKGROUND_COLOR_IS_1){
-							if(!isFromSaber)
-								break;
-							else
-								nowBackgroundColor = T.BACKGROUND_COLOR_IS_5;
-						}
-						else
-						if(nowBackgroundColor == T.BACKGROUND_COLOR_IS_0) {
-							nowBackgroundColor = isFromSaber
-									? T.BACKGROUND_COLOR_IS_5
-									: T.BACKGROUND_COLOR_IS_1;
-
-							// 重新给它赋值，从白色渐变过去
-							id = isFromSaber
-									? R.animator.background_color_0_to_5
-									: R.animator.background_color_0_to_1;
-						}
-						changeBackgroundColor(id);
-						break;
-					default:
-
-						colorId = isFromSaber ? new int[]{
-								R.color.cardColor1,
-								R.color.cardColor1Pressed
-						} : new int[]{
-								R.color.cardColor5,
-								R.color.cardColor5Pressed
-						};
-						break;
-				}
-
-				((CardView)((FrameLayout) view).getChildAt(0))
-						.setCardBackgroundColor(
-								getResources().getColor(colorId[0]));
-				((TextView)((CardView)((FrameLayout) view).getChildAt(0))
-						.getChildAt(0)).setTextColor(
-						getResources().getColor(colorId[1]));
-
-			}
-		});
-
-		messageRecycler.setAdapter(adapter);
+		initViews();
 
 		brain.callMaster();
 	}
@@ -254,12 +164,10 @@ public class MainActivity extends AppCompatActivity {
 
 	}
 
-	public void commitMessage(View view){
-		String msg = editMessage.getText().toString();
-		brain.giveMessage(msg);
-		editMessage.setText("");
-	}
-
+	/**
+	 * 更换背景颜色
+	 * @param id 背景颜色
+	 */
 	private void changeBackgroundColor(int id) {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB){
 			ObjectAnimator objectAnimator;
@@ -272,6 +180,163 @@ public class MainActivity extends AppCompatActivity {
 			objectAnimator.setTarget(messageRecycler);
 			objectAnimator.start();
 		}
+	}
+
+	/**
+	 * 初始化一大堆View
+	 */
+	private void initViews(){
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
+
+		drawerLayout = (DrawerLayout) findViewById(R.id.mainDrawer);
+		NavigationView navigationView =
+				(NavigationView) findViewById(R.id.navigation);
+		if (navigationView != null) {
+			navigationView.setNavigationItemSelectedListener(
+					new NavigationView.OnNavigationItemSelectedListener() {
+				@Override
+				public boolean onNavigationItemSelected(MenuItem menuItem) {
+					menuItem.setChecked(true);
+					switch (menuItem.getItemId()){
+						case R.id.makeSummary:
+							Toast.makeText(MainActivity.this,
+									"暂时没做完！",
+									Toast.LENGTH_SHORT).show();
+							break;
+						case R.id.seeGithub:
+							startActivity(new Intent(
+									MainActivity.this,
+									GithubActivity.class
+							));
+							finish();
+							break;
+						case R.id.goSettings:
+							startActivity(new Intent(
+									MainActivity.this,
+									SettingsActivity.class
+							));
+							finish();
+							break;
+						default:
+							break;
+					}
+					drawerLayout.closeDrawers();
+					return false;
+				}
+			});
+		}
+
+		editMessage = (EditText) findViewById(R.id.sendBox);
+
+		adapter = new MessageAdapter();
+
+		messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
+		nowBackgroundColor = T.BACKGROUND_COLOR_IS_0;
+
+		messageRecycler.setLayoutManager(new LinearLayoutManager(this));
+		messageRecycler.setItemAnimator(new DefaultItemAnimator());
+
+		adapter.setOnItemClickListener(new OnItemClickListener() {
+			@Override public void onItemClick(View view, int position) {}
+			@Override
+			public void onItemLongClick(View view, int position) {
+				Intent intent = new Intent(
+						MainActivity.this, DeleteActivity.class
+				);
+				intent.putExtra(T.POSITION, position);
+				startActivityForResult(intent, T.DELETE_REQUEST);
+			}
+			@Override
+			public void onItemTouch(View view, int position, MotionEvent event) {
+
+				boolean isFromSaber =
+						brain.getData().get(position).isFromSaber();
+				int[] colorId;
+
+				Log.d(this.toString(),
+						"event.getAction() = " + event.getAction());
+
+				switch (event.getAction()){
+					case 0:
+					case 2:
+						colorId = isFromSaber ? new int[]{
+								R.color.cardColor1Pressed,
+								R.color.cardColor1
+						} : new int[]{
+								R.color.cardColor5Pressed,
+								R.color.cardColor5
+						};
+						int id = isFromSaber
+								? R.animator.background_color_1_to_5
+								: R.animator.background_color_5_to_1;
+						// 如果现在的颜色已经正常了那就不用变化了
+						if(nowBackgroundColor == T.BACKGROUND_COLOR_IS_5)
+							if(isFromSaber)
+								break;
+							else
+								nowBackgroundColor = T.BACKGROUND_COLOR_IS_1;
+						else
+						if (nowBackgroundColor == T.BACKGROUND_COLOR_IS_1)
+							if(!isFromSaber)
+								break;
+							else
+								nowBackgroundColor = T.BACKGROUND_COLOR_IS_5;
+						else
+						if(nowBackgroundColor == T.BACKGROUND_COLOR_IS_0) {
+							nowBackgroundColor = isFromSaber
+									? T.BACKGROUND_COLOR_IS_5
+									: T.BACKGROUND_COLOR_IS_1;
+
+							// 重新给它赋值，从白色渐变过去
+							id = isFromSaber
+									? R.animator.background_color_0_to_5
+									: R.animator.background_color_0_to_1;
+						}
+						changeBackgroundColor(id);
+						break;
+					default:
+
+						colorId = isFromSaber ? new int[]{
+								R.color.cardColor1,
+								R.color.cardColor1Pressed
+						} : new int[]{
+								R.color.cardColor5,
+								R.color.cardColor5Pressed
+						};
+						break;
+				}
+
+				CardView cardView = ((CardView)
+						((FrameLayout) view).getChildAt(0));
+				TextView textView = ((TextView)
+						((CardView)((FrameLayout) view).getChildAt(0))
+								.getChildAt(0));
+
+				// cardView.setCardElevation(0);
+				cardView.setCardBackgroundColor(
+						getResources().getColor(colorId[0]));
+				textView.setTextColor(
+						getResources().getColor(colorId[1]));
+
+			}
+		});
+
+		messageRecycler.setAdapter(adapter);
+
+		ImageView Saber = (ImageView) findViewById(R.id.saberShake);
+		Saber.setBackgroundResource(R.drawable.saber_shake);
+		((AnimationDrawable) Saber.getBackground()).start();
+	}
+
+	/**
+	 * 接收一个消息
+	 * @param view 监听器必备
+	 */
+	public void commitMessage(View view){
+		String msg = editMessage.getText().toString();
+		brain.giveMessage(msg);
+		editMessage.setText("");
 	}
 
 	class MessageAdapter extends RecyclerView.Adapter {

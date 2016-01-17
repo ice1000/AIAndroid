@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<group
+		android:checkableBehavior="single"
+		android:id="@+id/expanded_menu">
+		<item
+			android:id="@+id/goSettings"
+			android:title="@string/action_settings"
+		    />
+		<item
+			android:title="@string/extend_usage">
+			<menu>
+				<item
+					android:id="@+id/makeSummary"
+					android:title="@string/make_summary"
+					android:icon="@drawable/ic_book_black_18dp"/>
+			</menu>
+		</item>
+		<item
+			android:title="@string/about_me2">
+			<menu>
+				<item
+					android:id="@+id/introduceDeveloper"
+					android:title="@string/contact_me"
+					android:icon="@drawable/ic_settings_phone_black_18dp"/>
+				<item
+					android:id="@+id/seeGithub"
+					android:title="@string/see_source"
+					android:icon="@drawable/ic_description_black_18dp"/>
+			</menu>
+		</item>
+	</group>
+</menu>
