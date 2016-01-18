@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
 		initViews();
 
-		brain.callMaster();
+//		brain.callMaster();
 	}
 
 	@Override
@@ -190,6 +191,17 @@ public class MainActivity extends AppCompatActivity {
 		setSupportActionBar(toolbar);
 
 		drawerLayout = (DrawerLayout) findViewById(R.id.mainDrawer);
+
+		ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(
+				this,
+				drawerLayout,
+				toolbar,
+				R.string.open_draw,
+				R.string.close_draw
+		);
+		drawerToggle.syncState();
+		drawerLayout.setDrawerListener(drawerToggle);
+
 		NavigationView navigationView =
 				(NavigationView) findViewById(R.id.navigation);
 		if (navigationView != null) {
@@ -324,9 +336,9 @@ public class MainActivity extends AppCompatActivity {
 
 		messageRecycler.setAdapter(adapter);
 
-		ImageView Saber = (ImageView) findViewById(R.id.saberShake);
-		Saber.setBackgroundResource(R.drawable.saber_shake);
-		((AnimationDrawable) Saber.getBackground()).start();
+//		ImageView Saber = (ImageView) findViewById(R.id.saberShake);
+//		Saber.setBackgroundResource(R.drawable.saber_shake);
+//		((AnimationDrawable) Saber.getBackground()).start();
 	}
 
 	/**

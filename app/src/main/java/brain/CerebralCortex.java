@@ -87,9 +87,8 @@ public class CerebralCortex {
 			).show();
 			return false;
 		}
-		else {
+		else
 			return true;
-		}
 	}
 
 	/**

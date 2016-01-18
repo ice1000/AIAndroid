@@ -1,29 +1,32 @@
 <resources>
-    <string name="app_name">字符串分割机</string>
-    <string name="action_settings">选项</string>
-    <string name="hello">你好哦~</string>
-    <string name="send">发送</string>
-    <string name="notDecidedYet">冰封暂时还没想好这里写什么</string>
-    <string name="whatDoYouWantToSay">想跟Saber说点什么呢？</string>
-    <string name="sure">确认</string>
-    <string name="cancel">取消</string>
-    <string name="areYouSureToDelete">确认删除本条消息记录吗？</string>
-    <string name="about_me">
-        姓名:冰封。\n\n人物介绍：本APP的开发者，代码极其高产，性格污而暖，爱好哲♂学，爱好足球，爱好翘课狂撸代码。。\n喜欢讲黄段子，喜欢在别人撕逼的时候去搅浑水，因为爱好装逼和讲黄段子，认识了一堆看起来智商120以上的狐♂朋狗友。\n很享受在APP里写“关于开发者”和在github里写README的感觉(笑)。在各大社交网站上使用上图作为头像，所以有时被称为脑残。由于五年前放荡不羁地起了个百度ID叫 @精灵谱尼 因此被宅吧吧友称为脑抽谱尼、脑抽君\n学编程学的很慢，可能是因为太傻。\n\n冰封：“本APP全面采用Material♂Design~♪(^∇^*)”\n但由于开发者太傻\n有些地方用的不太好，有什么问题去github上面issue我吧~\n\n本APP大多数效果仅针对Android5.0以上，强烈建议不要使用5.0以下的系统运行本APP！</string>
-    <string name="about_saber">
-        姓名：阿尔托利亚·潘德拉贡。\n\n人物介绍：是开发者二本命，由于大本命狂三找不到特别美又特别萌的图，所以就被开发者选择作为本项目的女主角形象。(尴尬笑)\n个性勇敢、纯真、善良、充满正义感，拥有宝具圣剑Excalibur。\n\n百度百科：阿尔托利亚·潘德拉贡，日本动画作品《Fate/stay night》、《Fate/Zero》中的女主角之一。身份为古不列颠传说中的亚瑟王。性格忠诚正直，谦逊有礼，个性认真。因有圣剑Excalibur的传承，在第四、五次圣杯战争中以“Saber”职阶被召唤到现世。\n\nSaber非常可爱的女孩子~请认真爱护她哦~\n开发者们会让她变得越来越聪明的哦~~\n\n</string>
-    <string name="please_check_network">没有网络喵~</string>
-    <string name="example">样例数据</string>
-    <string name="amIQuite">我萌吗？</string>
-    <string name="refresh">刷新</string>
-    <string name="removeAll">清空消息记录</string>
-    <string name="so_name_is">那么。。。名字叫？</string>
-    <string name="plauto_studio">PLAuto studio</string>
-    <string name="extend_usage">扩展功能</string>
-    <string name="make_summary">书本总结</string>
-    <string name="ask_1">  请问有什么我能做的吗？</string>
-    <string name="about_me2">参与开发</string>
-    <string name="contact_me">联系作者</string>
-    <string name="see_source">查看源码</string>
+	<string name="app_name">字符串分割机</string>
+	<string name="action_settings">选项</string>
+	<string name="hello">你好哦~</string>
+	<string name="send">发送</string>
+	<string name="notDecidedYet">冰封暂时还没想好这里写什么</string>
+	<string name="whatDoYouWantToSay">想跟Saber说点什么呢？</string>
+	<string name="sure">确认</string>
+	<string name="cancel">取消</string>
+	<string name="areYouSureToDelete">确认删除本条消息记录吗？</string>
+	<string name="about_me">
+		姓名:冰封。\n\n人物介绍：本APP的开发者，代码极其高产，性格污而暖，爱好哲♂学，爱好足球，爱好翘课狂撸代码。。\n喜欢讲黄段子，喜欢在别人撕逼的时候去搅浑水，因为爱好装逼和讲黄段子，认识了一堆看起来智商120以上的狐♂朋狗友。\n很享受在APP里写“关于开发者”和在github里写README的感觉(笑)。在各大社交网站上使用上图作为头像，所以有时被称为脑残。由于五年前放荡不羁地起了个百度ID叫 @精灵谱尼 因此被宅吧吧友称为脑抽谱尼、脑抽君\n学编程学的很慢，可能是因为太傻。\n\n冰封：“本APP全面采用Material♂Design~♪(^∇^*)”\n但由于开发者太傻\n有些地方用的不太好，有什么问题去github上面issue我吧~\n\n本APP大多数效果仅针对Android5.0以上，强烈建议不要使用5.0以下的系统运行本APP！</string>
+	<string name="about_saber">
+		姓名：阿尔托利亚·潘德拉贡。\n\n人物介绍：是开发者二本命，由于大本命狂三找不到特别美又特别萌的图，所以就被开发者选择作为本项目的女主角形象。(尴尬笑)\n个性勇敢、纯真、善良、充满正义感，拥有宝具圣剑Excalibur。\n\n百度百科：阿尔托利亚·潘德拉贡，日本动画作品《Fate/stay night》、《Fate/Zero》中的女主角之一。身份为古不列颠传说中的亚瑟王。性格忠诚正直，谦逊有礼，个性认真。因有圣剑Excalibur的传承，在第四、五次圣杯战争中以“Saber”职阶被召唤到现世。\n\nSaber非常可爱的女孩子~请认真爱护她哦~\n开发者们会让她变得越来越聪明的哦~~\n\n</string>
+	<string name="please_check_network">没有网络喵~</string>
+	<string name="example">样例数据</string>
+	<string name="amIQuite">我萌吗？</string>
+	<string name="refresh">刷新</string>
+	<string name="removeAll">清空消息记录</string>
+	<string name="so_name_is">那么。。。名字叫？</string>
+	<string name="plauto_studio">PLAuto studio</string>
+	<string name="extend_usage">扩展功能</string>
+	<string name="make_summary">书本总结</string>
+	<string name="ask_1">  请问有什么我能做的吗？</string>
+	<string name="about_me2">参与开发</string>
+	<string name="contact_me">联系作者</string>
+	<string name="see_source">查看源码</string>
+	
+	<string name="open_draw">打开侧滑菜单</string>
+	<string name="close_draw">关闭侧滑菜单</string>
 
 </resources>

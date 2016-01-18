@@ -13,8 +13,7 @@
 			<menu>
 				<item
 					android:id="@+id/makeSummary"
-					android:title="@string/make_summary"
-					android:icon="@drawable/ic_book_black_18dp"/>
+					android:title="@string/make_summary"/>
 			</menu>
 		</item>
 		<item
@@ -22,12 +21,10 @@
 			<menu>
 				<item
 					android:id="@+id/introduceDeveloper"
-					android:title="@string/contact_me"
-					android:icon="@drawable/ic_settings_phone_black_18dp"/>
+					android:title="@string/contact_me"/>
 				<item
 					android:id="@+id/seeGithub"
-					android:title="@string/see_source"
-					android:icon="@drawable/ic_description_black_18dp"/>
+					android:title="@string/see_source"/>
 			</menu>
 		</item>
 	</group>
