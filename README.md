@@ -9,20 +9,13 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 (title 17,united states code,section 506)`
 
 
-# AIAndroid is:
-受[我的友人](https://github.com/Wimacs)的影响 决定开始写的:<br/>
-运行在
-[Android操作系统](http://baike.baidu.com/link?url=Fq6NnG8s-GSI9lQ3EsBQyI0Km0zICP-RA4kNTK4083ZGfQ9CBZ2Ews7V-zlmPulmX6qG7mbMYXpdpayxfPfKf7GAzQxtxLJzVYnVHG47Pw3)
-上的[人工智能](http://baike.baidu.com/link?url=vd1SM2trGRrWeWv5uerz1PTu1G1PTLQTBgNXTd9bDGoWizhDFFdZlR8KnHpTxZE3eLcJvV0YXs-OwDdvNWHvi6LzMWf5oRnuaj2E1BL7QOq)<br/>
-
-目前[我的友人](https://github.com/Wimacs)
-正在构建数学模型，我正在做界面。<br/>
-图标在我的任性下决定采用Saber~吾王美美哒<br/>
-![icon](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png)
-
-这是一个Material Design的项目，
+# 写AIAndroid的初衷:
+受[我的友人](https://github.com/Wimacs)的影响决定开始写。<br/>
+这是一个运行在[Android操作系统](http://baike.baidu.com/link?url=Fq6NnG8s-GSI9lQ3EsBQyI0Km0zICP-RA4kNTK4083ZGfQ9CBZ2Ews7V-zlmPulmX6qG7mbMYXpdpayxfPfKf7GAzQxtxLJzVYnVHG47Pw3)上的[人工智能](http://baike.baidu.com/link?url=vd1SM2trGRrWeWv5uerz1PTu1G1PTLQTBgNXTd9bDGoWizhDFFdZlR8KnHpTxZE3eLcJvV0YXs-OwDdvNWHvi6LzMWf5oRnuaj2E1BL7QOq)<br/>
+![icon](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png)<br/>
+项目全面采用Material Design，虽然变得复杂了，工作量大了。。但犹未悔!<br/>
 就是不知道这个和二次元的微妙结合会有什么样的效果呢<br/>
-不同版本时期我也为本APP截了图，
+不同版本时期我也为本APP截了图，<br/>
 在下面历史更新里面可以看到唷
 
 # 实现情况：
@@ -31,30 +24,31 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 这部分还没开始做，是友人在研究。不过他是C++和txt，而我把他的项目翻译成Java和SQLite会很困难。。。<br/>
 现在还只能重复并分割你说的话。。<br/>
 
-- [X] 起名字(双方)
-- [X] 发送的段落正则表达式匹配成一句一句的
+- [X] 起名字
+- [X] 字符串分割
 - [X] 分割支持圆角符号
-- [ ] 实现简单的汉字分析
-- [ ] 实现汉字语法分析
-- [ ] 在和主人的交流中学习
-- [ ] 模拟人类情绪o(*^＠^*)o
-- [ ] 能发送颜文字(๑>؂<๑)۶、表情等
-- [ ] 能识别颜文字(¯﹃¯).、表情等
-- [ ] 简单的动作(以逐帧动画的形式呈现
-- [ ] 帮主人给一本书写摘要
+- [ ] 中文分词
+- [ ] 机器学习
+- [ ] 强AI（痴人说梦
+- [ ] 人类情绪
+- [ ] 颜文字(๑>؂<๑)۶和表情的处理。
+- [ ] 更多可爱的逐帧动画。
+- [ ] 帮主人给一本书写摘要（功能了已经是
 
 ## UI(视觉效果)部分
 - [X] 一个简洁的开始界面
+- [X] 一个侧滑菜单实现简单的功能跳转
 - [X] 对话由RecyclerView组成
 - [X] 用户发送的文字在右边，Saber发的文字在左边
 - [X] 二人的发言颜色不同
 - [X] 按钮点击反馈
-- [X] 长按弹出窗口并让用户确认删除
-- [X] 重命名弹出窗口起名字
+- [X] 长按弹出窗口确认删除
+- [X] 重命名弹出窗口
 - [X] 触摸消息背景颜色改变
+- [X] 触摸消息背景颜色改变动画
 - [X] 沉浸式状态栏
-- [X] 设置界面ListView
-- [ ] 自定义消息删除动画
+- [X] 一个使用ListView的设置界面
+- [ ] 更优美的消息删除动画
 
 ## 设计模式规划
 > + 聊天记录保存在SQLite中
@@ -64,13 +58,19 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新
 
+### 2016年1月18日 1.1.1.1 在线进行的更新
+1. 更新README，让它看起来不那么傻逼（蜘蛛阿姨说的
+1. 修复一个简单却致命的bug，这个bug让我糗大了，之前还发布，结果特么有bug![233](https://github.com/ice1000/dialogs/blob/master/raw/ice1000_0x00.gif)
+1. 我收回前言，这个项目还是会持续更新！
+
+# 历史更新
+
 ### 2016年1月17日 1.1.1.0 重大更新
 1. 主界面增加侧滑菜单
 1. 侧滑菜单基本功能设置，留下一个坑：简化书
 1. 由于虚拟机打不开了我也不知道能不能运行。。
 1. 最近的更新质量越来越高了、、好兆头！
-
-# 历史更新
+1. 在贴吧release了这个版本
 
 ### 2016年1月17日 1.1.0.4
 1. 继续写Javadoc
@@ -87,7 +87,7 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 开始界面不那么猥琐了
 1. 减少多余的动画
 
-## 2016年1月13日 1.1.0.1 短期暂停更新
+## 2016年1月13日 1.1.0.1 从这次更新以后，短期暂停更新
 1. 开始动画变得更猥琐了。
 1. 主页的字更小了。
 1. 又多了一些没用的图片。。
@@ -99,8 +99,8 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 更改了昨天遗留下的所有问题，颜色的问题全部改过，饱和度大大降低
 1. 优化设置界面。
 1. 这个从此以后好像除了算法之外没什么可更新的了。。<br/>
-
-# UI设计工作正式宣告完成！<br/>
+所以说。。。。<br/>
+UI设计工作正式宣告完成！<br/>
 欧耶！<br/>
 昨天说的截图：<br/>
 ![233](https://github.com/ice1000/dialogs/blob/master/通用raw/screencut_0x02.png)
