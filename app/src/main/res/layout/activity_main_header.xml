@@ -13,22 +13,22 @@
 	android:clipToPadding="true"
 	tools:context="com.tesla.ai.MainActivity">
 
-	<android.support.v7.widget.CardView
-		android:layout_marginTop="30dp"
-		app:cardCornerRadius="@dimen/NCcardCornerRadiu"
-		app:cardElevation="@dimen/cardElevation"
-		android:layout_gravity="bottom|center_horizontal"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content">
+	<!--<android.support.v7.widget.CardView-->
+		<!--android:layout_marginTop="30dp"-->
+		<!--app:cardCornerRadius="@dimen/NCcardCornerRadiu"-->
+		<!--app:cardElevation="@dimen/cardElevation"-->
+		<!--android:layout_gravity="bottom|center_horizontal"-->
+		<!--android:layout_width="wrap_content"-->
+		<!--android:layout_height="wrap_content">-->
 
 		<ImageView
-			android:id="@+id/saberShake"
 			android:layout_margin="10dp"
-			android:background="@drawable/saber_shake"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
+			android:background="@drawable/saber_0x02"
+			android:layout_gravity="bottom|center_horizontal"
+			android:layout_width="170dp"
+			android:layout_height="150dp" />
 
-	</android.support.v7.widget.CardView>
+	<!--</android.support.v7.widget.CardView>-->
 
 	<TextView
 		android:layout_marginTop="20dp"
