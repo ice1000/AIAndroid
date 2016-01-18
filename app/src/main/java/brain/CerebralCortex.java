@@ -61,7 +61,7 @@ public class CerebralCortex {
 	public void giveMessage(String message) {
 		this.lastGivenMessage = message;
 		// 过滤掉空信息
-		if(filterMessage(message)){
+		if(!filterMessage(message)){
 			return;
 		}
 		if(onMessageChangedListener != null){
