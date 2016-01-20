@@ -19,17 +19,17 @@ public class AboutMeActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        toFloat();
+//        toFloat();
     }
 
-    private void toFloat(){
-        ImageView NC = (ImageView) findViewById(R.id.ncFloating);
-        NC.setBackgroundResource(R.drawable.nc_floating);
-        ((AnimationDrawable) NC.getBackground()).start();
-        ImageView Saber = (ImageView) findViewById(R.id.saberShake);
-        Saber.setBackgroundResource(R.drawable.saber_shake);
-        ((AnimationDrawable) Saber.getBackground()).start();
-    }
+//    private void toFloat(){
+//        ImageView NC = (ImageView) findViewById(R.id.ncFloating);
+//        NC.setBackgroundResource(R.drawable.nc_floating);
+//        ((AnimationDrawable) NC.getBackground()).start();
+//        ImageView Saber = (ImageView) findViewById(R.id.saberShake);
+//        Saber.setBackgroundResource(R.drawable.saber_shake);
+//        ((AnimationDrawable) Saber.getBackground()).start();
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

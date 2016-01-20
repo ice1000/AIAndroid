@@ -23,10 +23,9 @@
 
 		<ImageView
 			android:layout_margin="10dp"
-			android:background="@drawable/saber_0x02"
-			android:layout_gravity="bottom|center_horizontal"
-			android:layout_width="170dp"
-			android:layout_height="150dp" />
+			android:background="@drawable/ritsu_2_round"
+			android:layout_width= "100dp"
+			android:layout_height="100dp" />
 
 	<!--</android.support.v7.widget.CardView>-->
 
@@ -37,7 +36,7 @@
 		android:layout_marginBottom="20dp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_gravity="center"/>
+		android:layout_gravity="center" />
 
 </LinearLayout>
 

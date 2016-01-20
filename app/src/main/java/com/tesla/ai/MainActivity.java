@@ -199,45 +199,43 @@ public class MainActivity extends AppCompatActivity {
 				R.string.open_draw,
 				R.string.close_draw
 		);
-		drawerToggle.syncState();
 		drawerLayout.setDrawerListener(drawerToggle);
+		drawerToggle.syncState();
 
 		NavigationView navigationView =
 				(NavigationView) findViewById(R.id.navigation);
-		if (navigationView != null) {
-			navigationView.setNavigationItemSelectedListener(
-					new NavigationView.OnNavigationItemSelectedListener() {
-				@Override
-				public boolean onNavigationItemSelected(MenuItem menuItem) {
+		navigationView.setNavigationItemSelectedListener(
+				new NavigationView.OnNavigationItemSelectedListener() {
+			@Override
+			public boolean onNavigationItemSelected(MenuItem menuItem) {
 //					menuItem.setChecked(true);
-					switch (menuItem.getItemId()){
-						case R.id.makeSummary:
-							Toast.makeText(MainActivity.this,
-									"暂时没做完！",
-									Toast.LENGTH_SHORT).show();
-							break;
-						case R.id.seeGithub:
-							startActivity(new Intent(
-									MainActivity.this,
-									GithubActivity.class
-							));
-							finish();
-							break;
-						case R.id.goSettings:
-							startActivity(new Intent(
-									MainActivity.this,
-									SettingsActivity.class
-							));
-							finish();
-							break;
-						default:
-							break;
-					}
-					drawerLayout.closeDrawers();
-					return false;
+				switch (menuItem.getItemId()){
+					case R.id.makeSummary:
+						Toast.makeText(MainActivity.this,
+								"暂时没做完！",
+								Toast.LENGTH_SHORT).show();
+						break;
+					case R.id.seeGithub:
+						startActivity(new Intent(
+								MainActivity.this,
+								GithubActivity.class
+						));
+						finish();
+						break;
+					case R.id.goSettings:
+						startActivity(new Intent(
+								MainActivity.this,
+								SettingsActivity.class
+						));
+						finish();
+						break;
+					default:
+						break;
 				}
-			});
-		}
+				drawerLayout.closeDrawers();
+				return false;
+			}
+		});
 
 		editMessage = (EditText) findViewById(R.id.sendBox);
 

@@ -12,7 +12,7 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 # 写AIAndroid的初衷:
 受[我的友人](https://github.com/Wimacs)的影响决定开始写。<br/>
 这是一个运行在[Android操作系统](http://baike.baidu.com/link?url=Fq6NnG8s-GSI9lQ3EsBQyI0Km0zICP-RA4kNTK4083ZGfQ9CBZ2Ews7V-zlmPulmX6qG7mbMYXpdpayxfPfKf7GAzQxtxLJzVYnVHG47Pw3)上的[人工智能](http://baike.baidu.com/link?url=vd1SM2trGRrWeWv5uerz1PTu1G1PTLQTBgNXTd9bDGoWizhDFFdZlR8KnHpTxZE3eLcJvV0YXs-OwDdvNWHvi6LzMWf5oRnuaj2E1BL7QOq)<br/>
-![icon](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png)<br/>
+![icon](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png)<br/>
 项目全面采用Material Design，虽然变得复杂了，工作量大了。。但犹未悔!<br/>
 就是不知道这个和二次元的微妙结合会有什么样的效果呢<br/>
 不同版本时期我也为本APP截了图，<br/>
@@ -63,12 +63,17 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新
 
+### 2016年1月20日 1.2.0.0 期末考试如火如荼进行中，我却依旧在更新，而且是大更新
+1. 把Saber改成了小律(又抠了一批图，工作量巨大)
+1. 优化NavigationView
+1. 开始界面优化
+
+# 历史更新
+
 ### 2016年1月18日 1.1.1.1 在线进行的更新
 1. 更新README，让它看起来不那么傻逼（蜘蛛阿姨说的
 1. 修复一个简单却致命的bug，这个bug让我糗大了，之前还发布，结果特么有bug![233](https://github.com/ice1000/dialogs/blob/master/raw/ice1000_0x00.gif)
 1. 我收回前言，这个项目还是会持续更新！
-
-# 历史更新
 
 ### 2016年1月17日 1.1.1.0 重大更新
 1. 主界面增加侧滑菜单
