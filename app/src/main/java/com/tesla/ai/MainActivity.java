@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -181,6 +182,15 @@ public class MainActivity extends AppCompatActivity {
 		}
 	}
 
+	@Override
+	public void onBackPressed() {
+		if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+			drawerLayout.closeDrawer(GravityCompat.START);
+		} else {
+			super.onBackPressed();
+		}
+	}
+
 	/**
 	 * 初始化一大堆View
 	 */
@@ -230,8 +240,9 @@ public class MainActivity extends AppCompatActivity {
 					default:
 						break;
 				}
+//				drawerLayout.closeDrawers(GravityCompat.START);
 				drawerLayout.closeDrawers();
-				return false;
+				return true;
 			}
 		});
 
@@ -427,10 +438,10 @@ public class MainActivity extends AppCompatActivity {
 							RelativeLayout.LayoutParams.WRAP_CONTENT
 					);
 
-
 			if(message.isFromSaber()){
-				params.gravity = Gravity.LEFT;
-				params.setMargins(10,11,30,11);
+				params.gravity = Gravity.START;
+				// 左 上 右 下
+				params.setMargins(15,15,30,15);
 
 				cardView.setCardBackgroundColor(
 						getResources().
@@ -441,8 +452,9 @@ public class MainActivity extends AppCompatActivity {
 			}
 
 			else {
-				params.gravity = Gravity.RIGHT;
-				params.setMargins(30,11,10,11);
+				params.gravity = Gravity.END;
+				// 左 上 右 下
+				params.setMargins(30,15,15,15);
 
 				cardView.setCardBackgroundColor(
 						getResources().

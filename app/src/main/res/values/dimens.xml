@@ -12,11 +12,13 @@
     <dimen name="myCardMargin">6dp</dimen>
     <dimen name="myMessageCornerRadius">5dp</dimen>
     <dimen name="myMessageMargin">15dp</dimen>
-    <dimen name="messageToSurround">15dp</dimen>
+    <dimen name="messageToSurround">12dp</dimen>
 
     <dimen name="betweenNCandOther">20dp</dimen>
     <dimen name="NCcardCornerRadiu">2dp</dimen>
     <dimen name="cardElevation">25dp</dimen>
     <dimen name="myListDividerHeight">10dp</dimen>
     <dimen name="send_button_width">80dp</dimen>
+    <dimen name="dialogMargin">50dp</dimen>
+    <dimen name="dialogElevation">24dp</dimen>
 </resources>
