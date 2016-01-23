@@ -15,7 +15,7 @@
     <dimen name="messageToSurround">8dp</dimen>
 
     <dimen name="betweenNCandOther">20dp</dimen>
-    <dimen name="NCcardCornerRadiu">30dp</dimen>
+    <dimen name="NCcardCornerRadiu">2dp</dimen>
     <dimen name="cardElevation">25dp</dimen>
     <dimen name="myListDividerHeight">10dp</dimen>
     <dimen name="send_button_width">80dp</dimen>
