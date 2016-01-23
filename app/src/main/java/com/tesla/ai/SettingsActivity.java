@@ -2,7 +2,6 @@ package com.tesla.ai;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,9 +12,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import brain.LimbicSystem;
+import util.BaseActivity;
 import util.T;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -23,9 +23,6 @@ public class SettingsActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_settings);
 
 		LimbicSystem limbicSystem = new LimbicSystem(this);
-
-//		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//		setSupportActionBar(toolbar);
 
 		ArrayList<String> data = new ArrayList<>();
 		data.add("推广：HDF Studio神经病编程社区(QQ群");

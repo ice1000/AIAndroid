@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -18,7 +17,9 @@ import android.widget.TextView;
 
 import java.net.URL;
 
-public class GithubActivity extends AppCompatActivity {
+import util.BaseActivity;
+
+public class GithubActivity extends BaseActivity {
 
     private WebView github;
     private TextView noNetwork;
@@ -28,9 +29,8 @@ public class GithubActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_github);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
 
         github = (WebView) findViewById(R.id.github);
         noNetwork = (TextView) findViewById(R.id.noNetwork);
