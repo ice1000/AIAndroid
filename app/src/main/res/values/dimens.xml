@@ -12,7 +12,7 @@
     <dimen name="myCardMargin">6dp</dimen>
     <dimen name="myMessageCornerRadius">5dp</dimen>
     <dimen name="myMessageMargin">15dp</dimen>
-    <dimen name="messageToSurround">8dp</dimen>
+    <dimen name="messageToSurround">15dp</dimen>
 
     <dimen name="betweenNCandOther">20dp</dimen>
     <dimen name="NCcardCornerRadiu">2dp</dimen>
