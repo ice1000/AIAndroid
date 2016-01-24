@@ -5,10 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import util.BaseActivity;
 import util.MyMessage;
+import util.T;
 
 /**
+ * SQLite处理
  * Created by Administrator on 2016/1/5 0005.
  */
 public class SQLiteOpener extends SQLiteOpenHelper {
@@ -17,7 +18,7 @@ public class SQLiteOpener extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
 
     public SQLiteOpener(Context context){
-        this(context, BaseActivity.T.DATABASE_NAME, null, DATABASE_VERSION);
+        this(context, T.DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     public SQLiteOpener(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -27,7 +28,7 @@ public class SQLiteOpener extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " +
-                BaseActivity.T.TALK_LOG_TABLE + "(" +
+                T.TALK_LOG_TABLE + "(" +
                 MyMessage.ID         + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 MyMessage.MSG        + " TEXT, " +
                 MyMessage.FROM_SABER + " INTEGER)");
@@ -35,7 +36,7 @@ public class SQLiteOpener extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        Log.d(this.toString(), BaseActivity.T.WHAT_THE_FUCK);
+        Log.d(this.toString(), T.WHAT_THE_FUCK);
     }
 
     @Override

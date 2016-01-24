@@ -8,8 +8,8 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import util.BaseActivity;
 import util.MyMessage;
+import util.T;
 
 /**
  * Copyright 2016(c) Comet Corporation.
@@ -28,7 +28,7 @@ public class SQLiteManager {
 
         ArrayList<MyMessage> messages = new ArrayList<>();
         Cursor cursor = database.query(
-                BaseActivity.T.TALK_LOG_TABLE,
+                T.TALK_LOG_TABLE,
 //                new String[]{
 //                        MyMessage.FROM_SABER,
 //                        MyMessage.MSG
@@ -77,13 +77,13 @@ public class SQLiteManager {
         contentValues.put(MyMessage.FROM_SABER, myMessage.isFromSaber()
                 ? MyMessage.IS_FROM_SABER : 0);
 
-        database.insert(BaseActivity.T.TALK_LOG_TABLE,
+        database.insert(T.TALK_LOG_TABLE,
                 null, contentValues);
     }
 
     public MyMessage getLastMessage(){
         Cursor cursor = database.query(
-                BaseActivity.T.TALK_LOG_TABLE,
+                T.TALK_LOG_TABLE,
                 null,
                 null,
                 null,
@@ -101,7 +101,7 @@ public class SQLiteManager {
 
     public MyMessage getOneMessage(int id){
         Cursor cursor = database.rawQuery(
-                "select * from " + BaseActivity.T.TALK_LOG_TABLE + " where " + MyMessage.ID + "=" + id,
+                "select * from " + T.TALK_LOG_TABLE + " where " + MyMessage.ID + "=" + id,
                 null
         );
         cursor.moveToFirst();
@@ -120,7 +120,7 @@ public class SQLiteManager {
 //                ", id = " + id
 //        );
         database.delete(
-                BaseActivity.T.TALK_LOG_TABLE,
+                T.TALK_LOG_TABLE,
                 MyMessage.ID + "=" + id,
                 null
         );
@@ -128,7 +128,7 @@ public class SQLiteManager {
 
     public void removeAll(){
         database.execSQL(
-                "DELETE FROM " + BaseActivity.T.TALK_LOG_TABLE
+                "DELETE FROM " + T.TALK_LOG_TABLE
         );
     }
 }

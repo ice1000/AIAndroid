@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import database.SQLiteManager;
-import util.BaseActivity;
-import util.OnMessageChangedListener;
 import util.MyMessage;
+import util.OnMessageChangedListener;
+import util.T;
 
 /**
  * Copyright 2016(c) Comet Corporation.
@@ -67,7 +67,7 @@ public class CerebralCortex {
 		if(onMessageChangedListener != null){
 			onMessageChangedListener.onMessageChanged(
 					data.size(),
-					BaseActivity.T.ANSWER_MESSAGE_RECIEVED
+					T.ANSWER_MESSAGE_RECIEVED
 			);
 		}
 		handleLastGivenMessage();
@@ -96,11 +96,11 @@ public class CerebralCortex {
 	 */
 	private void handleLastGivenMessage(){
 		// 去掉首尾换行符或者空格
-		while (lastGivenMessage.endsWith(BaseActivity.T.SHOULD_BE_DELETE)){
+		while (lastGivenMessage.endsWith(T.SHOULD_BE_DELETE)){
 			lastGivenMessage = lastGivenMessage.
 					substring(0, lastGivenMessage.length()-1);
 		}
-		while (lastGivenMessage.startsWith(BaseActivity.T.SHOULD_BE_DELETE)){
+		while (lastGivenMessage.startsWith(T.SHOULD_BE_DELETE)){
 			lastGivenMessage = lastGivenMessage.
 					substring(1, lastGivenMessage.length());
 		}
@@ -118,7 +118,7 @@ public class CerebralCortex {
 //		if (lastGivenMessage.contains(T.SHOULD_BE_DELETE)) {
 //			cnt++;
 		String[] lastGivenMessages =
-				lastGivenMessage.split(BaseActivity.T.SHOULD_BE_SPLIT);
+				lastGivenMessage.split(T.SHOULD_BE_SPLIT);
 		Collections.addAll(
 				answerWhichIsReadyToBeSent,
 					lastGivenMessages
@@ -129,7 +129,7 @@ public class CerebralCortex {
 //			answerWhichIsReadyToBeSent.add(lastGivenMessage);
 		for (int i = 0; i < answerWhichIsReadyToBeSent.size(); i++) {
 			String s = answerWhichIsReadyToBeSent.get(i);
-			if (s.matches(BaseActivity.T.SHOULD_BE_DELETE) || s.equals("")){
+			if (s.matches(T.SHOULD_BE_DELETE) || s.equals("")){
 				answerWhichIsReadyToBeSent.remove(i);
 				i--;
 			}
@@ -150,7 +150,7 @@ public class CerebralCortex {
 			if (onMessageChangedListener != null) {
 				onMessageChangedListener.onMessageChanged(
 						data.size()-1,
-						BaseActivity.T.ANSWER_MESSAGE_SENT
+						T.ANSWER_MESSAGE_SENT
 				);
 			}
 		}
@@ -183,7 +183,7 @@ public class CerebralCortex {
 		if (onMessageChangedListener != null) {
 			onMessageChangedListener.onMessageChanged(
 					position,
-					BaseActivity.T.ANSWER_MESSAGE_DELETED
+					T.ANSWER_MESSAGE_DELETED
 			);
 		}
 	}
@@ -224,8 +224,8 @@ public class CerebralCortex {
 		data = manager.getMessages();
 		if (onMessageChangedListener != null) {
 			onMessageChangedListener.onMessageChanged(
-					BaseActivity.T.DONT_NEED_THIS_PARAM,
-					BaseActivity.T.WHOLE_DATASET_CHANGED
+					T.DONT_NEED_THIS_PARAM,
+					T.WHOLE_DATASET_CHANGED
 			);
 		}
 	}
@@ -238,8 +238,8 @@ public class CerebralCortex {
 		data.clear();
 		if (onMessageChangedListener != null) {
 			onMessageChangedListener.onMessageChanged(
-					BaseActivity.T.DONT_NEED_THIS_PARAM,
-					BaseActivity.T.WHOLE_DATASET_CHANGED
+					T.DONT_NEED_THIS_PARAM,
+					T.WHOLE_DATASET_CHANGED
 			);
 		}
 	}

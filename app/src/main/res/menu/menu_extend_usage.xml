@@ -4,6 +4,7 @@
 	<group
 		android:checkableBehavior="single">
 		<item
+			android:checkable="true"
 			android:id="@+id/goSettings"
 			android:icon="@drawable/ic_settings_black_18dp"
 			android:title="@string/action_settings"
@@ -12,6 +13,7 @@
 			android:title="@string/extend_usage">
 			<menu>
 				<item
+					android:checkable="true"
 					android:id="@+id/makeSummary"
 					android:title="@string/make_summary"
 					android:icon="@drawable/ic_book_black_18dp"
@@ -23,10 +25,12 @@
 			<menu>
 				<item
 					android:id="@+id/introduceDeveloper"
+					android:checkable="true"
 					android:title="@string/contact_me"
 					android:icon="@drawable/ic_account_circle_black_18dp"
 					/>
 				<item
+					android:checkable="true"
 					android:id="@+id/seeGithub"
 					android:title="@string/see_source"
 					android:icon="@drawable/ic_visibility_black_18dp"
