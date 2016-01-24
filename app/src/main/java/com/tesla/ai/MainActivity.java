@@ -217,7 +217,6 @@ public class MainActivity extends BaseActivity {
 				drawerLayout.closeDrawers();
 				preMenuItem = menuItem;
 //				drawerLayout.closeDrawers(GravityCompat.START);
-				drawerLayout.closeDrawers();
 				return true;
 			}
 		});
@@ -338,12 +337,14 @@ public class MainActivity extends BaseActivity {
 		Toast.makeText(MainActivity.this,
 				"暂时没做完！",
 				Toast.LENGTH_SHORT).show();
+		baseMenuItemOnClickListener(item);
 	}
 	public void seeGithub(MenuItem item){
 		startActivity(new Intent(
 				MainActivity.this,
 				GithubActivity.class
 		));
+		baseMenuItemOnClickListener(item);
 		finish();
 	}
 	public void goSettings(MenuItem item){
@@ -351,12 +352,17 @@ public class MainActivity extends BaseActivity {
 				MainActivity.this,
 				SettingsActivity.class
 		));
+		baseMenuItemOnClickListener(item);
 		finish();
 	}
 	public void contactMe(MenuItem item){
 		Toast.makeText(MainActivity.this,
 				T.SORRY_CANNOT_JOIN,
 				Toast.LENGTH_SHORT).show();
+		baseMenuItemOnClickListener(item);
+	}
+	private void baseMenuItemOnClickListener(MenuItem item){
+		drawerLayout.closeDrawers();
 	}
 
 	class MessageAdapter extends RecyclerView.Adapter {

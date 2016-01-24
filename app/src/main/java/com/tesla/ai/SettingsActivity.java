@@ -22,7 +22,6 @@ public class SettingsActivity extends BaseActivity {
 		setContentView(R.layout.activity_settings);
 
 		LimbicSystem limbicSystem = new LimbicSystem(this);
-		initToolBar();
 
 		ArrayList<String> data = new ArrayList<>();
 		data.add("推广：HDF Studio神经病编程社区(QQ群");

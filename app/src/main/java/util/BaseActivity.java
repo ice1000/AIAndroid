@@ -18,6 +18,7 @@ import com.tesla.ai.R;
 import com.tesla.ai.SettingsActivity;
 
 /**
+ * 封装的基类
  * Copyright 2016(c) Comet Corporation.
  * Created by asus1 on 2016/1/23.
  */
@@ -28,23 +29,35 @@ public class BaseActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 	}
 
+	/**
+	 * 初始化ToolBar
+	 * @return 可能还会对ToolBar有一些操作
+	 */
 	protected Toolbar initToolBar(){
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		return toolbar;
 	}
 
+	/**
+	 * 播放一个逐帧动画。
+	 * @param id1 View的ID
+	 * @param id2 逐帧动画的ID
+	 */
 	protected void playFrameAnimation(@IdRes int id1, @DrawableRes int id2){
 		ImageView Saber = (ImageView) findViewById(id1);
 		Saber.setBackgroundResource(id2);
 		((AnimationDrawable) Saber.getBackground()).start();
 	}
 
+	/**
+	 * 播放一个补间动画。
+	 * @param id1 View的ID
+	 * @param id2 补间动画的ID
+	 */
 	protected void playTweenAnimation(@IdRes int id1, @AnimRes int id2){
 		findViewById(id1).startAnimation(
-			AnimationUtils.loadAnimation(
-				this, id2
-			)
+			AnimationUtils.loadAnimation(this, id2)
 		);
 	}
 
