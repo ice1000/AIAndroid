@@ -1,12 +1,12 @@
 # 当前暂无已知bug
 # 强烈建议使用Android5.0以上的系统运行本APP！！！
-                                           FBI warning
+                                          ~~ FBI warning~~
 
 
-`federal law provides severe civil and criminal penalties for the unauthorized reproduction,
-distribution ,or exhibition of copyrighted motion pictures (title 17,united states code,sections 501 and 508),
-the federal bureau of investigation investigates allegations of criminal copyright infringement 
-(title 17,united states code,section 506)`
+~~`federal law provides severe civil and criminal penalties for the unauthorized reproduction,~~
+~~distribution ,or exhibition of copyrighted motion pictures (title 17,united states code,sections 501 and 508),~~
+~~the federal bureau of investigation investigates allegations of criminal copyright infringement ~~
+~~(title 17,united states code,section 506)`~~
 
 
 # 写AIAndroid的初衷:
@@ -34,7 +34,7 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 - [X] 分割支持圆角符号
 - [ ] 中文分词
 - [ ] 机器学习
-- [ ] 强AI（痴人说梦
+- [ ] ~~强AI（痴人说梦~~
 - [ ] 人类情绪
 - [ ] 颜文字(๑>؂<๑)۶和表情的处理。
 - [ ] 更多可爱的逐帧动画。
@@ -65,6 +65,7 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 ### 2016年1月24日 1.2.0.1 考完了，我却还在上课
 1. 一些UI中参数的修改
+1. Dialog有阴影了
 
 # 历史更新
 
@@ -89,26 +90,26 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 继续写Javadoc
 1. 增加新功能的企划
 
-## 2016年1月15日 1.1.0.3 又没忍住更新了。。
+## 2016年1月15日 1.1.0.3 ~~又没忍住更新了。。~~
 1. 过滤空消息
 1. 写了各个类的Javadoc（很辛苦！
 1. 更改监听器设置方法
 1. 增加大脑皮层的两种构造方法。
 1. 更改类名（主脑改成大脑皮层，记忆改成边缘系统
 
-## 2016年1月15日 1.1.0.2 好像忍不住又更新了
-1. 开始界面不那么猥琐了
+## 2016年1月15日 1.1.0.2 ~~好像忍不住又更新了~~
+1. 开始界面不那么~~猥琐~~了
 1. 减少多余的动画
 
-## 2016年1月13日 1.1.0.1 从这次更新以后，短期暂停更新
-1. 开始动画变得更猥琐了。
+## 2016年1月13日 1.1.0.1 ~~从这次更新以后，短期暂停更新~~
+1. 开始动画变得更~~猥琐~~了。
 1. 主页的字更小了。
 1. 又多了一些没用的图片。。
-1. 本次更新完毕估计就是我弃坑的时候。
-1. 所以说我现在已经齐此UI坑了。
+1. ~~本次更新完毕估计就是我弃坑的时候。~~
+1. ~~所以说我现在已经齐此UI坑了。~~
 1. 什么时候有了AI算法了，就继续更新AIAndroid！
 
-## 2016年1月12日 1.1.0.0 UI设计工作正式宣告结束！！
+## 2016年1月12日 1.1.0.0 ~~UI设计工作正式宣告结束！！~~
 1. 更改了昨天遗留下的所有问题，颜色的问题全部改过，饱和度大大降低
 1. 优化设置界面。
 1. 这个从此以后好像除了算法之外没什么可更新的了。。<br/>
