@@ -1,20 +1,11 @@
 package com.tesla.ai;
 
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
-import android.util.Log;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-public class LoginActivity extends AppCompatActivity {
+import util.BaseActivity;
+
+public class LoginActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,22 +36,14 @@ public class LoginActivity extends AppCompatActivity {
 	}
 
 	private void doStunts(){
-		final ImageView NC = (ImageView) findViewById(R.id.ncFloating);
-//		final ImageView Saber = (ImageView) findViewById(R.id.saberShake);
-		final ImageView imageView = (ImageView) findViewById(R.id.roundFore);
-//		final TextView logoTextView = (TextView) findViewById(R.id.logoText);
-//		final TextView saberTextView = (TextView) findViewById(R.id.meetTitle);
-//		final CardView NCCard = (CardView) findViewById(R.id.NCCard);
-
-		NC.setBackgroundResource(R.drawable.nc_floating);
-		((AnimationDrawable) NC.getBackground()).start();
-
-//		Saber.setBackgroundResource(R.drawable.saber_shake);
-//		((AnimationDrawable) Saber.getBackground()).start();
-
-		Animation animation = AnimationUtils.loadAnimation(
-				this, R.anim.progress_turning);
-		imageView.startAnimation(animation);
+		playFrameAnimation(
+				R.id.ncFloating,
+				R.drawable.nc_floating
+		);
+		playTweenAnimation(
+				R.id.roundFore,
+				R.anim.progress_turning
+		);
 
 //		final Handler handler = new Handler(){
 //			@Override

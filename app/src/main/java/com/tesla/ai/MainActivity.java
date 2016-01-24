@@ -10,12 +10,10 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -31,12 +29,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import brain.CerebralCortex;
+import util.BaseActivity;
 import util.MyMessage;
 import util.OnItemClickListener;
 import util.OnMessageChangedListener;
 import util.T;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 	private int nowBackgroundColor;
 	private RecyclerView messageRecycler;
@@ -101,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
-
 		switch (id) {
 			case R.id.action_settings:
 				startActivity(new Intent(
@@ -195,15 +193,11 @@ public class MainActivity extends AppCompatActivity {
 	 * 初始化一大堆View
 	 */
 	private void initViews(){
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
-
 		drawerLayout = (DrawerLayout) findViewById(R.id.mainDrawer);
-
 		ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(
 				this,
 				drawerLayout,
-				toolbar,
+				initToolBar(),
 				R.string.open_draw,
 				R.string.close_draw
 		);
@@ -342,10 +336,6 @@ public class MainActivity extends AppCompatActivity {
 		});
 
 		messageRecycler.setAdapter(adapter);
-
-//		ImageView Saber = (ImageView) findViewById(R.id.saberShake);
-//		Saber.setBackgroundResource(R.drawable.saber_shake);
-//		((AnimationDrawable) Saber.getBackground()).start();
 	}
 
 	/**

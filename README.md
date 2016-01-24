@@ -1,13 +1,12 @@
 # 当前暂无已知bug
 # 强烈建议使用Android5.0以上的系统运行本APP！！！
-                                          ~~ FBI warning~~
+                                          ~~FBI warning~~
 
 
 ~~`federal law provides severe civil and criminal penalties for the unauthorized reproduction,~~
 ~~distribution ,or exhibition of copyrighted motion pictures (title 17,united states code,sections 501 and 508),~~
 ~~the federal bureau of investigation investigates allegations of criminal copyright infringement ~~
 ~~(title 17,united states code,section 506)`~~
-
 
 # 写AIAndroid的初衷:
 受[我的友人](https://github.com/Wimacs)的影响决定开始写。<br/>
@@ -66,6 +65,7 @@
 ### 2016年1月24日 1.2.0.1 考完了，我却还在上课
 1. 一些UI中参数的修改
 1. Dialog有阴影了
+1. 优美地封装了[BaseActivity](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/util/BaseActivity.java)！真棒！封装在各个Activity中都有体现，除了Dialog。。。
 
 # 历史更新
 

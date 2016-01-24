@@ -23,6 +23,7 @@ public class SettingsActivity extends BaseActivity {
 		setContentView(R.layout.activity_settings);
 
 		LimbicSystem limbicSystem = new LimbicSystem(this);
+		initToolBar();
 
 		ArrayList<String> data = new ArrayList<>();
 		data.add("推广：HDF Studio神经病编程社区(QQ群");
@@ -93,7 +94,6 @@ public class SettingsActivity extends BaseActivity {
 								Uri.parse("https://github.com/orgs/ProgramLeague")
 						);
 						startActivity(intent);
-						
 					}
 					default:
 						break;
@@ -103,9 +103,7 @@ public class SettingsActivity extends BaseActivity {
 	}
 
 	private void joinQQ(int QQGroupId){
-
 		String key;
-
 		switch (QQGroupId){
 			case T.PROGRAM_LEAGUE:
 				key = "1xAz-QGQL0FrWLWvBz_a5yE6aIv_64et";
@@ -144,8 +142,8 @@ public class SettingsActivity extends BaseActivity {
 		intent.setData(Uri.parse(
 				"mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com"+
 						"%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D" + key));
-		// 此Flag可根据具体产品需要自定义，如设置，则在加群界面按返回，
-		// 返回手Q主界面，不设置，按返回会返回到呼起产品界面
+// 此Flag可根据具体产品需要自定义，如设置，则在加群界面按返回，
+// 返回手Q主界面，不设置，按返回会返回到呼起产品界面
 //		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		try {
 			startActivity(intent);
