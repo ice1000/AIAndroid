@@ -98,8 +98,7 @@ public class MainActivity extends BaseActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-		switch (id) {
+		switch (item.getItemId()) {
 			case R.id.action_settings:
 				startActivity(new Intent(
 						MainActivity.this, SettingsActivity.class));
@@ -161,6 +160,15 @@ public class MainActivity extends BaseActivity {
 
 	}
 
+	@Override
+	public void onBackPressed() {
+		if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+			drawerLayout.closeDrawer(GravityCompat.START);
+		} else {
+			super.onBackPressed();
+		}
+	}
+
 	/**
 	 * 更换背景颜色
 	 * @param id 背景颜色
@@ -176,15 +184,6 @@ public class MainActivity extends BaseActivity {
 			//设置动画的设置目标
 			objectAnimator.setTarget(messageRecycler);
 			objectAnimator.start();
-		}
-	}
-
-	@Override
-	public void onBackPressed() {
-		if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-			drawerLayout.closeDrawer(GravityCompat.START);
-		} else {
-			super.onBackPressed();
 		}
 	}
 
@@ -207,32 +206,16 @@ public class MainActivity extends BaseActivity {
 				(NavigationView) findViewById(R.id.navigation);
 		navigationView.setNavigationItemSelectedListener(
 				new NavigationView.OnNavigationItemSelectedListener() {
+			//用于辨别此前是否已有选中条目
+			MenuItem preMenuItem;
 			@Override
 			public boolean onNavigationItemSelected(MenuItem menuItem) {
+				Log.d(toString(), "点击事件已经触发。");
+				if(preMenuItem != null)
+					preMenuItem.setChecked(false);
 				menuItem.setChecked(true);
-				switch (menuItem.getItemId()){
-					case R.id.makeSummary:
-						Toast.makeText(MainActivity.this,
-								"暂时没做完！",
-								Toast.LENGTH_SHORT).show();
-						break;
-					case R.id.seeGithub:
-						startActivity(new Intent(
-								MainActivity.this,
-								GithubActivity.class
-						));
-						finish();
-						break;
-					case R.id.goSettings:
-						startActivity(new Intent(
-								MainActivity.this,
-								SettingsActivity.class
-						));
-						finish();
-						break;
-					default:
-						break;
-				}
+				drawerLayout.closeDrawers();
+				preMenuItem = menuItem;
 //				drawerLayout.closeDrawers(GravityCompat.START);
 				drawerLayout.closeDrawers();
 				return true;
@@ -345,6 +328,35 @@ public class MainActivity extends BaseActivity {
 		String msg = editMessage.getText().toString();
 		brain.giveMessage(msg);
 		editMessage.setText("");
+	}
+
+	/**
+	 * 侧滑菜单按钮监听器
+	 * @param item 必备参数
+	 */
+	public void makeSummary(MenuItem item){
+		Toast.makeText(MainActivity.this,
+				"暂时没做完！",
+				Toast.LENGTH_SHORT).show();
+	}
+	public void seeGithub(MenuItem item){
+		startActivity(new Intent(
+				MainActivity.this,
+				GithubActivity.class
+		));
+		finish();
+	}
+	public void goSettings(MenuItem item){
+		startActivity(new Intent(
+				MainActivity.this,
+				SettingsActivity.class
+		));
+		finish();
+	}
+	public void contactMe(MenuItem item){
+		Toast.makeText(MainActivity.this,
+				T.SORRY_CANNOT_JOIN,
+				Toast.LENGTH_SHORT).show();
 	}
 
 	class MessageAdapter extends RecyclerView.Adapter {

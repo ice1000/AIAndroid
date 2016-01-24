@@ -69,23 +69,18 @@ public class BaseActivity extends AppCompatActivity {
 	}
 
 	/**
+	 * 只保留了Activity中需要的
 	 * Created by Administrator on 2016/1/5 0005.
 	 */
 	public static class T {
 
 	    public static final String PREFERENCE_NAME = "PREFERENCE_NAME";
 	    public static final String SABER_NAME = "SABER_NAME";
-	    public static final String MEET_FIRST_TIME = "第一次见，先生您好~";
 	    public static final String HAVEN_T_GOT_NAME = "快给我起个名字\n\\(≧▽≦)/";
-	    public static final String HELLO_HONEY = "嗨~";
 	    public static final String WHAT_THE_FUCK = "好想念主人啊~";
 	    public static final String POSITION = "POSITION";
 	    public static final String DELETE_OR_NOT = "DELETE_OR_NOT";
-	    public static final String DELETE_FAILED = "删除失败，使用暴力方法删除";
-	    public static final String SORRY_CANNOT_USE =  "抱歉本功能暂未开放";
 	    public static final String SORRY_CANNOT_JOIN =  "由于开发者害怕被肛，暂时无法联系上他。百度ID @精灵谱尼 哦";
-
-		public static final String NO_MESSAGE_FOUND =  "没有找到消息";
 
 		// 在MainActivity中的
 	    public static final int DONT_NEED_THIS_PARAM  = -1;

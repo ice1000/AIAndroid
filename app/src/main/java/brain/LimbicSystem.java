@@ -11,6 +11,7 @@ import database.SQLiteManager;
 import util.BaseActivity;
 
 /**
+ * 某种意义上是对于Preference数据库操作的一种封装。
  * Created by Administrator on 2016/1/11 0011.
  */
 public class LimbicSystem {
@@ -49,7 +50,6 @@ public class LimbicSystem {
                     "editor.commit() = " +
                             editor.commit()
             );
-
     }
 
     public String getName(){

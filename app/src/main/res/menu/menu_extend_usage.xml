@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+	<item
+		android:checkable="true"
+		android:onClick="goSettings"
+		android:icon="@drawable/ic_settings_black_18dp"
+		android:title="@string/action_settings"
+		/>
+
 	<group
-		android:checkableBehavior="single">
-		<item
-			android:checkable="true"
-			android:id="@+id/goSettings"
-			android:icon="@drawable/ic_settings_black_18dp"
-			android:title="@string/action_settings"
-			/>
+		android:checkableBehavior="single"
+		>
 		<item
 			android:title="@string/extend_usage">
 			<menu>
 				<item
 					android:checkable="true"
-					android:id="@+id/makeSummary"
+					android:onClick="makeSummary"
 					android:title="@string/make_summary"
 					android:icon="@drawable/ic_book_black_18dp"
 					/>
@@ -24,14 +26,14 @@
 			android:title="@string/about_me2">
 			<menu>
 				<item
-					android:id="@+id/introduceDeveloper"
+					android:onClick="contactMe"
 					android:checkable="true"
 					android:title="@string/contact_me"
 					android:icon="@drawable/ic_account_circle_black_18dp"
 					/>
 				<item
 					android:checkable="true"
-					android:id="@+id/seeGithub"
+					android:onClick="seeGithub"
 					android:title="@string/see_source"
 					android:icon="@drawable/ic_visibility_black_18dp"
 					/>

@@ -10,12 +10,13 @@
 	android:layout_height="match_parent">
 	
 	<android.support.design.widget.NavigationView
-		app:headerLayout="@layout/activity_main_header"
-		app:menu="@menu/menu_extend_usage"
 		android:id="@+id/navigation"
 		android:layout_gravity="start"
 		android:fitsSystemWindows="true"
+		android:isScrollContainer="true"
 		android:layout_width="wrap_content"
+		app:headerLayout="@layout/activity_main_header"
+		app:menu="@menu/menu_extend_usage"
 		android:layout_height="match_parent"/>
 
 	<include layout="@layout/content_main"/>
