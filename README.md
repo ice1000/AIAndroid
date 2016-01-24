@@ -66,6 +66,7 @@
 1. 一些UI中参数的修改
 1. Dialog有阴影了
 1. 优美地封装了[BaseActivity](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/util/BaseActivity.java)！真棒！封装在各个Activity中都有体现，除了Dialog。。。
+1. 将常量类T也封装到了BaseActivity
 
 # 历史更新
 

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 import brain.LimbicSystem;
 import util.BaseActivity;
-import util.T;
 
 public class SettingsActivity extends BaseActivity {
 

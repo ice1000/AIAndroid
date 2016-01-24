@@ -8,7 +8,7 @@ import android.util.Log;
 import com.tesla.ai.R;
 
 import database.SQLiteManager;
-import util.T;
+import util.BaseActivity;
 
 /**
  * Created by Administrator on 2016/1/11 0011.
@@ -28,18 +28,18 @@ public class LimbicSystem {
         preferences = Build.VERSION.SDK_INT >=
                 Build.VERSION_CODES.JELLY_BEAN
                 ? context.getSharedPreferences(
-                T.PREFERENCE_NAME,
+                BaseActivity.T.PREFERENCE_NAME,
                 Context.MODE_ENABLE_WRITE_AHEAD_LOGGING
         )
                 : context.getSharedPreferences(
-                T.PREFERENCE_NAME,
+                BaseActivity.T.PREFERENCE_NAME,
                 Context.MODE_WORLD_READABLE
         );
     }
 
     public void putName(String name){
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(T.SABER_NAME, name);
+        editor.putString(BaseActivity.T.SABER_NAME, name);
 
         if (Build.VERSION.SDK_INT >=
                 Build.VERSION_CODES.GINGERBREAD)
@@ -54,7 +54,7 @@ public class LimbicSystem {
 
     public String getName(){
         return preferences.getString(
-                T.SABER_NAME,
+                BaseActivity.T.SABER_NAME,
                 context.getString(R.string.app_name)
         );
     }
@@ -63,14 +63,14 @@ public class LimbicSystem {
 
         String text;
         text = preferences.getString(
-                T.SABER_NAME,
+                BaseActivity.T.SABER_NAME,
                 context.getString(R.string.app_name) +
-                T.WHAT_THE_FUCK
+                BaseActivity.T.WHAT_THE_FUCK
         );
 
-        if(text.equals(T.HAVEN_T_GOT_NAME +
-                T.WHAT_THE_FUCK)){
-            text = T.HAVEN_T_GOT_NAME;
+        if(text.equals(BaseActivity.T.HAVEN_T_GOT_NAME +
+                BaseActivity.T.WHAT_THE_FUCK)){
+            text = BaseActivity.T.HAVEN_T_GOT_NAME;
         }
 
 //        if(!preferences.contains(T.SABER_NAME)){

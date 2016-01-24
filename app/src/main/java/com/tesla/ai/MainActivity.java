@@ -33,7 +33,6 @@ import util.BaseActivity;
 import util.MyMessage;
 import util.OnItemClickListener;
 import util.OnMessageChangedListener;
-import util.T;
 
 public class MainActivity extends BaseActivity {
 
