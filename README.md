@@ -62,13 +62,16 @@
 
 # 本次更新
 
+### 2016年1月25日 1.2.1.0 终于修复了侧滑菜单
+
+
+# 历史更新
+
 ### 2016年1月24日 1.2.0.1 考完了，我却还在上课
 1. 一些UI中参数的修改
 1. Dialog有阴影了
 1. 优美地封装了[BaseActivity](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/util/BaseActivity.java)！真棒！封装在各个Activity中都有体现，除了Dialog。。。
 1. 将常量类T也封装到了BaseActivity，为了方便外部访问我还在外面继承了一个，将一些Activity中用不到的字符串封装了。
-
-# 历史更新
 
 ### 2016年1月20日 1.2.0.0 期末考试如火如荼进行中，我却依旧在更新，而且是大更新
 1. 把Saber改成了小律(又抠了一批图，工作量巨大)

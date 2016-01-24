@@ -5,10 +5,13 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:openDrawer="start"
+	tools:context=".MainActivity"
 	android:id="@+id/mainDrawer"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
-	
+
+	<include layout="@layout/content_main"/>
+
 	<android.support.design.widget.NavigationView
 		android:id="@+id/navigation"
 		android:layout_gravity="start"
@@ -19,7 +22,6 @@
 		app:menu="@menu/menu_extend_usage"
 		android:layout_height="match_parent"/>
 
-	<include layout="@layout/content_main"/>
 
 </android.support.v4.widget.DrawerLayout>
 	<!--</android.support.design.widget.CoordinatorLayout>-->
