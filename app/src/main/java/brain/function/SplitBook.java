@@ -17,4 +17,8 @@ public class SplitBook {
 
     public SplitBook() {
     }
+
+    public void setBookUri(Uri bookUri) {
+        this.bookUri = bookUri;
+    }
 }

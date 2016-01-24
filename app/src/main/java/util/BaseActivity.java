@@ -10,12 +10,13 @@ import android.support.v7.app.AppCompatActivity;
  */
 public class BaseActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	@Override
+	protected void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
 
 //		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //		setSupportActionBar(toolbar);
-    }
+	}
 
 }

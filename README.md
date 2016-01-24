@@ -63,12 +63,15 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新
 
+### 2016年1月24日 1.2.0.1 考完了，我却还在上课
+1. 一些UI中参数的修改
+
+# 历史更新
+
 ### 2016年1月20日 1.2.0.0 期末考试如火如荼进行中，我却依旧在更新，而且是大更新
 1. 把Saber改成了小律(又抠了一批图，工作量巨大)
 1. 优化NavigationView
 1. 开始界面优化
-
-# 历史更新
 
 ### 2016年1月18日 1.1.1.1 在线进行的更新
 1. 更新README，让它看起来不那么傻逼（蜘蛛阿姨说的

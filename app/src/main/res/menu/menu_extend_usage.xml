@@ -2,13 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<group
-		android:checkableBehavior="single"
-		android:id="@+id/expanded_menu">
+		android:checkableBehavior="single">
 		<item
 			android:id="@+id/goSettings"
-			android:title="@string/action_settings"
 			android:icon="@drawable/ic_settings_black_18dp"
-		    />
+			android:title="@string/action_settings"
+			/>
 		<item
 			android:title="@string/extend_usage">
 			<menu>
@@ -35,4 +34,5 @@
 			</menu>
 		</item>
 	</group>
+
 </menu>
