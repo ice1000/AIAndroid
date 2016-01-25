@@ -1,6 +1,6 @@
 # 当前暂无已知bug
 # 强烈建议使用Android5.0以上的系统运行本APP！！！
-                                          ~~FBI warning~~
+                                          FBI warning
 
 
 ~~`federal law provides severe civil and criminal penalties for the unauthorized reproduction,~~
@@ -18,7 +18,7 @@
 在下面历史更新里面可以看到唷
 
 ## 声明
-1. 由于本人同时是苦逼天朝学生党的一员和最后一届理科生，~~所以本项目可能会太监。~~
+1. 由于本人同时是苦逼天朝学生党的一员和最后一届理科生， ~~所以本项目可能会太监。~~
 1. 本项目完全开源，任何人可以下载源码进行个人研究，且不得将其用于商业用途。
 1. 严禁未经原作者允许的情况下将本APP二次开发。
 
@@ -69,11 +69,13 @@
 
 # 历史更新
 
+### 2016年1月24日 1.2.0.2
+1. 优美地封装了[BaseActivity](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/util/BaseActivity.java)！真棒！封装在各个Activity中都有体现，除了Dialog。。。
+1. 将常量类T也封装到了BaseActivity，为了方便外部访问我还在外面继承了一个，将一些Activity中用不到的字符串封装了。
+
 ### 2016年1月24日 1.2.0.1 考完了，我却还在上课
 1. 一些UI中参数的修改
 1. Dialog有阴影了
-1. 优美地封装了[BaseActivity](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/util/BaseActivity.java)！真棒！封装在各个Activity中都有体现，除了Dialog。。。
-1. 将常量类T也封装到了BaseActivity，为了方便外部访问我还在外面继承了一个，将一些Activity中用不到的字符串封装了。
 
 ### 2016年1月20日 1.2.0.0 期末考试如火如荼进行中，我却依旧在更新，而且是大更新
 1. 把Saber改成了小律(又抠了一批图，工作量巨大)

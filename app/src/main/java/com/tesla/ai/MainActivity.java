@@ -225,8 +225,8 @@ public class MainActivity extends BaseActivity {
 
 		adapter = new MessageAdapter();
 
-		messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
 		nowBackgroundColor = T.BACKGROUND_COLOR_IS_0;
+		messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
 
 		messageRecycler.setLayoutManager(new LinearLayoutManager(this));
 		messageRecycler.setItemAnimator(new DefaultItemAnimator());

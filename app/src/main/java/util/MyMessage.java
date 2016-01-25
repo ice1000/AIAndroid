@@ -1,6 +1,7 @@
 package util;
 
 /**
+ * 数据字段的封装。
  * Created by Administrator on 2016/1/6 0006.
  */
 public class MyMessage {
