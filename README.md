@@ -22,6 +22,9 @@
 1. 本项目完全开源，任何人可以下载源码进行个人研究，且不得将其用于商业用途。
 1. 严禁未经原作者允许的情况下将本APP二次开发。
 
+# 相关文档
+1. [聊天界面的实现技巧](https://github.com/ice1000/dialogs/blob/master/%E9%80%9A%E7%94%A8raw/%E8%A3%85%E9%80%BC%E8%AE%BA%E6%96%87/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E4%BD%BF%E7%94%A8RecyclerView%E5%AE%9E%E7%8E%B0%E8%81%8A%E5%A4%A9APP%E6%B6%88%E6%81%AF%E6%A1%86%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%88%E6%9E%9C.pdf)
+
 # 实现情况：
 
 ## 算法(运行方式)部分
