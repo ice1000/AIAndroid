@@ -56,7 +56,7 @@ public class GUI extends Game
 		textArea.setBackground(new Color(12, 29, 39));
 		textArea.setForeground(new Color(151, 212, 30));
 		frame.setIconImage(Toolkit.getDefaultToolkit().createImage(
-				"." + File.separator + "src" + File.separator + "drawable" + File.separator + "ic_launcher.png"
+				"." + File.separator + "src" + File.separator + "drawable" + File.separator + "castle-icon.png"
 		));
 		frame.setSize(FRAME_X, FRAME_Y);
 		// 绝对布局

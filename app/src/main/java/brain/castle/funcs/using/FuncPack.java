@@ -1,8 +1,8 @@
 package brain.castle.funcs.using;
 
-import castle.Game;
-import cells.Item;
-import funcs.FuncSrc;
+import brain.castle.castle.Game;
+import brain.castle.cells.Item;
+import brain.castle.funcs.FuncSrc;
 
 public class FuncPack extends FuncSrc {
 
