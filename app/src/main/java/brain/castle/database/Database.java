@@ -1,19 +1,22 @@
 package brain.castle.database;
 
-import castle.Game;
-import cells.Player;
-import map.GameMap;
-import map.Room;
 
-import java.io.*;
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import brain.castle.cells.Player;
+import brain.castle.map.GameMap;
 
 /**
  * 封装数据库操作
  * Created by asus1 on 2016/1/28.
  */
 public class Database {
-	private static final String savePath = "."+ File.separator+"save.ice";
+	private static String savePath ;
 	private String playerName = "";
 	private char[] roomsState ;
 	private String roomName;
@@ -23,7 +26,8 @@ public class Database {
 	private int level = 0;
 	private int experience = 0;
 
-	public Database() {
+	public Database(String savePath) {
+		Database.savePath = savePath;
 		File file = new File(savePath);
 		BufferedReader reader;
 		try {
@@ -110,7 +114,6 @@ public class Database {
 	}
 
 	public void saveState(Player player) throws IOException {
-//		System.out.println("正在保存数据。。");
 		File file = new File(savePath);
 		BufferedWriter writer;
 		if(file.exists()){

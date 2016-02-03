@@ -1,10 +1,10 @@
 package brain.castle.map;
 
-import castle.Game;
-import util.Direction;
-import util.DirectionPair;
-
 import java.util.ArrayList;
+
+import brain.castle.castle.Game;
+import brain.castle.util.Direction;
+import brain.castle.util.DirectionPair;
 
 /**
  * 地图类

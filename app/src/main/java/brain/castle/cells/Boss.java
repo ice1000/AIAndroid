@@ -1,8 +1,5 @@
 package brain.castle.cells;
 
-
-//import java.util.Scanner;
-
 import brain.castle.funcs.using.FuncSleep;
 import brain.castle.util.Echoer;
 

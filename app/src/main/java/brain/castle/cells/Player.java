@@ -1,15 +1,6 @@
 package brain.castle.cells;
 
-import castle.Game;
-import database.Database;
-import util.Echoer;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import brain.castle.util.Echoer;
 
 public class Player extends Cell {
 

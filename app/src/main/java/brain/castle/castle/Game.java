@@ -37,14 +37,14 @@ implements MessageHandler,Echoer {
 	private Database database;
 
 	//    构造方法
-	public Game(){
-		onCreate();
+	public Game(String path){
+		onCreate(path);
 	}
 
-	private void onCreate(){
+	private void onCreate(String path){
 		map = new GameMap();
 		createItems();
-		database = new Database();
+		database = new Database(path);
 		funcsString = new String[]{
 				"help", "go", "wild",
 				"exit", "state", "fight",
