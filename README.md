@@ -3,10 +3,12 @@
                                           FBI warning
 
 
-~~`federal law provides severe civil and criminal penalties for the unauthorized reproduction,~~
-~~distribution ,or exhibition of copyrighted motion pictures (title 17,united states code,sections 501 and 508),~~
-~~the federal bureau of investigation investigates allegations of criminal copyright infringement ~~
-~~(title 17,united states code,section 506)`~~
+		federal law provides severe civil and criminal penalties for the unauthorized reproduction,
+		distribution ,or exhibition of copyrighted motion pictures (title 17,united states code,sections 501 and 508),
+		the federal bureau of investigation investigates allegations of criminal copyright infringement 
+		(title 17,united states code,section 506)`
+
+# 当前嵌入的业务逻辑：[城堡游戏](https://github.com/ice1000/Castle-game)
 
 # 写AIAndroid的初衷:
 受[我的友人](https://github.com/Wimacs)的影响决定开始写。<br/>
@@ -34,6 +36,7 @@
 - [X] 起名字
 - [X] 字符串分割
 - [X] 分割支持圆角符号
+- [X] 可以很轻松的嵌入业务罗逻辑
 - [ ] 中文分词
 - [ ] 机器学习
 - [ ] ~~强AI（痴人说梦~~
@@ -65,12 +68,15 @@
 
 # 本次更新
 
+### 2016年2月3日 1.3.0.0 嵌入一个业务逻辑
+1. 没错！我把Castle-game的业务逻辑搞进来喽~
+
+# 历史更新
+
 ### 2016年1月25日 1.2.1.0 终于修复了侧滑菜单点不动的bug
 1. 修复侧滑菜单点不动的bug
 1. 调整一下项目结构方便以后的开发
 1. 修复设置界面闪退的bug
-
-# 历史更新
 
 ### 2016年1月24日 1.2.0.2
 1. 优美地封装了[BaseActivity](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/util/BaseActivity.java)！真棒！封装在各个Activity中都有体现，除了Dialog。。。
