@@ -1,8 +1,8 @@
 package brain.castle.funcs.using;
 
-import castle.Game;
-import cells.NPC;
-import funcs.FuncSrc;
+import brain.castle.castle.Game;
+import brain.castle.cells.NPC;
+import brain.castle.funcs.FuncSrc;
 
 /**
  * 与NPC对话

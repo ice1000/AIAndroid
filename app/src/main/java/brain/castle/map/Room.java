@@ -1,13 +1,15 @@
 package brain.castle.map;
 
+import android.support.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import cells.Boss;
-import cells.NPC;
-import cells.Player;
-import com.sun.istack.internal.Nullable;
-import util.Echoer;
+import brain.castle.cells.Boss;
+import brain.castle.cells.NPC;
+import brain.castle.cells.Player;
+import brain.castle.util.Echoer;
+
 
 public class Room {
 

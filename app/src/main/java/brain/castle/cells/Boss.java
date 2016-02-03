@@ -1,9 +1,10 @@
 package brain.castle.cells;
 
-import funcs.using.FuncSleep;
-import util.Echoer;
 
 //import java.util.Scanner;
+
+import brain.castle.funcs.using.FuncSleep;
+import brain.castle.util.Echoer;
 
 public class Boss extends Player {
 	//	和玩家一样，有血、攻防
