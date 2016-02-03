@@ -1,16 +1,7 @@
 package brain.castle.view;
 
-import castle.Game;
-import util.Echoer;
-import util.MessageHandler;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.File;
-
-import static javafx.scene.input.KeyCode.F;
-import static javafx.scene.input.KeyCode.X;
+import brain.castle.castle.Game;
+import brain.castle.util.Echoer;
 
 /**
  * 视图
@@ -19,15 +10,6 @@ import static javafx.scene.input.KeyCode.X;
 public class GUI extends Game
 		implements Echoer {
 
-	private JTextField textField;
-	private JTextArea textArea;
-	private JFrame frame;
-	private JScrollPane scrollPane;
-	private JScrollBar scrollBar;
-
-	private static int FRAME_X = 500;
-	private static int FRAME_Y = 500;
-	private static int INPUT_Y = 500;
 
 	public GUI() {
 		frame = new JFrame("城堡游戏   by 千里冰封");
@@ -40,19 +22,7 @@ public class GUI extends Game
 				JComponent.WHEN_FOCUSED
 		);
 		textArea = new JTextArea();
-		textArea.addMouseListener(new MouseListener() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-			}
-			@Override
-			public void mousePressed(MouseEvent e) {}
-			@Override
-			public void mouseReleased(MouseEvent e) {}
-			@Override
-			public void mouseEntered(MouseEvent e) {}
-			@Override
-			public void mouseExited(MouseEvent e) {}
-		});
+
 		textArea.setBackground(new Color(12, 29, 39));
 		textArea.setForeground(new Color(151, 212, 30));
 		frame.setIconImage(Toolkit.getDefaultToolkit().createImage(
