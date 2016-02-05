@@ -5,10 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import util.T;
 import util.MyMessage;
+import util.T;
 
 /**
+ * SQLite处理
  * Created by Administrator on 2016/1/5 0005.
  */
 public class SQLiteOpener extends SQLiteOpenHelper {

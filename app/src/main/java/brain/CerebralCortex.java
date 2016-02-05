@@ -7,17 +7,18 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import brain.castle.castle.Game;
 import database.SQLiteManager;
+import util.MyMessage;
 import util.OnMessageChangedListener;
 import util.T;
-import util.MyMessage;
 
 /**
  * Copyright 2016(c) Comet Corporation.
  * Created by asus1 on 2016/1/9.
  * 大脑皮层
  */
-public class CerebralCortex {
+public class CerebralCortex extends Game {
 
 	private SQLiteManager manager;
 	private ArrayList<MyMessage> data;
@@ -30,11 +31,18 @@ public class CerebralCortex {
 	 * @param context 上下文
 	 */
 	public CerebralCortex(Context context) {
+		super(context);
 		this.context = context;
 		manager = new SQLiteManager(this.context);
 		data = manager.getMessages();
+		onStart();
 	}
 
+	/**
+	 * 自带监听器
+	 * @param context 上下文
+	 * @param onMessageChangedListener 监听器
+	 */
 	public CerebralCortex(
 			Context context,
 			OnMessageChangedListener onMessageChangedListener) {
@@ -70,7 +78,9 @@ public class CerebralCortex {
 					T.ANSWER_MESSAGE_RECIEVED
 			);
 		}
-		handleLastGivenMessage();
+//		handleLastGivenMessage();
+		showCurrentMeaasge();
+		HandleMessage(message);
 	}
 
 	/**
@@ -87,9 +97,8 @@ public class CerebralCortex {
 			).show();
 			return false;
 		}
-		else {
+		else
 			return true;
-		}
 	}
 
 	/**
@@ -106,13 +115,7 @@ public class CerebralCortex {
 					substring(1, lastGivenMessage.length());
 		}
 
-		MyMessage message;
-		message = new MyMessage(
-				false,
-				lastGivenMessage
-		);
-		manager.addMessage(message);
-		data.add(manager.getLastMessage());
+		showCurrentMeaasge();
 
 		ArrayList<String> answerWhichIsReadyToBeSent = new ArrayList<>();
 //		int cnt = 0;
@@ -138,22 +141,36 @@ public class CerebralCortex {
 		sendAnswerAsMessage(answerWhichIsReadyToBeSent);
 	}
 
+	private void showCurrentMeaasge(){
+		MyMessage message;
+		message = new MyMessage(
+				false,
+				lastGivenMessage
+		);
+		manager.addMessage(message);
+		data.add(manager.getLastMessage());
+	}
+
 	/**
 	 * 送消息给Activity
 	 * @param answerMessage 将要送出去的消息
 	 */
 	private void sendAnswerAsMessage(ArrayList<String> answerMessage){
 		for (String msg : answerMessage) {
-			MyMessage message = new MyMessage(true, msg);
-			manager.addMessage(message);
-			// 保证id是正确的
-			data.add(manager.getLastMessage());
-			if (onMessageChangedListener != null) {
-				onMessageChangedListener.onMessageChanged(
-						data.size()-1,
-						T.ANSWER_MESSAGE_SENT
-				);
-			}
+			sendAnswerAsMessage(msg);
+		}
+	}
+
+	private void sendAnswerAsMessage(String msg){
+		MyMessage message = new MyMessage(true, msg);
+		manager.addMessage(message);
+		// 保证id是正确的
+		data.add(manager.getLastMessage());
+		if (onMessageChangedListener != null) {
+			onMessageChangedListener.onMessageChanged(
+					data.size()-1,
+					T.ANSWER_MESSAGE_SENT
+			);
 		}
 	}
 
@@ -261,4 +278,17 @@ public class CerebralCortex {
 	public boolean isDataEmpty(){
 		return data.isEmpty();
 	}
+
+	@Override
+	public void echo(String words) {
+		sendAnswerAsMessage(words);
+	}
+
+	@Override
+	public void echoln(String words) {
+		echo(words);
+	}
+
+	@Override
+	public void closeScreen() {	}
 }

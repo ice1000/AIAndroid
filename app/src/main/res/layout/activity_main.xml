@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--<android.support.design.widget.CoordinatorLayout-->
 <android.support.v4.widget.DrawerLayout
-
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:openDrawer="start"
+	tools:context=".MainActivity"
 	android:id="@+id/mainDrawer"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
+	<include layout="@layout/content_main"/>
+
 	<android.support.design.widget.NavigationView
+		android:id="@+id/navigation"
+		android:layout_gravity="start"
+		android:fitsSystemWindows="true"
+		android:isScrollContainer="true"
+		android:layout_width="wrap_content"
 		app:headerLayout="@layout/activity_main_header"
 		app:menu="@menu/menu_extend_usage"
-		android:layout_gravity="start"
-		android:id="@+id/navigation"
-		android:fitsSystemWindows="true"
-		android:layout_width="wrap_content"
-		android:layout_height="match_parent">
-	</android.support.design.widget.NavigationView>
+		android:layout_height="match_parent"/>
 
-	<include layout="@layout/content_main"/>
 
 </android.support.v4.widget.DrawerLayout>
 	<!--</android.support.design.widget.CoordinatorLayout>-->

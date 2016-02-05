@@ -6,12 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:theme="@style/AppTheme.AppBarOverlay"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/content_main">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:title="@string/app_name"
-        android:subtitle="@string/amIQuite"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"

@@ -1,22 +1,31 @@
 # 当前暂无已知bug
 # 强烈建议使用Android5.0以上的系统运行本APP！！！
-                                           FBI warning
+                                          FBI warning
 
 
-`federal law provides severe civil and criminal penalties for the unauthorized reproduction,
-distribution ,or exhibition of copyrighted motion pictures (title 17,united states code,sections 501 and 508),
-the federal bureau of investigation investigates allegations of criminal copyright infringement 
-(title 17,united states code,section 506)`
+		federal law provides severe civil and criminal penalties for the unauthorized reproduction,
+		distribution ,or exhibition of copyrighted motion pictures (title 17,united states code,sections 501 and 508),
+		the federal bureau of investigation investigates allegations of criminal copyright infringement 
+		(title 17,united states code,section 506)`
 
+# 当前嵌入的业务逻辑：[城堡游戏](https://github.com/ice1000/Castle-game)
 
 # 写AIAndroid的初衷:
 受[我的友人](https://github.com/Wimacs)的影响决定开始写。<br/>
 这是一个运行在[Android操作系统](http://baike.baidu.com/link?url=Fq6NnG8s-GSI9lQ3EsBQyI0Km0zICP-RA4kNTK4083ZGfQ9CBZ2Ews7V-zlmPulmX6qG7mbMYXpdpayxfPfKf7GAzQxtxLJzVYnVHG47Pw3)上的[人工智能](http://baike.baidu.com/link?url=vd1SM2trGRrWeWv5uerz1PTu1G1PTLQTBgNXTd9bDGoWizhDFFdZlR8KnHpTxZE3eLcJvV0YXs-OwDdvNWHvi6LzMWf5oRnuaj2E1BL7QOq)<br/>
-![icon](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/mipmap-xhdpi/ic_launcher.png)<br/>
+![icon](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png)<br/>
 项目全面采用Material Design，虽然变得复杂了，工作量大了。。但犹未悔!<br/>
 就是不知道这个和二次元的微妙结合会有什么样的效果呢<br/>
 不同版本时期我也为本APP截了图，<br/>
 在下面历史更新里面可以看到唷
+
+## 声明
+1. 由于本人同时是苦逼天朝学生党的一员和最后一届理科生， ~~所以本项目可能会太监。~~
+1. 本项目完全开源，任何人可以下载源码进行个人研究，且不得将其用于商业用途。
+1. 严禁未经原作者允许的情况下将本APP二次开发。
+
+# 相关文档
+1. [聊天界面的实现技巧](https://github.com/ice1000/dialogs/blob/master/%E9%80%9A%E7%94%A8raw/%E8%A3%85%E9%80%BC%E8%AE%BA%E6%96%87/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E4%BD%BF%E7%94%A8RecyclerView%E5%AE%9E%E7%8E%B0%E8%81%8A%E5%A4%A9APP%E6%B6%88%E6%81%AF%E6%A1%86%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%88%E6%9E%9C.pdf)
 
 # 实现情况：
 
@@ -27,9 +36,10 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 - [X] 起名字
 - [X] 字符串分割
 - [X] 分割支持圆角符号
+- [X] 可以很轻松的嵌入业务罗逻辑
 - [ ] 中文分词
 - [ ] 机器学习
-- [ ] 强AI（痴人说梦
+- [ ] ~~强AI（痴人说梦~~
 - [ ] 人类情绪
 - [ ] 颜文字(๑>؂<๑)۶和表情的处理。
 - [ ] 更多可爱的逐帧动画。
@@ -58,12 +68,34 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 
 # 本次更新
 
+### 2016年2月3日 1.3.0.0 嵌入一个业务逻辑
+1. 没错！我把Castle-game的业务逻辑搞进来喽~
+	工作量巨大！光是数据库那块就花了我很长时间！！
+
+# 历史更新
+
+### 2016年1月25日 1.2.1.0 终于修复了侧滑菜单点不动的bug
+1. 修复侧滑菜单点不动的bug
+1. 调整一下项目结构方便以后的开发
+1. 修复设置界面闪退的bug
+
+### 2016年1月24日 1.2.0.2
+1. 优美地封装了[BaseActivity](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/java/util/BaseActivity.java)！真棒！封装在各个Activity中都有体现，除了Dialog。。。
+1. 将常量类T也封装到了BaseActivity，为了方便外部访问我还在外面继承了一个，将一些Activity中用不到的字符串封装了。
+
+### 2016年1月24日 1.2.0.1 考完了，我却还在上课
+1. 一些UI中参数的修改
+1. Dialog有阴影了
+
+### 2016年1月20日 1.2.0.0 期末考试如火如荼进行中，我却依旧在更新，而且是大更新
+1. 把Saber改成了小律(又抠了一批图，工作量巨大)
+1. 优化NavigationView
+1. 开始界面优化
+
 ### 2016年1月18日 1.1.1.1 在线进行的更新
 1. 更新README，让它看起来不那么傻逼（蜘蛛阿姨说的
 1. 修复一个简单却致命的bug，这个bug让我糗大了，之前还发布，结果特么有bug![233](https://github.com/ice1000/dialogs/blob/master/raw/ice1000_0x00.gif)
 1. 我收回前言，这个项目还是会持续更新！
-
-# 历史更新
 
 ### 2016年1月17日 1.1.1.0 重大更新
 1. 主界面增加侧滑菜单
@@ -76,26 +108,26 @@ the federal bureau of investigation investigates allegations of criminal copyrig
 1. 继续写Javadoc
 1. 增加新功能的企划
 
-## 2016年1月15日 1.1.0.3 又没忍住更新了。。
+## 2016年1月15日 1.1.0.3 ~~又没忍住更新了。。~~
 1. 过滤空消息
 1. 写了各个类的Javadoc（很辛苦！
 1. 更改监听器设置方法
 1. 增加大脑皮层的两种构造方法。
 1. 更改类名（主脑改成大脑皮层，记忆改成边缘系统
 
-## 2016年1月15日 1.1.0.2 好像忍不住又更新了
-1. 开始界面不那么猥琐了
+## 2016年1月15日 1.1.0.2 ~~好像忍不住又更新了~~
+1. 开始界面不那么~~猥琐~~了
 1. 减少多余的动画
 
-## 2016年1月13日 1.1.0.1 从这次更新以后，短期暂停更新
-1. 开始动画变得更猥琐了。
+## 2016年1月13日 1.1.0.1 ~~从这次更新以后，短期暂停更新~~
+1. 开始动画变得更~~猥琐~~了。
 1. 主页的字更小了。
 1. 又多了一些没用的图片。。
-1. 本次更新完毕估计就是我弃坑的时候。
-1. 所以说我现在已经齐此UI坑了。
+1. ~~本次更新完毕估计就是我弃坑的时候。~~
+1. ~~所以说我现在已经齐此UI坑了。~~
 1. 什么时候有了AI算法了，就继续更新AIAndroid！
 
-## 2016年1月12日 1.1.0.0 UI设计工作正式宣告结束！！
+## 2016年1月12日 1.1.0.0 ~~UI设计工作正式宣告结束！！~~
 1. 更改了昨天遗留下的所有问题，颜色的问题全部改过，饱和度大大降低
 1. 优化设置界面。
 1. 这个从此以后好像除了算法之外没什么可更新的了。。<br/>

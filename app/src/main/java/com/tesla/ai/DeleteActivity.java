@@ -11,7 +11,6 @@ public class DeleteActivity extends Activity {
 
     public static final int resultCode = 666;
     private Intent intent;
-    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +18,11 @@ public class DeleteActivity extends Activity {
         setContentView(R.layout.activity_delete);
 
         Intent data = getIntent();
-        position = data.getIntExtra(T.POSITION, 0);
-
         intent = new Intent();
-        intent.putExtra(T.POSITION, position);
+        intent.putExtra(
+                T.POSITION,
+                data.getIntExtra(T.POSITION, 0)
+        );
     }
 
     public void sureToDelete(View view){

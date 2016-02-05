@@ -4,17 +4,16 @@ import android.animation.AnimatorInflater;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -25,18 +24,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import brain.CerebralCortex;
+import util.BaseActivity;
 import util.MyMessage;
 import util.OnItemClickListener;
 import util.OnMessageChangedListener;
-import util.T;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 	private int nowBackgroundColor;
 	private RecyclerView messageRecycler;
@@ -88,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
 		initViews();
 
-		brain.callMaster();
+//		brain.callMaster();
 	}
 
 	@Override
@@ -100,9 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-
-		switch (id) {
+		switch (item.getItemId()) {
 			case R.id.action_settings:
 				startActivity(new Intent(
 						MainActivity.this, SettingsActivity.class));
@@ -164,6 +160,15 @@ public class MainActivity extends AppCompatActivity {
 
 	}
 
+	@Override
+	public void onBackPressed() {
+		if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+			drawerLayout.closeDrawer(GravityCompat.START);
+		} else {
+			super.onBackPressed();
+		}
+	}
+
 	/**
 	 * 更换背景颜色
 	 * @param id 背景颜色
@@ -186,53 +191,42 @@ public class MainActivity extends AppCompatActivity {
 	 * 初始化一大堆View
 	 */
 	private void initViews(){
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
-
 		drawerLayout = (DrawerLayout) findViewById(R.id.mainDrawer);
+		ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(
+				this,
+				drawerLayout,
+				initToolBar(),
+				R.string.open_draw,
+				R.string.close_draw
+		);
+		drawerLayout.setDrawerListener(drawerToggle);
+		drawerToggle.syncState();
+
 		NavigationView navigationView =
 				(NavigationView) findViewById(R.id.navigation);
-		if (navigationView != null) {
-			navigationView.setNavigationItemSelectedListener(
-					new NavigationView.OnNavigationItemSelectedListener() {
-				@Override
-				public boolean onNavigationItemSelected(MenuItem menuItem) {
-					menuItem.setChecked(true);
-					switch (menuItem.getItemId()){
-						case R.id.makeSummary:
-							Toast.makeText(MainActivity.this,
-									"暂时没做完！",
-									Toast.LENGTH_SHORT).show();
-							break;
-						case R.id.seeGithub:
-							startActivity(new Intent(
-									MainActivity.this,
-									GithubActivity.class
-							));
-							finish();
-							break;
-						case R.id.goSettings:
-							startActivity(new Intent(
-									MainActivity.this,
-									SettingsActivity.class
-							));
-							finish();
-							break;
-						default:
-							break;
-					}
-					drawerLayout.closeDrawers();
-					return false;
-				}
-			});
-		}
+		navigationView.setNavigationItemSelectedListener(
+				new NavigationView.OnNavigationItemSelectedListener() {
+			//用于辨别此前是否已有选中条目
+			MenuItem preMenuItem;
+			@Override
+			public boolean onNavigationItemSelected(MenuItem menuItem) {
+				Log.d(toString(), "点击事件已经触发。");
+				if(preMenuItem != null)
+					preMenuItem.setChecked(false);
+				menuItem.setChecked(true);
+				drawerLayout.closeDrawers();
+				preMenuItem = menuItem;
+//				drawerLayout.closeDrawers(GravityCompat.START);
+				return true;
+			}
+		});
 
 		editMessage = (EditText) findViewById(R.id.sendBox);
 
 		adapter = new MessageAdapter();
 
-		messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
 		nowBackgroundColor = T.BACKGROUND_COLOR_IS_0;
+		messageRecycler = (RecyclerView) findViewById(R.id.messagesRecycler);
 
 		messageRecycler.setLayoutManager(new LinearLayoutManager(this));
 		messageRecycler.setItemAnimator(new DefaultItemAnimator());
@@ -323,10 +317,6 @@ public class MainActivity extends AppCompatActivity {
 		});
 
 		messageRecycler.setAdapter(adapter);
-
-		ImageView Saber = (ImageView) findViewById(R.id.saberShake);
-		Saber.setBackgroundResource(R.drawable.saber_shake);
-		((AnimationDrawable) Saber.getBackground()).start();
 	}
 
 	/**
@@ -335,8 +325,45 @@ public class MainActivity extends AppCompatActivity {
 	 */
 	public void commitMessage(View view){
 		String msg = editMessage.getText().toString();
+
 		brain.giveMessage(msg);
 		editMessage.setText("");
+	}
+
+	/**
+	 * 侧滑菜单按钮监听器
+	 * @param item 必备参数
+	 */
+	public void makeSummary(MenuItem item){
+		Toast.makeText(MainActivity.this,
+				"暂时没做完！",
+				Toast.LENGTH_SHORT).show();
+		baseMenuItemOnClickListener(item);
+	}
+	public void seeGithub(MenuItem item){
+		startActivity(new Intent(
+				MainActivity.this,
+				GithubActivity.class
+		));
+		baseMenuItemOnClickListener(item);
+		finish();
+	}
+	public void goSettings(MenuItem item){
+		startActivity(new Intent(
+				MainActivity.this,
+				SettingsActivity.class
+		));
+		baseMenuItemOnClickListener(item);
+		finish();
+	}
+	public void contactMe(MenuItem item){
+		Toast.makeText(MainActivity.this,
+				T.SORRY_CANNOT_JOIN,
+				Toast.LENGTH_SHORT).show();
+		baseMenuItemOnClickListener(item);
+	}
+	private void baseMenuItemOnClickListener(MenuItem item){
+		drawerLayout.closeDrawers();
 	}
 
 	class MessageAdapter extends RecyclerView.Adapter {
@@ -419,10 +446,10 @@ public class MainActivity extends AppCompatActivity {
 							RelativeLayout.LayoutParams.WRAP_CONTENT
 					);
 
-
 			if(message.isFromSaber()){
-				params.gravity = Gravity.LEFT;
-				params.setMargins(10,11,30,11);
+				params.gravity = Gravity.START;
+				// 左 上 右 下
+				params.setMargins(15,15,30,15);
 
 				cardView.setCardBackgroundColor(
 						getResources().
@@ -433,8 +460,9 @@ public class MainActivity extends AppCompatActivity {
 			}
 
 			else {
-				params.gravity = Gravity.RIGHT;
-				params.setMargins(30,11,10,11);
+				params.gravity = Gravity.END;
+				// 左 上 右 下
+				params.setMargins(30,15,15,15);
 
 				cardView.setCardBackgroundColor(
 						getResources().

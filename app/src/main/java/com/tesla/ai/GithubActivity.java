@@ -1,12 +1,9 @@
 package com.tesla.ai;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +15,9 @@ import android.widget.TextView;
 
 import java.net.URL;
 
-public class GithubActivity extends AppCompatActivity {
+import util.BaseActivity;
+
+public class GithubActivity extends BaseActivity {
 
     private WebView github;
     private TextView noNetwork;
@@ -28,9 +27,7 @@ public class GithubActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_github);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+		initToolBar();
 
         github = (WebView) findViewById(R.id.github);
         noNetwork = (TextView) findViewById(R.id.noNetwork);
@@ -59,7 +56,8 @@ public class GithubActivity extends AppCompatActivity {
             github.setWebViewClient(new WebViewClient(){
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    view.loadUrl(url);return true;
+                    view.loadUrl(url);
+                    return true;
                 }});
         }
     }
@@ -79,24 +77,12 @@ public class GithubActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_other, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        switch (id) {
-            case R.id.action_settings:
-                startActivity(new Intent(
-                        GithubActivity.this, SettingsActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
+	    return super.onOptionsItemSelected(item);
     }
 
     public boolean isNetworkConnected(Context context) {
