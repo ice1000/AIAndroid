@@ -35,6 +35,7 @@ public class CerebralCortex extends Game {
 		this.context = context;
 		manager = new SQLiteManager(this.context);
 		data = manager.getMessages();
+		onStart();
 	}
 
 	/**
@@ -78,6 +79,7 @@ public class CerebralCortex extends Game {
 			);
 		}
 //		handleLastGivenMessage();
+		showCurrentMeaasge();
 		HandleMessage(message);
 	}
 
@@ -113,13 +115,7 @@ public class CerebralCortex extends Game {
 					substring(1, lastGivenMessage.length());
 		}
 
-		MyMessage message;
-		message = new MyMessage(
-				false,
-				lastGivenMessage
-		);
-		manager.addMessage(message);
-		data.add(manager.getLastMessage());
+		showCurrentMeaasge();
 
 		ArrayList<String> answerWhichIsReadyToBeSent = new ArrayList<>();
 //		int cnt = 0;
@@ -143,6 +139,16 @@ public class CerebralCortex extends Game {
 			}
 		}
 		sendAnswerAsMessage(answerWhichIsReadyToBeSent);
+	}
+
+	private void showCurrentMeaasge(){
+		MyMessage message;
+		message = new MyMessage(
+				false,
+				lastGivenMessage
+		);
+		manager.addMessage(message);
+		data.add(manager.getLastMessage());
 	}
 
 	/**

@@ -325,6 +325,7 @@ public class MainActivity extends BaseActivity {
 	 */
 	public void commitMessage(View view){
 		String msg = editMessage.getText().toString();
+
 		brain.giveMessage(msg);
 		editMessage.setText("");
 	}
