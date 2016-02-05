@@ -7,6 +7,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import brain.castle.castle.Game;
 import database.SQLiteManager;
 import util.MyMessage;
 import util.OnMessageChangedListener;
@@ -17,7 +18,7 @@ import util.T;
  * Created by asus1 on 2016/1/9.
  * 大脑皮层
  */
-public class CerebralCortex {
+public class CerebralCortex extends Game {
 
 	private SQLiteManager manager;
 	private ArrayList<MyMessage> data;
@@ -30,6 +31,7 @@ public class CerebralCortex {
 	 * @param context 上下文
 	 */
 	public CerebralCortex(Context context) {
+		super(context);
 		this.context = context;
 		manager = new SQLiteManager(this.context);
 		data = manager.getMessages();
@@ -143,16 +145,20 @@ public class CerebralCortex {
 	 */
 	private void sendAnswerAsMessage(ArrayList<String> answerMessage){
 		for (String msg : answerMessage) {
-			MyMessage message = new MyMessage(true, msg);
-			manager.addMessage(message);
-			// 保证id是正确的
-			data.add(manager.getLastMessage());
-			if (onMessageChangedListener != null) {
-				onMessageChangedListener.onMessageChanged(
-						data.size()-1,
-						T.ANSWER_MESSAGE_SENT
-				);
-			}
+			sendAnswerAsMessage(msg);
+		}
+	}
+
+	private void sendAnswerAsMessage(String msg){
+		MyMessage message = new MyMessage(true, msg);
+		manager.addMessage(message);
+		// 保证id是正确的
+		data.add(manager.getLastMessage());
+		if (onMessageChangedListener != null) {
+			onMessageChangedListener.onMessageChanged(
+					data.size()-1,
+					T.ANSWER_MESSAGE_SENT
+			);
 		}
 	}
 
@@ -260,4 +266,17 @@ public class CerebralCortex {
 	public boolean isDataEmpty(){
 		return data.isEmpty();
 	}
+
+	@Override
+	public void echo(String words) {
+		sendAnswerAsMessage(words);
+	}
+
+	@Override
+	public void echoln(String words) {
+		echo(words);
+	}
+
+	@Override
+	public void closeScreen() {	}
 }

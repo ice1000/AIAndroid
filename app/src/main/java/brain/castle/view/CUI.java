@@ -1,8 +1,8 @@
 package brain.castle.view;
 
-import castle.Game;
-
 import java.util.Scanner;
+
+import brain.castle.castle.Game;
 
 /**
  * 这个是针对没有GUI的OS的CUI版
@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class CUI extends Game {
 
 	private CUI() {
-		super();
+		super(null);
 	}
 
 	@Override

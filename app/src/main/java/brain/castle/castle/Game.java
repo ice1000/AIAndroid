@@ -1,6 +1,7 @@
 package brain.castle.castle;
 
-import java.io.IOException;
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -8,19 +9,7 @@ import brain.castle.cells.Item;
 import brain.castle.cells.Player;
 import brain.castle.database.Database;
 import brain.castle.funcs.FuncSrc;
-import brain.castle.funcs.using.FuncExit;
-import brain.castle.funcs.using.FuncFight;
-import brain.castle.funcs.using.FuncGo;
-import brain.castle.funcs.using.FuncHelp;
-import brain.castle.funcs.using.FuncHome;
-import brain.castle.funcs.using.FuncMap;
-import brain.castle.funcs.using.FuncPack;
-import brain.castle.funcs.using.FuncRename;
-import brain.castle.funcs.using.FuncSave;
-import brain.castle.funcs.using.FuncSleep;
-import brain.castle.funcs.using.FuncState;
-import brain.castle.funcs.using.FuncTalk;
-import brain.castle.funcs.using.FuncWild;
+import brain.castle.funcs.using.*;
 import brain.castle.map.GameMap;
 import brain.castle.util.Echoer;
 import brain.castle.util.MessageHandler;
@@ -35,16 +24,18 @@ implements MessageHandler,Echoer {
 	private ArrayList<Item> theItems = new ArrayList<>();
 	private Player player;
 	private Database database;
+	private Context context;
 
 	//    构造方法
-	public Game(String path){
-		onCreate(path);
+	public Game(Context context){
+		onCreate(context);
 	}
 
-	private void onCreate(String path){
+	private void onCreate(Context context){
 		map = new GameMap();
+		this.context = context;
 		createItems();
-		database = new Database(path);
+		database = new Database(context);
 		funcsString = new String[]{
 				"help", "go", "wild",
 				"exit", "state", "fight",
@@ -74,7 +65,7 @@ implements MessageHandler,Echoer {
 		echoln("最新版本和源代码请见https://github.com/ice1000/Castle-game");
 		echoln("敬请期待OL版本https://github.com/ProgramLeague/Castle-Online");
 //        echoln("不过在经过了冰封的改造后，你会觉得这个很有意思。");
-		if(!Database.isFileExists()){
+		if(!Database.isFileExists(context)){
 			echoln("您可以稍后使用\"rename [新名字]\"命令来更改自己的名字。");
 			player = new Player(NameGenerator.generate(),200,10,5);
 			saveData();
@@ -165,12 +156,8 @@ implements MessageHandler,Echoer {
 	}
 
 	public void saveData(){
-		try {
-			database.saveMapAndState(map,player);
-			echoln("保存成功。");
-		} catch (IOException e){
-			echoln("保存失败，请检查是否有管理员权限！");
-		}
+		database.saveMapAndState(map,player);
+		echoln("保存成功。");
 	}
 
 }

@@ -1,22 +1,22 @@
 package brain.castle.database;
 
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import brain.castle.cells.Player;
 import brain.castle.map.GameMap;
+import brain.castle.util.NameGenerator;
 
 /**
  * 封装数据库操作
  * Created by asus1 on 2016/1/28.
  */
 public class Database {
-	private static String savePath ;
+//	private static String savePath ;
+	private Context context;
+	private SharedPreferences preferences;
+
 	private String playerName = "";
 	private char[] roomsState ;
 	private String roomName;
@@ -26,26 +26,30 @@ public class Database {
 	private int level = 0;
 	private int experience = 0;
 
-	public Database(String savePath) {
-		Database.savePath = savePath;
-		File file = new File(savePath);
-		BufferedReader reader;
-		try {
-			reader = new BufferedReader(new FileReader(file));
+	public static final String BLOOD = "BLOOD";
+	public static final String STRIKE = "STRIKE";
+	public static final String DEFENCE = "DEFENCE";
+	public static final String LEVEL = "LEVEL";
+	public static final String EXPERIENCE = "EXPERIENCE";
+	public static final String ROOM_NAME = "ROOM_NAME";
+	public static final String ROOM_STATE = "ROOM_STATE";
+	public static final String PLAYER_NAME = "PLAYER_NAME";
 
-			roomName = reader.readLine();
-			roomsState = reader.readLine().toCharArray();
-			playerName = reader.readLine();
-			blood      =  Integer.parseInt(reader.readLine());
-			strike     =  Integer.parseInt(reader.readLine());
-			defence    =  Integer.parseInt(reader.readLine());
-			level      =  Integer.parseInt(reader.readLine());
-			experience =  Integer.parseInt(reader.readLine());
+	public static final String PREFERENCE = "PREFERENCE";
 
-			reader.close();
-		} catch (Exception e) {
-			// e.printStackTrace();
-		}
+	public Database(Context context) {
+		this.context = context;
+		preferences = context.getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE);
+
+			roomName   = preferences.getString(ROOM_NAME, "旅馆");
+			roomsState = preferences.getString(ROOM_STATE, "").toCharArray();
+			playerName = preferences.getString(PLAYER_NAME, NameGenerator.generate());
+			blood      = preferences.getInt(BLOOD, 100);
+			strike     = preferences.getInt(STRIKE, 20);
+			defence    = preferences.getInt(DEFENCE, 10);
+			level      = preferences.getInt(LEVEL, 1);
+			experience = preferences.getInt(EXPERIENCE, 0);
+
 	}
 
 	public void loadMap(GameMap map, String defaultName){
@@ -55,51 +59,18 @@ public class Database {
 		map.loadRoom(roomName);
 	}
 
-	public void saveMap(GameMap map) throws IOException {
-		File file = new File(savePath);
-		if(file.exists()){
-			file.delete();
-		}
-		file.createNewFile();
-		BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+	public void saveMap(GameMap map){
+		SharedPreferences.Editor editor = preferences.edit();
 		this.roomName = map.getCurrentRoom().toString();
 		this.roomsState = map.getRoomsState();
-		writer.write(this.toString());
-		writer.close();
+		editor.putString(ROOM_NAME, roomName);
+		editor.putString(ROOM_STATE, String.valueOf(roomsState));
+		editor.commit();
 	}
 
-	public void saveMapAndState(GameMap map, Player player) throws IOException{
-		File file = new File(savePath);
-		if(file.exists()){
-			file.delete();
-		}
-		file.createNewFile();
-		BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-		this.roomName = map.getCurrentRoom().toString();
-		this.roomsState = map.getRoomsState();
-		this.playerName = player.toString();
-		this.blood      = player.getBlood();
-		this.strike     = player.getStrike();
-		this.defence    = player.getDefence();
-		this.level      = player.getLevel();
-		this.experience = player.getExperience();
-
-		writer.write(this.toString());
-		writer.close();
-	}
-
-	@Override
-	public String toString() {
-		return
-				this.roomName   +  "\r\n" +
-				String.valueOf(this.roomsState) +  "\r\n" +
-				this.playerName +  "\r\n" +
-				this.blood      +  "\r\n" +
-				this.strike     +  "\r\n" +
-				this.defence    +  "\r\n" +
-				this.level      +  "\r\n" +
-				this.experience +  "\r\n"
-				;
+	public void saveMapAndState(GameMap map, Player player){
+		saveMap(map);
+		saveState(player);
 	}
 
 	public void loadState(Player player){
@@ -113,14 +84,8 @@ public class Database {
 		);
 	}
 
-	public void saveState(Player player) throws IOException {
-		File file = new File(savePath);
-		BufferedWriter writer;
-		if(file.exists()){
-			file.delete();
-		}
-		file.createNewFile();
-		writer = new BufferedWriter(new FileWriter(file));
+	public void saveState(Player player) {
+
 		this.playerName = player.toString();
 		this.blood      = player.getBlood();
 		this.strike     = player.getStrike();
@@ -128,12 +93,20 @@ public class Database {
 		this.level      = player.getLevel();
 		this.experience = player.getExperience();
 
-		writer.write(this.toString());
+		SharedPreferences.Editor editor = preferences.edit();
 
-		writer.close();
+		editor.putString(PLAYER_NAME, playerName);
+		editor.putInt(BLOOD, blood);
+		editor.putInt(STRIKE, strike);
+		editor.putInt(DEFENCE, defence);
+		editor.putInt(LEVEL, level);
+		editor.putInt(EXPERIENCE, experience);
+
+		editor.commit();
 	}
 
-	public static boolean isFileExists(){
-		return new File(savePath).exists();
+	public static boolean isFileExists(Context context){
+		SharedPreferences preferences = context.getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE);
+		return preferences.contains(PLAYER_NAME);
 	}
 }
