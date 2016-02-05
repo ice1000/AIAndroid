@@ -37,6 +37,11 @@ public class CerebralCortex extends Game {
 		data = manager.getMessages();
 	}
 
+	/**
+	 * 自带监听器
+	 * @param context 上下文
+	 * @param onMessageChangedListener 监听器
+	 */
 	public CerebralCortex(
 			Context context,
 			OnMessageChangedListener onMessageChangedListener) {
@@ -72,7 +77,8 @@ public class CerebralCortex extends Game {
 					T.ANSWER_MESSAGE_RECIEVED
 			);
 		}
-		handleLastGivenMessage();
+//		handleLastGivenMessage();
+		HandleMessage(message);
 	}
 
 	/**
