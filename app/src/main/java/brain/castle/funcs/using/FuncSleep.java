@@ -14,7 +14,7 @@ public class FuncSleep extends FuncSrc {
 	@Override
 	public void DoFunc(String cmd) {
 //		int bloodMore = Integer.parseInt(cmd);
-		if( game.getMap().getCurrentRoom().toString().matches("宾馆|卧室") ){
+		if( game.getMap().getCurrentRoom().toString().matches("旅馆|卧室") ){
 			if( !game.getMap().getCurrentRoom().isBossGetItem() ){
 				game.echo("女仆顺从地送你进入梦乡。睡觉中");
 				for(int i = 0; i < 8; i ++ ) {
