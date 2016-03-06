@@ -22,6 +22,5 @@
 		app:menu="@menu/menu_extend_usage"
 		android:layout_height="match_parent"/>
 
-
 </android.support.v4.widget.DrawerLayout>
 	<!--</android.support.design.widget.CoordinatorLayout>-->
