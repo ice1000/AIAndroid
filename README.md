@@ -16,15 +16,13 @@
 
 ### 写AIAndroid的初衷:
 受[我的友人](https://github.com/Wimacs)的影响决定开始写。<br/>
-这是一个运行在[Android操作系统](http://baike.baidu.com/link?url=Fq6NnG8s-GSI9lQ3EsBQyI0Km0zICP-RA4kNTK4083ZGfQ9CBZ2Ews7V-zlmPulmX6qG7mbMYXpdpayxfPfKf7GAzQxtxLJzVYnVHG47Pw3)上的[人工智能](http://baike.baidu.com/link?url=vd1SM2trGRrWeWv5uerz1PTu1G1PTLQTBgNXTd9bDGoWizhDFFdZlR8KnHpTxZE3eLcJvV0YXs-OwDdvNWHvi6LzMWf5oRnuaj2E1BL7QOq)<br/>
-![icon](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png)<br/>
-项目全面采用Material Design，虽然变得复杂了，工作量大了。。但犹未悔!<br/>
+![icon](./app/src/main/res/mipmap-xhdpi/ic_launcher.png)<br/>
 就是不知道这个和二次元的微妙结合会有什么样的效果呢<br/>
 不同版本时期我也为本APP截了图，<br/>
 在下面历史更新里面可以看到唷
 
 ## 声明
-1. 由于本人同时是苦逼天朝学生党的一员和最后一届理科生， ~~所以本项目可能会太监。~~
+1. 由于本人同时是苦逼天朝学生党的一员和最后一届理科生， ~~所以本项目可能会太监。~~已经太监了
 1. 本项目完全开源，任何人可以下载源码进行个人研究，且不得将其用于商业用途。
 1. 严禁未经原作者允许的情况下将本APP二次开发。
 
@@ -34,8 +32,6 @@
 # 实现情况：
 
 ## 算法(运行方式)部分
-这部分还没开始做，是友人在研究。不过他是C++和txt，而我把他的项目翻译成Java和SQLite会很困难。。。<br/>
-现在还只能重复并分割你说的话。。<br/>
 
 - [X] 起名字
 - [X] 字符串分割
@@ -74,7 +70,7 @@
 
 ### 2016年2月3日 1.3.0.0 嵌入一个业务逻辑
 1. 没错！我把Castle-game的业务逻辑搞进来喽~
-	工作量巨大！光是数据库那块就花了我很长时间！！
+工作量巨大！光是数据库那块就花了我很长时间！！
 
 # 历史更新
 
