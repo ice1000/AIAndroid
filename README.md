@@ -1,5 +1,4 @@
-# 当前暂无已知bug
-# 强烈建议使用Android5.0以上的系统运行本APP！！！
+
                                           FBI warning
 
 
@@ -8,9 +7,14 @@
 		the federal bureau of investigation investigates allegations of criminal copyright infringement 
 		(title 17,united states code,section 506)`
 
-# 当前嵌入的业务逻辑：[城堡游戏](https://github.com/ice1000/Castle-game)
+# AIAndroid is:
+一个开源Android聊天框架，使用RecyclerView实现。<br/>
+已知在Android 5.0以下的系统的Dialogue会出现透明度的bug，在Android 2.0以下按钮好像没一个按得动。<br/>
+我猜是CardView的锅。。
 
-# 写AIAndroid的初衷:
+### 当前嵌入的业务逻辑：[城堡游戏](https://github.com/ice1000/Castle-game)
+
+### 写AIAndroid的初衷:
 受[我的友人](https://github.com/Wimacs)的影响决定开始写。<br/>
 这是一个运行在[Android操作系统](http://baike.baidu.com/link?url=Fq6NnG8s-GSI9lQ3EsBQyI0Km0zICP-RA4kNTK4083ZGfQ9CBZ2Ews7V-zlmPulmX6qG7mbMYXpdpayxfPfKf7GAzQxtxLJzVYnVHG47Pw3)上的[人工智能](http://baike.baidu.com/link?url=vd1SM2trGRrWeWv5uerz1PTu1G1PTLQTBgNXTd9bDGoWizhDFFdZlR8KnHpTxZE3eLcJvV0YXs-OwDdvNWHvi6LzMWf5oRnuaj2E1BL7QOq)<br/>
 ![icon](https://github.com/ice1000/AIAndroid/blob/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png)<br/>
