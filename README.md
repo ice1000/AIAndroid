@@ -1,12 +1,3 @@
-
-                                          FBI warning
-
-
-		federal law provides severe civil and criminal penalties for the unauthorized reproduction,
-		distribution ,or exhibition of copyrighted motion pictures (title 17,united states code,sections 501 and 508),
-		the federal bureau of investigation investigates allegations of criminal copyright infringement 
-		(title 17,united states code,section 506)`
-
 # AIAndroid is:
 一个开源Android聊天框架，使用RecyclerView实现。<br/>
 已知在Android 5.0以下的系统的Dialogue会出现透明度的bug，在Android 2.0以下按钮好像没一个按得动。<br/>
@@ -14,19 +5,14 @@
 
 ### 当前嵌入的业务逻辑：[城堡游戏](https://github.com/ice1000/Castle-game)
 
-### 写AIAndroid的初衷:
-受[我的友人](https://github.com/Wimacs)的影响决定开始写。<br/>
-![icon](./app/src/main/res/mipmap-xhdpi/ic_launcher.png)<br/>
-就是不知道这个和二次元的微妙结合会有什么样的效果呢<br/>
-在下面历史更新里面可以看到历史版本的截图
+由于之前的README小学生气息太浓重，于是我删了。<br/>
+更新消息由于。。。小学生气息更加浓厚，但是舍不得删。。<br/>
+求大神别喷 :joy:
 
 ## 声明
 1. 由于本人同时是苦逼天朝学生党的一员和最后一届理科生， ~~所以本项目可能会太监。~~已经太监了
 1. 本项目完全开源，任何人可以下载源码进行个人研究，且不得将其用于商业用途。
 1. 严禁未经原作者允许的情况下将本APP二次开发。
-
-# 相关文档
-1. [聊天界面的实现技巧](https://github.com/ice1000/dialogs/blob/master/%E9%80%9A%E7%94%A8raw/%E8%A3%85%E9%80%BC%E8%AE%BA%E6%96%87/Android%E5%BC%80%E5%8F%91%E4%B8%AD%E4%BD%BF%E7%94%A8RecyclerView%E5%AE%9E%E7%8E%B0%E8%81%8A%E5%A4%A9APP%E6%B6%88%E6%81%AF%E6%A1%86%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%88%E6%9E%9C.pdf)
 
 # 实现情况：
 
@@ -35,25 +21,12 @@
 - [X] 起名字
 - [X] 字符串分割
 - [X] 分割支持圆角符号
-- [X] 可以很轻松的嵌入业务罗逻辑
-- [ ] 中文分词
-- [ ] 机器学习
-- [ ] ~~强AI（痴人说梦~~
-- [ ] 人类情绪
-- [ ] 颜文字(๑>؂<๑)۶和表情的处理。
-- [ ] 更多可爱的逐帧动画。
-- [ ] 帮主人给一本书写摘要（功能了已经是
+- [X] 嵌入业务逻辑
 
 ## UI(视觉效果)部分
 - [X] 一个简洁的开始界面
 - [X] 一个侧滑菜单实现简单的功能跳转
-- [X] 对话由RecyclerView组成
-- [X] 用户发送的文字在右边，Saber发的文字在左边
-- [X] 二人的发言颜色不同
-- [X] 按钮点击反馈
 - [X] 长按弹出窗口确认删除
-- [X] 重命名弹出窗口
-- [X] 触摸消息背景颜色改变
 - [X] 触摸消息背景颜色改变动画
 - [X] 沉浸式状态栏
 - [X] 一个使用ListView的设置界面
